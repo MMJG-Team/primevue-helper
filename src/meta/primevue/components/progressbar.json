@@ -1,0 +1,3 @@
+{
+    "template": "\n<ProgressBar :value=\"50\"></ProgressBar>\n"
+}

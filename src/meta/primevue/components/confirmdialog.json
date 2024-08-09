@@ -1,0 +1,3 @@
+{
+    "template": "\n<ConfirmDialog></ConfirmDialog>\n<Button @click=\"confirm1()\" label=\"Save\" outlined></Button>\n<Button @click=\"confirm2()\" label=\"Delete\" severity=\"danger\" outlined></Button>\n"
+}

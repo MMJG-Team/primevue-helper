@@ -1,0 +1,3 @@
+{
+    "template": "\n<ScrollPanel style=\"width: 100%; height: 200px\">\n    <p>\n        Lorem ipsum dolor ...\n    </p>\n</ScrollPanel>\n                \n"
+}

@@ -1,0 +1,3 @@
+{
+    "template": "\n<OrderList v-model=\"products\" dataKey=\"id\" breakpoint=\"575px\" pt:pcList:root=\"w-full sm:w-56\">\n    <template #option=\"{ option }\">\n        {{ option.name }}\n    </template>\n</OrderList>\n"
+}

@@ -1,0 +1,3 @@
+{
+    "template": "\n<div>\n    <label for=\"non-fluid\" class=\"font-bold mb-2 block\">Non-Fluid</label>\n    <InputText id=\"non-fluid\" />\n</div>\n\n<div>\n    <label for=\"fluid\" class=\"font-bold mb-2 block\">Fluid Prop</label>\n    <InputText id=\"non-fluid\" fluid />\n</div>\n\n<Fluid>\n    <span class=\"font-bold mb-2 block\">Fluid Container</span>\n    <div class=\"grid grid-cols-2 gap-4\">\n        <div><InputText /></div>\n        <div><InputText /></div>\n        <div class=\"col-span-full\"><InputText /></div>\n        <div><InputText :fluid=\"false\" placeholder=\"Non-Fluid\" /></div>\n    </div>\n</Fluid>\n"
+}

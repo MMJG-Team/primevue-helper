@@ -1,0 +1,3 @@
+{
+    "template": "\n<Steps :model=\"items\" />\n"
+}

@@ -1,0 +1,3 @@
+{
+    "template": "\n<Editor v-model=\"value\" editorStyle=\"height: 320px\" />\n"
+}

@@ -1,0 +1,3 @@
+{
+    "template": "\n<FloatLabel>\n    <InputText id=\"username\" v-model=\"value\" />\n    <label for=\"username\">Username</label>\n</FloatLabel>\n"
+}

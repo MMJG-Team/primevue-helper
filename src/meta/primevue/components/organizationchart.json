@@ -1,0 +1,3 @@
+{
+    "template": "\n<OrganizationChart :value=\"data\">\n    <template #default=\"slotProps\">\n        <span>{{ slotProps.node.label }}</span>\n    </template>\n</OrganizationChart>\n"
+}

@@ -1,0 +1,3 @@
+{
+    "template": "\n<ToggleSwitch v-model=\"checked\" />\n"
+}

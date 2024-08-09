@@ -16,21 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
 		? vscode.workspace.workspaceFolders[0].uri.fsPath
 		: undefined;
 
-	// Samples of `window.registerTreeDataProvider`
-	// const componentTreeProvider = new ComponentTreeProvider();
-	// vscode.window.registerTreeDataProvider('component-tree', componentTreeProvider);
-
 	new ComponentTreeView(context)
 
 	Core.registerCommand(context)
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	// const disposable = vscode.commands.registerCommand('quick-view-config.helloWorld', () => {
-	// 	vscode.window.showInformationMessage('Hello World from quick-view-config!');
-	// });
-	// context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated

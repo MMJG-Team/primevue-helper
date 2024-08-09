@@ -1,0 +1,3 @@
+{
+    "template": "\n<TieredMenu :model=\"items\" />\n"
+}

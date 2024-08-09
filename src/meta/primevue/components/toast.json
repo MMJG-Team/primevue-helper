@@ -1,0 +1,3 @@
+{
+    "template": "\n<Toast />\n<Button label=\"Show\" @click=\"show()\" />\n"
+}

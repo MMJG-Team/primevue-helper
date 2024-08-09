@@ -1,0 +1,3 @@
+{
+    "template": "\n<Chip label=\"Action\" />\n<Chip label=\"Comedy\" />\n<Chip label=\"Mystery\" />\n<Chip label=\"Thriller\" removable />\n"
+}

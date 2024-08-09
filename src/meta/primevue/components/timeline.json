@@ -1,0 +1,3 @@
+{
+    "template": "\n<Timeline :value=\"events\">\n    <template #content=\"slotProps\">\n        {{ slotProps.item.status }}\n    </template>\n</Timeline>\n"
+}

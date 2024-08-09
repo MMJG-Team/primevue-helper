@@ -1,0 +1,3 @@
+{
+    "template": "\n<IconField>\n    <InputIcon class=\"pi pi-search\" />\n    <InputText v-model=\"value1\" placeholder=\"Search\" />\n</IconField>\n\n<IconField>\n    <InputText v-model=\"value2\" />\n    <InputIcon class=\"pi pi-spin pi-spinner\" />\n</IconField>\n"
+}

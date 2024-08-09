@@ -9,7 +9,7 @@
 //     }
 // })
 import { ComponentType } from './types'
-import { ComponentMeta } from "../define";
+import { ComponentMeta } from "../core";
 
 export const COMPONENT_TREE_DATA: ComponentMeta[] = [
     {

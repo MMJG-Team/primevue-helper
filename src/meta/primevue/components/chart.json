@@ -1,0 +1,3 @@
+{
+    "template": "\n<Chart type=\"bar\" :data=\"chartData\" :options=\"chartOptions\" />\n"
+}

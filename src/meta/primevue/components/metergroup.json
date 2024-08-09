@@ -1,0 +1,3 @@
+{
+    "template": "\n<MeterGroup :value=\"value\" />\n"
+}

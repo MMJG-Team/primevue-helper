@@ -1,0 +1,3 @@
+{
+    "template": "\n<PickList v-model=\"products\" dataKey=\"id\" breakpoint=\"1400px\">\n    <template #option=\"{ option  }\">\n        {{ option.name }}\n    </template>\n</PickList>\n"
+}

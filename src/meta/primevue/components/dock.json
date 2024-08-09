@@ -1,0 +1,3 @@
+{
+    "template": "\n<Dock :model=\"items\" :position=\"position\">\n    <template #itemicon=\"{ item }\">\n        <img v-tooltip.top=\"item.label\" :alt=\"item.label\" :src=\"item.icon\" style=\"width: 100%\" />\n    </template>\n</Dock>\n"
+}

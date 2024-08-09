@@ -1,0 +1,3 @@
+{
+    "template": "\n<Toolbar>\n    <template #start>\n        <Button icon=\"pi pi-plus\" class=\"mr-2\" severity=\"secondary\" text />\n        <Button icon=\"pi pi-print\" class=\"mr-2\" severity=\"secondary\" text />\n        <Button icon=\"pi pi-upload\" severity=\"secondary\" text />\n    </template>\n\n    <template #center>\n        <IconField>\n            <InputIcon>\n                <i class=\"pi pi-search\" />\n            </InputIcon>\n            <InputText placeholder=\"Search\" />\n        </IconField>\n    </template>\n\n    <template #end> <SplitButton label=\"Save\" :model=\"items\"></SplitButton></template>\n</Toolbar>\n"
+}

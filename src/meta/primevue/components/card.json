@@ -1,0 +1,3 @@
+{
+    "template": "\n<Card>\n    <template #title>Simple Card</template>\n    <template #content>\n        <p class=\"m-0\">\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque\n            quas!\n        </p>\n    </template>\n</Card>\n"
+}

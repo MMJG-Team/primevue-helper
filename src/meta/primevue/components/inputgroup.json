@@ -1,0 +1,3 @@
+{
+    "template": "\n<InputGroup>\n    <InputGroupAddon>\n        <i class=\"pi pi-user\"></i>\n    </InputGroupAddon>\n    <InputText placeholder=\"Username\" />\n</InputGroup>\n\n<InputGroup>\n    <InputGroupAddon>$</InputGroupAddon>\n    <InputNumber placeholder=\"Price\" />\n    <InputGroupAddon>.00</InputGroupAddon>\n</InputGroup>\n\n<InputGroup>\n    <InputGroupAddon>www</InputGroupAddon>\n    <InputText placeholder=\"Website\" />\n</InputGroup>\n"
+}

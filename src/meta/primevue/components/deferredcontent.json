@@ -1,0 +1,3 @@
+{
+    "template": "\n<DeferredContent @load=\"onImageLoad\">\n    <img src=\"/images/nature/nature4.jpg\" alt=\"Nature\" />\n</DeferredContent>\n"
+}

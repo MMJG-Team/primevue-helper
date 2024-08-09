@@ -1,0 +1,3 @@
+{
+    "template": "\n<Breadcrumb :home=\"home\" :model=\"items\" />\n"
+}

@@ -1,0 +1,3 @@
+{
+    "template": "\n<Terminal\n    welcomeMessage=\"Welcome to PrimeVue\"\n    prompt=\"primevue $\"\n    aria-label=\"PrimeVue Terminal Service\"\n/>\n"
+}
