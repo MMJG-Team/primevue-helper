@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
-import { COMPONENT_TREE_DATA } from './meta/primevue';
-import { ComponentMeta } from './type';
+import { ComponentMeta, Meta } from '../meta';
+
+const COMPONENT_TREE_DATA = Meta.get('primevue')!
 
 export class ComponentTreeProvider implements vscode.TreeDataProvider<Node> {
 
@@ -80,11 +81,6 @@ export class ComponentTreeView {
 			treeDataProvider: componentTreeProvider
 		})
 
-		const clickCommand = vscode.commands.registerCommand('componentTree.click', (node: Node) => {
-			vscode.window.showInformationMessage(`Node ${node.label} clicked`);
-		});
-
 		context.subscriptions.push(componentTreeView);
-		context.subscriptions.push(clickCommand);
 	}
 }

@@ -1,5 +1,6 @@
 out
 dist
 node_modules
+ui-repos
 .vscode-test/
 *.vsix
