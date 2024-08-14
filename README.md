@@ -1,71 +1,42 @@
-# QVC README
+# Quick View
+Quick View is a simple, lightweight, and easy-to-use `extension for Visual Studio Code` that improving your development efficiency.
 
-This is the README for your extension "QVC". After writing up a brief description, we recommend including the following sections.
+![alt text](./docs_assets/image.png)
+
+## setup
+
+1. Open Visual Studio Code
+2. Click on the Extensions icon in the Activity Bar on the side of the window
+3. Search for "Quick View" and click Install
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Component Tree
+Click on the `Components` icon in the Activity Bar on the side of the window
 
-For example if there is an image subfolder under your extension project workspace:
+you can see a tree of components.
 
-\!\[feature X\]\(images/feature-x.png\)
+![alt text](./docs_assets/image-2.png)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### API Docs
+Select the component you want to view. The API docs will be displayed in a new panel
 
-## Requirements
+![alt text](./docs_assets/image-4.png)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Insert Code Snippet
+Click on the `Insert Code Snippet` icon you can insert the code snippet to your current file.
 
-## Extension Settings
+![alt text](./docs_assets/image-5.png)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### support
+- [x] primevue
+- [ ] ant design
+- [ ] vant
 
-For example:
+## Contributing
 
-This extension contributes the following settings:
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any questions or suggestions.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## License
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project is licensed under the MIT License - see the LICENSE file for details.
