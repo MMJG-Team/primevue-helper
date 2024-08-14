@@ -1,0 +1,9 @@
+{
+    "tasks": {
+        "gen-meta": "deno run -A ./scripts/gen-component-config.ts"
+    },
+    "unstable": [
+        "sloppy-imports"
+    ],
+    "npmRegistry": "https://registry.npmmirror.com"
+}

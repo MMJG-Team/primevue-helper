@@ -1,3 +1,214 @@
 {
+    "props": [
+        {
+            "name": "model",
+            "optional": true,
+            "readonly": false,
+            "type": "MenuItem[]",
+            "default": "",
+            "description": "An array of menuitems."
+        },
+        {
+            "name": "popup",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if menu would displayed as a popup."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines a string value that labels an interactive element."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying menu element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<TieredMenuPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "item",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">label</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">props</span>: <span class=\"doc-option-parameter-type\">TieredMenuRouterBindProps</span>, <span class=\"doc-option-parameter-type\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">hasSubmenu</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether or not there is a submenu</span>\n }",
+                    "description": "item slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content for each item."
+        },
+        {
+            "name": "submenuicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether item is active</span>\n }",
+                    "description": "submenuicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom submenu icon template."
+        },
+        {
+            "name": "itemicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the item icon element.</span>\n }",
+                    "description": "item icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom item icon template."
+        },
+        {
+            "name": "start",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom start template."
+        },
+        {
+            "name": "end",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom end template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component receives focus."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component loses focus."
+        },
+        {
+            "name": "before-show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the popup is shown."
+        },
+        {
+            "name": "before-hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the popup is hidden."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the popup is shown."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the popup is hidden."
+        }
+    ],
     "template": "\n<TieredMenu :model=\"items\" />\n"
 }

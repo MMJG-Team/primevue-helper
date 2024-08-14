@@ -1,3 +1,115 @@
 {
+    "props": [
+        {
+            "name": "group",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance."
+        },
+        {
+            "name": "breakpoints",
+            "optional": true,
+            "readonly": false,
+            "type": "ConfirmDialogBreakpoints",
+            "default": "",
+            "description": "Object literal to define widths per screen size."
+        },
+        {
+            "name": "draggable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Enables dragging to change the position using header."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ConfirmDialogPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "message",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">message</span>: <span class=\"doc-option-parameter-type\">ConfirmationOptions</span>, <span class=\"doc-option-parameter-type\">// Message of the component</span>\n }",
+                    "description": "message slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom message template."
+        },
+        {
+            "name": "icon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon template</span>\n }",
+                    "description": "icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom icon template."
+        },
+        {
+            "name": "accepticon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom icon template."
+        },
+        {
+            "name": "rejecticon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom icon template."
+        },
+        {
+            "name": "container",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">message</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Message of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close dialog function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">acceptCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Accept function of the component</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">rejectCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Reject function of the component</span>\n}",
+                    "description": "container slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom container slot."
+        }
+    ],
+    "emits": [],
     "template": "\n<ConfirmDialog></ConfirmDialog>\n<Button @click=\"confirm1()\" label=\"Save\" outlined></Button>\n<Button @click=\"confirm2()\" label=\"Delete\" severity=\"danger\" outlined></Button>\n"
 }

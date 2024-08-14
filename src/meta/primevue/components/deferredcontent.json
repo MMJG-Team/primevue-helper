@@ -1,3 +1,53 @@
 {
+    "props": [
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<DeferredContentPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Default content slot."
+        }
+    ],
+    "emits": [
+        {
+            "name": "load",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when deferred content is loaded."
+        }
+    ],
     "template": "\n<DeferredContent @load=\"onImageLoad\">\n    <img src=\"/images/nature/nature4.jpg\" alt=\"Nature\" />\n</DeferredContent>\n"
 }

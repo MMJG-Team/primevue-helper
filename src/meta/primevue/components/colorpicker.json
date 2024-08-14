@@ -1,3 +1,166 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "defaultColor",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "ff0000",
+            "description": "Initial color to display when value is not defined."
+        },
+        {
+            "name": "inline",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display as an overlay or not."
+        },
+        {
+            "name": "format",
+            "optional": true,
+            "readonly": false,
+            "type": "\"hex\" | \"rgb\" | \"hsb\"",
+            "default": "hex",
+            "description": "Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "inputId",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the focus input to match a label defined for the dropdown."
+        },
+        {
+            "name": "panelClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the overlay panel."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ColorPickerPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "ColorPickerChangeEvent",
+                    "description": "Custom add event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a color is selected."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when input is cleared by the user."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when input is cleared by the user."
+        }
+    ],
     "template": "\n<ColorPicker v-model=\"color\" />\n"
 }

@@ -1,3 +1,762 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "suggestions",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "An array of suggestions to display."
+        },
+        {
+            "name": "optionLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the label of an option."
+        },
+        {
+            "name": "optionDisabled",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
+        },
+        {
+            "name": "optionGroupLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the label of an option group."
+        },
+        {
+            "name": "optionGroupChildren",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function that refers to the children options of option group."
+        },
+        {
+            "name": "typeahead",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "whether typeahead is active or not."
+        },
+        {
+            "name": "scrollHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "14rem",
+            "description": "Maximum height of the suggestions overlay."
+        },
+        {
+            "name": "dropdown",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Displays a button next to the input field when enabled."
+        },
+        {
+            "name": "dropdownMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"blank\" | \"current\"",
+            "default": "blank",
+            "description": "Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value."
+        },
+        {
+            "name": "multiple",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies if multiple values can be selected."
+        },
+        {
+            "name": "placeholder",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Default text to display when no option is selected."
+        },
+        {
+            "name": "loading",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the autocomplete is in loading state."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "variant",
+            "optional": true,
+            "readonly": false,
+            "type": "\"outlined\" | \"filled\"",
+            "default": "outlined",
+            "description": "Specifies the input variant of the component."
+        },
+        {
+            "name": "dataKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "A property to uniquely identify an option."
+        },
+        {
+            "name": "minLength",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Minimum number of characters to initiate a search."
+        },
+        {
+            "name": "delay",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "300",
+            "description": "Delay between keystrokes to wait before sending a query."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
+        },
+        {
+            "name": "forceSelection",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions."
+        },
+        {
+            "name": "completeOnFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to run a query when input receives focus."
+        },
+        {
+            "name": "inputId",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying input element."
+        },
+        {
+            "name": "inputStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the input field."
+        },
+        {
+            "name": "inputClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the input field."
+        },
+        {
+            "name": "panelStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the overlay."
+        },
+        {
+            "name": "panelClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the overlay."
+        },
+        {
+            "name": "overlayStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the overlay overlay."
+        },
+        {
+            "name": "overlayClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the overlay overlay."
+        },
+        {
+            "name": "dropdownIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the dropdown."
+        },
+        {
+            "name": "dropdownClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the dropdown button."
+        },
+        {
+            "name": "loadingIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in loading state.",
+            "deprecated": "since v4.0. Use 'loader' slot."
+        },
+        {
+            "name": "loader",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in loading state."
+        },
+        {
+            "name": "removeTokenIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in chip remove action."
+        },
+        {
+            "name": "chipIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in chip remove action."
+        },
+        {
+            "name": "virtualScrollerOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
+        },
+        {
+            "name": "autoOptionFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to focus on the first visible or selected element when the overlay is shown."
+        },
+        {
+            "name": "selectOnFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, the focused option is selected."
+        },
+        {
+            "name": "focusOnHover",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "When enabled, the focus is placed on the hovered option."
+        },
+        {
+            "name": "searchLocale",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Locale to use in searching. The default locale is the host environment's current locale."
+        },
+        {
+            "name": "searchMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'{0} results are available'",
+            "description": "Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "selectionMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'{0} items selected'",
+            "description": "Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptySelectionMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No selected item",
+            "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptySearchMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No results found",
+            "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "fluid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines a string value that labels an interactive element."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying input element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<AutoCompletePassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "chip",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// A value in the selection</span>\n }",
+                    "description": "chip slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom chip template."
+        },
+        {
+            "name": "header",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">suggestions</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Displayed options</span>\n }",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template of panel."
+        },
+        {
+            "name": "footer",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">suggestions</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Displayed options</span>\n }",
+                    "description": "footer slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template of panel."
+        },
+        {
+            "name": "option",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">option</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Option instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the option</span>\n }",
+                    "description": "option slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom option template."
+        },
+        {
+            "name": "optiongroup",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">option</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Option instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the option</span>\n }",
+                    "description": "option group slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom option group template."
+        },
+        {
+            "name": "content",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">items</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// An array of objects to display for virtualscroller</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">styleClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">contentRef</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">el</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Referance of the content</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">getItemOptions</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; VirtualScrollerItemOptions</span>, <span class=\"doc-option-parameter-type\">// Options of the items</span>\n}",
+                    "description": "content slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        },
+        {
+            "name": "loader",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Options of the loader items for virtualscroller</span>\n }",
+                    "description": "loader slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loader template."
+        },
+        {
+            "name": "empty",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom empty template when there is no data to display."
+        },
+        {
+            "name": "dropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom dropdown icon template."
+        },
+        {
+            "name": "removetokenicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}",
+                    "description": "chip icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'chipicon' slot instead.\nCustom chip icon template in multiple mode."
+        },
+        {
+            "name": "chipicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}",
+                    "description": "chip icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom chip icon template in multiple mode."
+        },
+        {
+            "name": "loadingicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the loader.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'loader' slot instead.\nCustom loader template."
+        },
+        {
+            "name": "dropdownbutton",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n}"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'dropdown' slot instead.\nCustom dropdown template."
+        },
+        {
+            "name": "dropdown",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n}"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom dropdown template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "AutoCompleteChangeEvent",
+                    "description": "Custom change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on value change."
+        },
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component receives focus."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component loses focus."
+        },
+        {
+            "name": "item-select",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "AutoCompleteOptionSelectEvent",
+                    "description": "Custom option select event."
+                }
+            ],
+            "returnType": "void",
+            "description": "",
+            "deprecated": "since v4.0. Use 'option-select' emit.\nCallback to invoke when a suggestion is selected."
+        },
+        {
+            "name": "item-unselect",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "AutoCompleteOptionUnselectEvent",
+                    "description": "Custom option unselect event."
+                }
+            ],
+            "returnType": "void",
+            "description": "",
+            "deprecated": "since v4.0. Use 'option-unselect' emit.\nCallback to invoke when a selected value is removed."
+        },
+        {
+            "name": "option-select",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "AutoCompleteOptionSelectEvent",
+                    "description": "Custom option select event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a suggestion is selected."
+        },
+        {
+            "name": "option-unselect",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "AutoCompleteOptionUnselectEvent",
+                    "description": "Custom option unselect event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a selected value is removed."
+        },
+        {
+            "name": "dropdown-click",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "AutoCompleteDropdownClickEvent",
+                    "description": "Custom dropdown click event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke to when dropdown button is clicked."
+        },
+        {
+            "name": "clear",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when input is cleared by the user."
+        },
+        {
+            "name": "complete",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "AutoCompleteCompleteEvent",
+                    "description": "Custom complete event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke to search for suggestions."
+        },
+        {
+            "name": "before-show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the overlay is shown."
+        },
+        {
+            "name": "before-hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the overlay is hidden."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is shown."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is hidden."
+        }
+    ],
     "template": "\n<AutoComplete v-model=\"value\" :suggestions=\"items\" @complete=\"search\" />\n"
 }

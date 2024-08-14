@@ -1,3 +1,131 @@
 {
+    "props": [
+        {
+            "name": "active",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the content is displayed or not."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the element should be disabled."
+        },
+        {
+            "name": "closeIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the close button."
+        },
+        {
+            "name": "displayProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLDivElement to display container."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<InplacePassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "display",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom display template."
+        },
+        {
+            "name": "content",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close message function.</span>\n}",
+                    "description": "container slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:active",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "boolean",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the active changes."
+        },
+        {
+            "name": "open",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when inplace is opened."
+        },
+        {
+            "name": "close",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when inplace is closed."
+        }
+    ],
     "template": "\n<Inplace>\n    <template #display> View Content </template>\n    <template #content>\n        <p class=\"m-0\">\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        </p>\n    </template>\n</Inplace>\n"
 }

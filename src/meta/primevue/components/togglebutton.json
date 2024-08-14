@@ -1,3 +1,208 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Value of the component."
+        },
+        {
+            "name": "onIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon for the on state."
+        },
+        {
+            "name": "offIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon for the off state."
+        },
+        {
+            "name": "onLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "yes",
+            "description": "Label for the on state."
+        },
+        {
+            "name": "offLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "no",
+            "description": "Label for the off state."
+        },
+        {
+            "name": "iconPos",
+            "optional": true,
+            "readonly": false,
+            "type": "\"left\" | \"right\"",
+            "default": "left",
+            "description": "Position of the icon."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the element should be disabled."
+        },
+        {
+            "name": "readonly",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "",
+            "description": "When present, it specifies that an input field is read-only."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes a string value that labels the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ToggleButtonPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content such as icons, images and text can be placed inside the button via the default slot."
+        },
+        {
+            "name": "icon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Current value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Icon style class</span>\n }",
+                    "description": "icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "boolean",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on value change."
+        },
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component receives focus."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component loses focus."
+        }
+    ],
     "template": "\n<ToggleButton v-model=\"checked\" onLabel=\"On\" offLabel=\"Off\" />\n"
 }

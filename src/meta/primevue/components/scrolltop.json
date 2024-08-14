@@ -1,3 +1,86 @@
 {
+    "props": [
+        {
+            "name": "target",
+            "optional": true,
+            "readonly": false,
+            "type": "\"window\" | \"parent\"",
+            "default": "window",
+            "description": "Target of the ScrollTop."
+        },
+        {
+            "name": "threshold",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "400",
+            "description": "Defines the threshold value of the vertical scroll position of the target to toggle the visibility."
+        },
+        {
+            "name": "icon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display."
+        },
+        {
+            "name": "behavior",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "smooth",
+            "description": "Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump."
+        },
+        {
+            "name": "buttonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the Button component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ScrollTopPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "icon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom scrolltop icon template."
+        }
+    ],
+    "emits": [],
     "template": "\n<ScrollTop />\n"
 }

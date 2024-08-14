@@ -1,3 +1,205 @@
 {
+    "props": [
+        {
+            "name": "visible",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies the visibility of the dialog."
+        },
+        {
+            "name": "position",
+            "optional": true,
+            "readonly": false,
+            "type": "\"left\" | \"right\" | \"top\" | \"bottom\" | \"full\"",
+            "default": "left",
+            "description": "Specifies the position of the drawer."
+        },
+        {
+            "name": "header",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Title content of the dialog."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "dismissable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether clicking outside closes the panel."
+        },
+        {
+            "name": "showCloseIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display a close icon inside the panel."
+        },
+        {
+            "name": "closeButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass the custom value to read for the button inside the component."
+        },
+        {
+            "name": "closeIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the drawer close button."
+        },
+        {
+            "name": "modal",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to a modal layer behind the drawer."
+        },
+        {
+            "name": "blockScroll",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether background scroll should be blocked when drawer is visible."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<DrawerPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        },
+        {
+            "name": "header",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the header title</span>\n }",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "closeicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the close icon</span>\n }",
+                    "description": "close icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom close icon template."
+        },
+        {
+            "name": "container",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close drawer function.</span>\n}",
+                    "description": "container slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom container slot."
+        },
+        {
+            "name": "footer",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "boolean",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when drawer gets shown."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when drawer gets hidden."
+        }
+    ],
     "template": "\n<div class=\"card flex justify-center\">\n    <Drawer v-model:visible=\"visible\" header=\"Drawer\">\n        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n    </Drawer>\n    <Button icon=\"pi pi-arrow-right\" @click=\"visible = true\" />\n</div>\n"
 }

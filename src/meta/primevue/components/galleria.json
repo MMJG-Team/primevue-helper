@@ -1,3 +1,393 @@
 {
+    "props": [
+        {
+            "name": "id",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Unique identifier of the element."
+        },
+        {
+            "name": "value",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "An array of objects to display."
+        },
+        {
+            "name": "activeIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Index of the first item."
+        },
+        {
+            "name": "fullScreen",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display the component on fullscreen."
+        },
+        {
+            "name": "visible",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies the visibility of the mask on fullscreen mode."
+        },
+        {
+            "name": "numVisible",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "3",
+            "description": "Number of items per page."
+        },
+        {
+            "name": "responsiveOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "GalleriaResponsiveOptions[]",
+            "default": "",
+            "description": "An array of options for responsive design."
+        },
+        {
+            "name": "showItemNavigators",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display navigation buttons in item section."
+        },
+        {
+            "name": "showThumbnailNavigators",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display navigation buttons in thumbnail container."
+        },
+        {
+            "name": "showItemNavigatorsOnHover",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display navigation buttons on item hover."
+        },
+        {
+            "name": "changeItemOnIndicatorHover",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, item is changed on indicator hover."
+        },
+        {
+            "name": "circular",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if scrolling would be infinite."
+        },
+        {
+            "name": "autoPlay",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Items are displayed with a slideshow in autoPlay mode."
+        },
+        {
+            "name": "transitionInterval",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "4000",
+            "description": "Time in milliseconds to scroll items."
+        },
+        {
+            "name": "showThumbnails",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display thumbnail container."
+        },
+        {
+            "name": "thumbnailsPosition",
+            "optional": true,
+            "readonly": false,
+            "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+            "default": "bottom",
+            "description": "Position of thumbnails."
+        },
+        {
+            "name": "verticalThumbnailViewPortHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "300px",
+            "description": "Height of the viewport in vertical thumbnail."
+        },
+        {
+            "name": "showIndicators",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display indicator container."
+        },
+        {
+            "name": "showIndicatorsOnItem",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, indicator container is displayed on item container."
+        },
+        {
+            "name": "indicatorsPosition",
+            "optional": true,
+            "readonly": false,
+            "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+            "default": "bottom",
+            "description": "Position of indicators."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "maskClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the mask on fullscreen mode."
+        },
+        {
+            "name": "containerStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used."
+        },
+        {
+            "name": "containerClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used."
+        },
+        {
+            "name": "containerProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLDivElement to the container element on fullscreen mode."
+        },
+        {
+            "name": "prevButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "ButtonHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLButtonElement to the previous navigation button."
+        },
+        {
+            "name": "nextButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "ButtonHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLButtonElement to the next navigation button."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines a string value that labels an interactive element."
+        },
+        {
+            "name": "ariaRoledescription",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines a string value that description for the role of the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<GalleriaPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "footer",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        },
+        {
+            "name": "item",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item instance</span>\n }",
+                    "description": "item slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom item template."
+        },
+        {
+            "name": "caption",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item instance</span>\n }",
+                    "description": "caption slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom caption template."
+        },
+        {
+            "name": "indicator",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the indicator item</span>\n }",
+                    "description": "indicator slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom indicator template."
+        },
+        {
+            "name": "thumbnail",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item instance</span>\n }",
+                    "description": "thumbnail slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom thumbnail template."
+        },
+        {
+            "name": "closeicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom close icon template."
+        },
+        {
+            "name": "previousitemicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom navigator previous item icon template."
+        },
+        {
+            "name": "nextitemicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom navigator next item icon template."
+        },
+        {
+            "name": "previousthumbnailicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom thumbnail previous icon template."
+        },
+        {
+            "name": "nextthumbnailicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom thumbnail next item template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:activeIndex",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "Index of new active item."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the active index changes."
+        },
+        {
+            "name": "update:visible",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "boolean",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the visible changes."
+        }
+    ],
     "template": "\n<Galleria :value=\"images\" :responsiveOptions=\"responsiveOptions\" :numVisible=\"5\" containerStyle=\"max-width: 640px\">\n    <template #item=\"slotProps\">\n        <img :src=\"slotProps.item.itemImageSrc\" :alt=\"slotProps.item.alt\" style=\"width: 100%\" />\n    </template>\n    <template #thumbnail=\"slotProps\">\n        <img :src=\"slotProps.item.thumbnailImageSrc\" :alt=\"slotProps.item.alt\" />\n    </template>\n</Galleria>\n"
 }

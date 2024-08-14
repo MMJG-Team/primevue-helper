@@ -1,3 +1,225 @@
 {
+    "props": [
+        {
+            "name": "value",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "An array of objects to display."
+        },
+        {
+            "name": "page",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Index of the first item."
+        },
+        {
+            "name": "numVisible",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Number of items per page."
+        },
+        {
+            "name": "numScroll",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Number of items to scroll."
+        },
+        {
+            "name": "responsiveOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "CarouselResponsiveOptions[]",
+            "default": "",
+            "description": "An array of options for responsive design."
+        },
+        {
+            "name": "orientation",
+            "optional": true,
+            "readonly": false,
+            "type": "\"horizontal\" | \"vertical\"",
+            "default": "horizontal",
+            "description": "Specifies the layout of the component, valid values are 'horizontal' and 'vertical'."
+        },
+        {
+            "name": "verticalViewPortHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "300px",
+            "description": "Height of the viewport in vertical layout."
+        },
+        {
+            "name": "containerClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the viewport container."
+        },
+        {
+            "name": "contentClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of main content."
+        },
+        {
+            "name": "indicatorsContentClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the indicator items."
+        },
+        {
+            "name": "circular",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if scrolling would be infinite."
+        },
+        {
+            "name": "autoplayInterval",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Time in milliseconds to scroll items automatically."
+        },
+        {
+            "name": "showNavigators",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display navigation buttons in container."
+        },
+        {
+            "name": "showIndicators",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display indicator container."
+        },
+        {
+            "name": "prevButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass attributes to the previous Button component."
+        },
+        {
+            "name": "nextButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass attributes to the next Button component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<CarouselPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "item",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">data</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Data of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the item</span>\n }",
+                    "description": "item slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content for each item."
+        },
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "footer",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        },
+        {
+            "name": "previcon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom previous icon template."
+        },
+        {
+            "name": "nexticon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom next icon template."
+        },
+        {
+            "name": "empty",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom empty template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:page",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "New page value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the page changes."
+        }
+    ],
     "template": "\n<Carousel :value=\"products\" :numVisible=\"3\" :numScroll=\"3\" :responsiveOptions=\"responsiveOptions\">\n    <template #item=\"slotProps\">\n        <div class=\"border border-surface-200 dark:border-surface-700 rounded m-2  p-4\">\n            <div class=\"mb-4\">\n                <div class=\"relative mx-auto\">\n                    <img :src=\"'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image\" :alt=\"slotProps.data.name\" class=\"w-full rounded\" />\n                    <Tag :value=\"slotProps.data.inventoryStatus\" :severity=\"getSeverity(slotProps.data.inventoryStatus)\" class=\"absolute\" style=\"left:5px; top: 5px\"/>\n                </div>\n            </div>\n            <div class=\"mb-4 font-medium\">{{ slotProps.data.name }}</div>\n            <div class=\"flex justify-between items-center\">\n                <div class=\"mt-0 font-semibold text-xl\">${{ slotProps.data.price }}</div>\n                <span>\n                    <Button icon=\"pi pi-heart\" severity=\"secondary\" outlined />\n                    <Button icon=\"pi pi-shopping-cart\" class=\"ml-2\"/>\n                </span>\n            </div>\n        </div>\n    </template>\n</Carousel>\n"
 }

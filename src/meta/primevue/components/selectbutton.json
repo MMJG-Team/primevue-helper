@@ -1,3 +1,193 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "options",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "An array of selectitems to display as the available options."
+        },
+        {
+            "name": "optionLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the label of an option."
+        },
+        {
+            "name": "optionValue",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
+        },
+        {
+            "name": "optionDisabled",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
+        },
+        {
+            "name": "multiple",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified, allows selecting multiple values."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the element should be disabled."
+        },
+        {
+            "name": "dataKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "A property to uniquely identify an option."
+        },
+        {
+            "name": "allowEmpty",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether selection can be cleared."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<SelectButtonPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "option",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">option</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Option instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the option</span>\n }",
+                    "description": "option slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content for each option."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "SelectButtonChangeEvent",
+                    "description": "Custom change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on value change."
+        },
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on focus."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on blur."
+        }
+    ],
     "template": "\n<SelectButton v-model=\"value\" :options=\"options\" aria-labelledby=\"basic\" />\n"
 }

@@ -1,3 +1,296 @@
 {
+    "props": [
+        {
+            "name": "totalRecords",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Number of total records."
+        },
+        {
+            "name": "rows",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Data count to display per page."
+        },
+        {
+            "name": "first",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Zero-relative number of the first row to be displayed."
+        },
+        {
+            "name": "pageLinkSize",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "5",
+            "description": "Number of page links to display."
+        },
+        {
+            "name": "rowsPerPageOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "number[]",
+            "default": "",
+            "description": "Array of integer values to display inside rows per page dropdown."
+        },
+        {
+            "name": "template",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
+        },
+        {
+            "name": "currentPageReportTemplate",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'({currentPage} of {totalPages})'",
+            "description": "Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;\n\n- {currentPage}\n- {totalPages}\n- {rows}\n- {first}\n- {last}\n- {totalRecords}"
+        },
+        {
+            "name": "alwaysShow",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show the paginator even there is only one page."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<PaginatorPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        }
+    ],
+    "slots": [
+        {
+            "name": "start",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">state</span>: <span class=\"doc-option-parameter-type\">PageState</span>, <span class=\"doc-option-parameter-type\">// Current state</span>\n }",
+                    "description": "start slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom start template."
+        },
+        {
+            "name": "end",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">state</span>: <span class=\"doc-option-parameter-type\">PageState</span>, <span class=\"doc-option-parameter-type\">// Current state</span>\n }",
+                    "description": "end slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom end template."
+        },
+        {
+            "name": "firstpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "firstpagelinkicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'firsticon' slot instead.\nCustom first page link icon template."
+        },
+        {
+            "name": "firsticon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "firsticon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom first page link icon template."
+        },
+        {
+            "name": "prevpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "prevpagelinkicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'previcon' slot instead.\nCustom previous page link icon template."
+        },
+        {
+            "name": "previcon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "previcon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom previous page link icon template."
+        },
+        {
+            "name": "nextpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "nextpagelinkicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'nexticon' slot instead.\nCustom finextrst page link icon template."
+        },
+        {
+            "name": "nexticon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "nexticon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom finextrst page link icon template."
+        },
+        {
+            "name": "lastpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "lastpagelinkicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'lasticon' slot instead.\nCustom last page link icon template."
+        },
+        {
+            "name": "lasticon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "lasticon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom last page link icon template."
+        },
+        {
+            "name": "rowsperpagedropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the rowsperpagedropdown icon.</span>\n }",
+                    "description": "rowsperpagedropdownicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom rowsperpagedropdownicon template."
+        },
+        {
+            "name": "jumptopagedropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                    "description": "jumptopagedropdownicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom jumptopagedropdownicon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:first",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the first changes."
+        },
+        {
+            "name": "update:rows",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the rows changes."
+        },
+        {
+            "name": "page",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "PageState",
+                    "description": "New page state."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when page changes, the event object contains information about the new state."
+        }
+    ],
     "template": "\n<Paginator :rows=\"10\" :totalRecords=\"120\" :rowsPerPageOptions=\"[10, 20, 30]\"></Paginator>\n"
 }

@@ -1,3 +1,164 @@
 {
+    "props": [
+        {
+            "name": "model",
+            "optional": true,
+            "readonly": false,
+            "type": "MenuItem[]",
+            "default": "",
+            "description": "An array of menuitems."
+        },
+        {
+            "name": "expandedKeys",
+            "optional": true,
+            "readonly": false,
+            "type": "PanelMenuExpandedKeys",
+            "default": "",
+            "description": "A map of keys to represent the expansion state in controlled mode."
+        },
+        {
+            "name": "multiple",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, multiple root menuitems can be activated at the same time."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<PanelMenuPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "item",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">root</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether there is a root menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">label</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">props</span>: <span class=\"doc-option-parameter-type\">PanelMenuRouterBindProps</span>, <span class=\"doc-option-parameter-type\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">hasSubmenu</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether or not there is a submenu</span>\n }",
+                    "description": "item slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content for each item."
+        },
+        {
+            "name": "submenuicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether item is active</span>\n }",
+                    "description": "submenuicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom submenu icon template."
+        },
+        {
+            "name": "headericon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the item icon element.</span>\n }",
+                    "description": "header icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header icon template."
+        },
+        {
+            "name": "itemicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the item icon element.</span>\n }",
+                    "description": "item icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom item icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:expandedKeys",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the expandedKeys changes."
+        },
+        {
+            "name": "panel-open",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "PanelMenuPanelOpenEvent",
+                    "description": "Custom panel open event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a panel gets expanded."
+        },
+        {
+            "name": "panel-close",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "PanelMenuPanelCloseEvent",
+                    "description": "Custom panel close event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when an active panel is collapsed by clicking on the header."
+        }
+    ],
     "template": "\n<PanelMenu :model=\"items\" />\n"
 }

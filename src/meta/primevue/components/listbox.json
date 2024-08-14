@@ -1,3 +1,515 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "options",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "An array of selectitems to display as the available options."
+        },
+        {
+            "name": "optionLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the label of an option."
+        },
+        {
+            "name": "optionValue",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
+        },
+        {
+            "name": "optionDisabled",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
+        },
+        {
+            "name": "optionGroupLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the label of an option group."
+        },
+        {
+            "name": "optionGroupChildren",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function that refers to the children options of option group."
+        },
+        {
+            "name": "listStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Inline style of inner list element."
+        },
+        {
+            "name": "scrollHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "14rem",
+            "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified, disables the component."
+        },
+        {
+            "name": "dataKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "A property to uniquely identify an option."
+        },
+        {
+            "name": "multiple",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified, allows selecting multiple values."
+        },
+        {
+            "name": "metaKeySelection",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.\nOn touch enabled devices, metaKeySelection is turned off automatically."
+        },
+        {
+            "name": "filter",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified, displays a filter input at header."
+        },
+        {
+            "name": "filterPlaceholder",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Placeholder text to show when filter input is empty."
+        },
+        {
+            "name": "filterLocale",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+        },
+        {
+            "name": "filterMatchMode",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"startsWith\" | \"contains\" | \"endsWith\">",
+            "default": "contains",
+            "description": "Defines the filtering algorithm to use when searching the options."
+        },
+        {
+            "name": "filterFields",
+            "optional": true,
+            "readonly": false,
+            "type": "string[]",
+            "default": "",
+            "description": "Fields used when filtering the options, defaults to optionLabel."
+        },
+        {
+            "name": "virtualScrollerOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
+        },
+        {
+            "name": "autoOptionFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to focus on the first visible or selected element."
+        },
+        {
+            "name": "selectOnFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, the focused option is selected."
+        },
+        {
+            "name": "focusOnHover",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "When enabled, the focus is placed on the hovered option."
+        },
+        {
+            "name": "highlightOnSelect",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether the selected option will be add highlight class."
+        },
+        {
+            "name": "checkmark",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the selected option will be shown with a check mark."
+        },
+        {
+            "name": "filterMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'{0} results are available'",
+            "description": "Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "selectionMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'{0} items selected'",
+            "description": "Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptySelectionMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No selected item",
+            "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptyFilterMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No results found",
+            "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptyMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No available options",
+            "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "striped",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to displays rows with alternating colors."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "filterIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in filter input."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines a string value that labels an interactive element."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying input element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ListboxPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "header",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Displayed options</span>\n }",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "footer",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Displayed options</span>\n }",
+                    "description": "footer slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        },
+        {
+            "name": "option",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">option</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Option instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">selected</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Selection state</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the option</span>\n }",
+                    "description": "option slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom option template."
+        },
+        {
+            "name": "optiongroup",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">option</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Option instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the option</span>\n }",
+                    "description": "optiongroup slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom optiongroup template."
+        },
+        {
+            "name": "emptyfilter",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom emptyfilter template."
+        },
+        {
+            "name": "empty",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom empty template."
+        },
+        {
+            "name": "content",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">items</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// An array of objects to display for virtualscroller</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">styleClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">contentRef</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">el</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Referance of the content</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">getItemOptions</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; VirtualScrollerItemOptions</span>, <span class=\"doc-option-parameter-type\">// Options of the items</span>\n}",
+                    "description": "content slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        },
+        {
+            "name": "loader",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Options of the loader items for virtualscroller</span>\n }",
+                    "description": "loader slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loader template."
+        },
+        {
+            "name": "filtericon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the filter icon</span>\n }",
+                    "description": "filter icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "ListboxChangeEvent",
+                    "description": "Custom change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on value change."
+        },
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component receives focus."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component loses focus."
+        },
+        {
+            "name": "filter",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "ListboxFilterEvent",
+                    "description": "Custom filter event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on filter input."
+        },
+        {
+            "name": "item-dblclick",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "ListboxOptionDblClickEvent",
+                    "description": "Custom option double click event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on option double click."
+        },
+        {
+            "name": "option-dblclick",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "ListboxOptionDblClickEvent",
+                    "description": "Custom option double click event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on option double click."
+        }
+    ],
     "template": "\n<Listbox v-model=\"selectedCity\" :options=\"cities\" optionLabel=\"name\" class=\"w-full md:w-56\" />\n"
 }

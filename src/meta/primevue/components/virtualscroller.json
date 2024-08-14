@@ -1,3 +1,321 @@
 {
+    "props": [
+        {
+            "name": "id",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Unique identifier of the element."
+        },
+        {
+            "name": "style",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the component."
+        },
+        {
+            "name": "class",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the component."
+        },
+        {
+            "name": "items",
+            "optional": true,
+            "readonly": false,
+            "type": "null | any[] | any[][]",
+            "default": "",
+            "description": "An array of objects to display."
+        },
+        {
+            "name": "itemSize",
+            "optional": true,
+            "readonly": false,
+            "type": "number | number[]",
+            "default": "",
+            "description": "The height/width of item according to orientation."
+        },
+        {
+            "name": "scrollHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Height of the scroll viewport."
+        },
+        {
+            "name": "scrollWidth",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Width of the scroll viewport."
+        },
+        {
+            "name": "orientation",
+            "optional": true,
+            "readonly": false,
+            "type": "\"horizontal\" | \"vertical\" | \"both\"",
+            "default": "vertical",
+            "description": "The orientation of scrollbar."
+        },
+        {
+            "name": "numToleratedItems",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "half the number of items shown in the view.",
+            "description": "Determines how many additional elements to add to the DOM outside of the view.\nAccording to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number."
+        },
+        {
+            "name": "delay",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Delay in scroll before new data is loaded."
+        },
+        {
+            "name": "resizeDelay",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "10",
+            "description": "Delay after window's resize finishes."
+        },
+        {
+            "name": "lazy",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if data is loaded and interacted with in lazy manner."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "If disabled, the VirtualScroller feature is eliminated and the content is displayed directly."
+        },
+        {
+            "name": "loaderDisabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Used to implement a custom loader instead of using the loader feature in the VirtualScroller."
+        },
+        {
+            "name": "showLoader",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to show loader."
+        },
+        {
+            "name": "showSpacer",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller."
+        },
+        {
+            "name": "loading",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to load items."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "0",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "inline",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, positions the content as inline."
+        },
+        {
+            "name": "step",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Used to specify how many items to load in each load method in lazy mode."
+        },
+        {
+            "name": "appendOnly",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Used to append each loaded item to top without removing any items from the DOM. Using very large data may cause the browser to crash."
+        },
+        {
+            "name": "autoSize",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to dynamically change the height or width of scrollable container."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<VirtualScrollerPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "content",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">items</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// An array of objects to display for virtualscroller</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">styleClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the content</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">contentRef</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">el</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Referance of the content</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">getItemOptions</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; VirtualScrollerItemOptions</span>, <span class=\"doc-option-parameter-type\">// Options of the items</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">loading</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the data is loaded.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">getLoaderOptions</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number, <span class=\"doc-option-parameter-name\">ext</span>: any) &rArr; VirtualScrollerLoaderOptions</span>, <span class=\"doc-option-parameter-type\">// Loader options of the items while the data is loading.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">itemSize</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// The height/width of item according to orientation.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">rows</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// The number of the rendered rows.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">columns</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// The number of the rendered columns.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">spacerStyle</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// The style of spacer element.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">contentStyle</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// The style of content element.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">vertical</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the orientation is vertical.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">horizontal</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the orientation is horizontal.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">both</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the orientation is both.</span>\n }",
+                    "description": "content slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        },
+        {
+            "name": "item",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item data.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">VirtualScrollerItemOptions</span>, <span class=\"doc-option-parameter-type\">// Item options.</span>\n }",
+                    "description": "item slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom item template."
+        },
+        {
+            "name": "loader",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">VirtualScrollerLoaderOptions</span>, <span class=\"doc-option-parameter-type\">// Loader options.</span>\n }",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loader template."
+        },
+        {
+            "name": "loadingicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                    "description": "loadingicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loading icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:numToleratedItems",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "New number tolerated items"
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the numToleratedItems changes."
+        },
+        {
+            "name": "scroll",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when scroll position changes."
+        },
+        {
+            "name": "scroll-index-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "VirtualScrollerScrollIndexChangeEvent",
+                    "description": "Custom tab open event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when scroll position and item's range in view changes."
+        },
+        {
+            "name": "lazy-load",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "VirtualScrollerLazyEvent",
+                    "description": "Custom lazy event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke in lazy mode to load new data."
+        }
+    ],
     "template": "\n<VirtualScroller :items=\"items\" :itemSize=\"50\" class=\"border border-surface-200 dark:border-surface-700 rounded\" style=\"width: 200px; height: 200px\">\n    <template v-slot:item=\"{ item, options }\">\n        <div :class=\"['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]\" style=\"height: 50px\">{{ item }}</div>\n    </template>\n</VirtualScroller>\n"
 }

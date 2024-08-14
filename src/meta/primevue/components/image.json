@@ -1,3 +1,180 @@
 {
+    "props": [
+        {
+            "name": "preview",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Controls the preview functionality."
+        },
+        {
+            "name": "imageStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the image element."
+        },
+        {
+            "name": "imageClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the image element."
+        },
+        {
+            "name": "indicatorIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Custom indicator icon.",
+            "deprecated": "since v4.0. Use 'previewIcon' prop instead."
+        },
+        {
+            "name": "previewIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Custom indicator icon."
+        },
+        {
+            "name": "zoomInDisabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Disable the zoom-in button"
+        },
+        {
+            "name": "zoomOutDisabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Disable the zoom-out button"
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ImagePassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "previewicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom indicator template."
+        },
+        {
+            "name": "indicatoricon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'previewicon' slot instead.\nCustom indicator template."
+        },
+        {
+            "name": "refresh",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom refresh template."
+        },
+        {
+            "name": "undo",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom undo template."
+        },
+        {
+            "name": "zoomout",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom zoomout template."
+        },
+        {
+            "name": "zoomin",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom zoomin template."
+        },
+        {
+            "name": "close",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom close template."
+        },
+        {
+            "name": "image",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the image element.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">style</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style of the image element.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">errorCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Preview click function.</span>\n}",
+                    "description": "image slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom image template."
+        },
+        {
+            "name": "preview",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the preview image element.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">style</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style of the preview image element.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">previewCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Preview click function.</span>\n}",
+                    "description": "preview slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. use 'original' slot instead.\nCustom preview template."
+        },
+        {
+            "name": "original",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the original image element.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">style</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style of the original image element.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">previewCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Preview click function.</span>\n}",
+                    "description": "original slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom original template."
+        }
+    ],
+    "emits": [],
     "template": "\n<Image src=\"/image.jpg\" alt=\"Image\" width=\"250\" />\n"
 }

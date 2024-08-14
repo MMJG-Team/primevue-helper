@@ -1,3 +1,510 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "options",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "An array of selectitems to display as the available options."
+        },
+        {
+            "name": "optionLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the label of an option."
+        },
+        {
+            "name": "optionValue",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
+        },
+        {
+            "name": "optionDisabled",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
+        },
+        {
+            "name": "optionGroupLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or getter function to use as the label of an option group."
+        },
+        {
+            "name": "optionGroupChildren",
+            "optional": true,
+            "readonly": false,
+            "type": "string | string[] | Function",
+            "default": "",
+            "description": "Property name or getter function to retrieve the items of a group."
+        },
+        {
+            "name": "placeholder",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Default text to display when no option is selected."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "variant",
+            "optional": true,
+            "readonly": false,
+            "type": "\"outlined\" | \"filled\"",
+            "default": "outlined",
+            "description": "Specifies the input variant of the component."
+        },
+        {
+            "name": "dataKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "A property to uniquely identify an option."
+        },
+        {
+            "name": "inputId",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying input element."
+        },
+        {
+            "name": "inputStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the input field."
+        },
+        {
+            "name": "inputClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the input field."
+        },
+        {
+            "name": "inputProps",
+            "optional": true,
+            "readonly": false,
+            "type": "InputHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+        },
+        {
+            "name": "panelStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "",
+            "deprecated": "since v4.0. Use 'overlayStyle' prop.\nInline style of the overlay overlay."
+        },
+        {
+            "name": "panelClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "",
+            "deprecated": "since v4.0. Use 'overlayClass' prop.\nStyle class of the overlay overlay."
+        },
+        {
+            "name": "panelProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "",
+            "deprecated": "since v4.0. Use 'overlayProps' prop.\nUsed to pass all properties of the HTMLDivElement to the overlay overlay inside the component."
+        },
+        {
+            "name": "overlayStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the overlay overlay."
+        },
+        {
+            "name": "overlayClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the overlay overlay."
+        },
+        {
+            "name": "overlayProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLDivElement to the overlay overlay inside the component."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
+        },
+        {
+            "name": "loading",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the dropdown is in loading state."
+        },
+        {
+            "name": "dropdownIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the dropdown."
+        },
+        {
+            "name": "loadingIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in loading state."
+        },
+        {
+            "name": "optionGroupIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the option group."
+        },
+        {
+            "name": "autoOptionFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to focus on the first visible or selected element when the overlay panel is shown."
+        },
+        {
+            "name": "selectOnFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, the focused option is selected/opened."
+        },
+        {
+            "name": "focusOnHover",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "When enabled, the focus is placed on the hovered option."
+        },
+        {
+            "name": "searchLocale",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Locale to use in searching. The default locale is the host environment's current locale."
+        },
+        {
+            "name": "searchMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'{0} results are available'",
+            "description": "Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "selectionMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'{0} items selected'",
+            "description": "Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptySelectionMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No selected item",
+            "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptySearchMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No results found",
+            "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "emptyMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No available options",
+            "description": "Text to be displayed when there are no options available. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "fluid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes a string value that labels the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<CascadeSelectPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "option",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">option</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Option instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">selected</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Selection state</span>\n }",
+                    "description": "option slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content for each option."
+        },
+        {
+            "name": "value",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">placeholder</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Placeholder text to show</span>\n }",
+                    "description": "value slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom value template."
+        },
+        {
+            "name": "dropdownicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom dropdown icon template."
+        },
+        {
+            "name": "loadingicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loading icon template."
+        },
+        {
+            "name": "optiongroupicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom option group icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "CascadeSelectChangeEvent",
+                    "description": "Custom change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on value change."
+        },
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component receives focus."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the component loses focus."
+        },
+        {
+            "name": "click",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on click."
+        },
+        {
+            "name": "group-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "CascadeSelectGroupChangeEvent",
+                    "description": "Custom change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a group changes."
+        },
+        {
+            "name": "before-show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the overlay is shown."
+        },
+        {
+            "name": "before-hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the overlay is hidden."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is shown."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is hidden."
+        }
+    ],
     "template": "\n<CascadeSelect v-model=\"selectedCity\" :options=\"countries\" optionLabel=\"cname\" optionGroupLabel=\"name\"\n    :optionGroupChildren=\"['states', 'cities']\" style=\"min-width: 14rem\" placeholder=\"Select a City\" />\n"
 }

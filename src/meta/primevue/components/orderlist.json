@@ -1,3 +1,314 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "dataKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Name of the field that uniquely identifies the a record in the data."
+        },
+        {
+            "name": "selection",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "Selected items in the list."
+        },
+        {
+            "name": "metaKeySelection",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines whether metaKey is required or not for the selection.\nWhen true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
+        },
+        {
+            "name": "autoOptionFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to focus on the first visible or selected element."
+        },
+        {
+            "name": "focusOnHover",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "When enabled, the focus is placed on the hovered option."
+        },
+        {
+            "name": "listStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the the list element."
+        },
+        {
+            "name": "responsive",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether the list optimizes layout based on screen size."
+        },
+        {
+            "name": "breakpoint",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "960px",
+            "description": "The breakpoint to define the maximum width boundary when responsiveness is enabled."
+        },
+        {
+            "name": "striped",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to displays rows with alternating colors."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "scrollHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "14rem",
+            "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
+        },
+        {
+            "name": "buttonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the button inside the component."
+        },
+        {
+            "name": "moveUpButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the move up button inside the component."
+        },
+        {
+            "name": "moveTopButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the move top button inside the component."
+        },
+        {
+            "name": "moveDownButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the move down button inside the component."
+        },
+        {
+            "name": "moveBottomButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the move bottom button inside the component."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines a string value that labels an interactive list element."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying list element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<OrderListPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "item",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">selected</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Selection state</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the item.</span>\n }",
+                    "description": "item slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use option slot instead.\nCustom item template."
+        },
+        {
+            "name": "option",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">option</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Option of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">selected</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Selection state</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the option.</span>\n }",
+                    "description": "option slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom option template."
+        },
+        {
+            "name": "controlsstart",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom controls start template."
+        },
+        {
+            "name": "controlsend",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom controls end template."
+        },
+        {
+            "name": "moveupicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom move up icon template."
+        },
+        {
+            "name": "movetopicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom move top icon template."
+        },
+        {
+            "name": "movedownicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom move down icon template."
+        },
+        {
+            "name": "movebottomicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom move bottom icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any[]",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "update:selection",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any[]",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the selection changes."
+        },
+        {
+            "name": "reorder",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "OrderListReorderEvent",
+                    "description": "Custom reorder event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the list is reordered."
+        },
+        {
+            "name": "selection-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "OrderListSelectionChangeEvent",
+                    "description": "Custom selection change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when selection changes."
+        }
+    ],
     "template": "\n<OrderList v-model=\"products\" dataKey=\"id\" breakpoint=\"575px\" pt:pcList:root=\"w-full sm:w-56\">\n    <template #option=\"{ option }\">\n        {{ option.name }}\n    </template>\n</OrderList>\n"
 }

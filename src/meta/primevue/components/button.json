@@ -1,3 +1,248 @@
 {
+    "props": [
+        {
+            "name": "style",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the button."
+        },
+        {
+            "name": "class",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the button."
+        },
+        {
+            "name": "label",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Text of the button."
+        },
+        {
+            "name": "icon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Name of the icon."
+        },
+        {
+            "name": "iconPos",
+            "optional": true,
+            "readonly": false,
+            "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+            "default": "left",
+            "description": "Position of the icon."
+        },
+        {
+            "name": "iconClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the icon."
+        },
+        {
+            "name": "badge",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Value of the badge."
+        },
+        {
+            "name": "badgeClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the badge."
+        },
+        {
+            "name": "badgeSeverity",
+            "optional": true,
+            "readonly": false,
+            "type": "null | HintedString<\"secondary\" | \"info\" | \"success\" | \"warn\" | \"danger\" | \"contrast\">",
+            "default": "",
+            "description": "Severity type of the badge."
+        },
+        {
+            "name": "loading",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the button is in loading state."
+        },
+        {
+            "name": "loadingIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in loading state."
+        },
+        {
+            "name": "as",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "BUTTON",
+            "description": "Use to change the HTML tag of root element."
+        },
+        {
+            "name": "asChild",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it changes the default rendered element for the one passed as a child element."
+        },
+        {
+            "name": "link",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a link style to the button."
+        },
+        {
+            "name": "severity",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"secondary\" | \"info\" | \"success\" | \"warn\" | \"danger\" | \"contrast\" | \"help\">",
+            "default": "",
+            "description": "Defines the style of the button."
+        },
+        {
+            "name": "raised",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a shadow to indicate elevation."
+        },
+        {
+            "name": "rounded",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a circular border radius to the button."
+        },
+        {
+            "name": "text",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a textual class to the button without a background initially."
+        },
+        {
+            "name": "outlined",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a border class without a background initially."
+        },
+        {
+            "name": "size",
+            "optional": true,
+            "readonly": false,
+            "type": "\"large\" | \"small\"",
+            "default": "",
+            "description": "Defines the size of the button."
+        },
+        {
+            "name": "plain",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a plain textual class to the button without a background initially."
+        },
+        {
+            "name": "fluid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ButtonPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included."
+        },
+        {
+            "name": "icon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                    "description": "icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom icon template."
+        },
+        {
+            "name": "loadingicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the loading icon.</span>\n }",
+                    "description": "loading icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loading icon template."
+        }
+    ],
+    "emits": [],
     "template": "\n<Button label=\"Submit\" />\n"
 }

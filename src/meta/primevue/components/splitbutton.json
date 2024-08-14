@@ -1,3 +1,300 @@
 {
+    "props": [
+        {
+            "name": "label",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Text of the button."
+        },
+        {
+            "name": "icon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Name of the icon."
+        },
+        {
+            "name": "model",
+            "optional": true,
+            "readonly": false,
+            "type": "MenuItem[]",
+            "default": "",
+            "description": "MenuModel instance to define the overlay items."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the element should be disabled."
+        },
+        {
+            "name": "fluid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+        },
+        {
+            "name": "class",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the component."
+        },
+        {
+            "name": "style",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the component."
+        },
+        {
+            "name": "buttonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "ButtonHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLButtonElement to the default button."
+        },
+        {
+            "name": "menuButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "ButtonHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLButtonElement to the menu button."
+        },
+        {
+            "name": "menuButtonIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Name of the menu button icon."
+        },
+        {
+            "name": "dropdownIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Name of the menu button icon."
+        },
+        {
+            "name": "severity",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"secondary\" | \"info\" | \"success\" | \"warn\" | \"danger\" | \"contrast\" | \"help\">",
+            "default": "",
+            "description": "Defines the style of the button."
+        },
+        {
+            "name": "raised",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a shadow to indicate elevation."
+        },
+        {
+            "name": "rounded",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a circular border radius to the button."
+        },
+        {
+            "name": "text",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a textual class to the button without a background initially."
+        },
+        {
+            "name": "outlined",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a border class without a background initially."
+        },
+        {
+            "name": "size",
+            "optional": true,
+            "readonly": false,
+            "type": "\"large\" | \"small\"",
+            "default": "",
+            "description": "Defines the size of the button."
+        },
+        {
+            "name": "plain",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Add a plain textual class to the button without a background initially."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<SplitButtonPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Button part of the content can easily be customized with the default slot instead of using the built-in modes."
+        },
+        {
+            "name": "buttoncontent",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Command button part of the content can easily be customized with the button content slot."
+        },
+        {
+            "name": "icon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                    "description": "icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom button icon template."
+        },
+        {
+            "name": "menubuttonicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                    "description": "menubuttonicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use dropdownicon slot instead.\nCustom menu button icon template."
+        },
+        {
+            "name": "dropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                    "description": "menubuttonicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom menu button icon template."
+        },
+        {
+            "name": "menuitemicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the item icon element.</span>\n }",
+                    "description": "menuitemicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom menu item icon template."
+        },
+        {
+            "name": "item",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">label</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">props</span>: <span class=\"doc-option-parameter-type\">TieredMenuRouterBindProps</span>, <span class=\"doc-option-parameter-type\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">hasSubmenu</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether or not there is a submenu</span>\n }",
+                    "description": "item slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content for each menu item."
+        }
+    ],
+    "emits": [
+        {
+            "name": "click",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when main button is clicked."
+        }
+    ],
     "template": "\n<SplitButton label=\"Save\" @click=\"save\" :model=\"items\" />\n"
 }

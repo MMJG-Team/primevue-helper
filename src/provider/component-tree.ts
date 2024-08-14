@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { ComponentMeta, Meta } from '../meta';
+import { EVENTS } from '../constants/event';
 
 const COMPONENT_TREE_DATA = Meta.get('primevue')!
 
@@ -45,7 +46,6 @@ export class ComponentTreeProvider implements vscode.TreeDataProvider<Node> {
  * tree node
  */
 export class Node extends vscode.TreeItem {
-
 	constructor(
 		public readonly label: string,
 		public readonly collapsibleState: vscode.TreeItemCollapsibleState,
@@ -60,17 +60,17 @@ export class Node extends vscode.TreeItem {
 
 		// define click event
 		this.command = {
-			command: 'componentTree.click',
+			command: EVENTS.COMPONENT_TREE_CLICK,
 			title: "click",
 			arguments: [this]
 		};
 		
-		if (!children?.length) {
+		const isLeafNode = !children?.length;
+		if (isLeafNode) {
 			this.collapsibleState = vscode.TreeItemCollapsibleState.None
+			this.contextValue = 'leafNode'
 		}
 	}
-
-	contextValue = 'node';
 }
 
 export class ComponentTreeView {

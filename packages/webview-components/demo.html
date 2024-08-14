@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="./dist/webview-components.umd.js"></script>
+    <script>
+        if (window.WebviewComponents) {
+            const doc = new WebviewComponents.ApiDoc('#app')
+
+            doc.init()
+            doc.render()
+        }    
+    </script>
+</body>
+</html>

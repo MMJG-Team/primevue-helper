@@ -1,3 +1,191 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "size",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "100",
+            "description": "Size of the component in pixels."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "readonly",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component value cannot be edited."
+        },
+        {
+            "name": "step",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Step factor to increment/decrement the value."
+        },
+        {
+            "name": "min",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Mininum boundary value."
+        },
+        {
+            "name": "max",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "100",
+            "description": "Maximum boundary value."
+        },
+        {
+            "name": "valueColor",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "$dt('knob.value.background')",
+            "description": "Background of the value."
+        },
+        {
+            "name": "rangeColor",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "$dt('knob.range.background')",
+            "description": "Background color of the range."
+        },
+        {
+            "name": "textColor",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "$dt('knob.text.color')",
+            "description": "Color of the value text."
+        },
+        {
+            "name": "strokeWidth",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "14",
+            "description": "Width of the knob stroke."
+        },
+        {
+            "name": "showValue",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether the show the value inside the knob."
+        },
+        {
+            "name": "valueTemplate",
+            "optional": true,
+            "readonly": false,
+            "type": "Function",
+            "default": ""
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Used to define a string that labels the element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<KnobPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number"
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the value changes."
+        }
+    ],
     "template": "\n<Knob v-model=\"value\" />\n"
 }

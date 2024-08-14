@@ -1,3 +1,229 @@
 {
+    "props": [
+        {
+            "name": "group",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Unique identifier of a message group."
+        },
+        {
+            "name": "position",
+            "optional": true,
+            "readonly": false,
+            "type": "\"center\" | \"top-left\" | \"top-center\" | \"top-right\" | \"bottom-left\" | \"bottom-center\" | \"bottom-right\"",
+            "default": "top-right",
+            "description": "Position of the toast in viewport."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "breakpoints",
+            "optional": true,
+            "readonly": false,
+            "type": "ToastBreakpointsType",
+            "default": "",
+            "description": "Object literal to define styles per screen size."
+        },
+        {
+            "name": "closeIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the toast close button."
+        },
+        {
+            "name": "infoIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the toast with info severity."
+        },
+        {
+            "name": "warnIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the toast with warn severity."
+        },
+        {
+            "name": "errorIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the toast with error severity."
+        },
+        {
+            "name": "successIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the toast with success severity."
+        },
+        {
+            "name": "closeButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "ButtonHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLButtonElement to the close button."
+        },
+        {
+            "name": "message",
+            "optional": true,
+            "readonly": false,
+            "type": "ToastMessageOptions",
+            "default": "",
+            "description": "Used to access message options."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ToastPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "message",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">message</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Message of the component</span>\n }",
+                    "description": "message slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom message template."
+        },
+        {
+            "name": "icon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the message icon</span>\n }",
+                    "description": "message icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'messageicon' slot instead.\nCustom message icon template."
+        },
+        {
+            "name": "messageicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon</span>\n }",
+                    "description": "message icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom message icon template."
+        },
+        {
+            "name": "closeicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the close icon</span>\n }",
+                    "description": "close icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom close icon template."
+        },
+        {
+            "name": "container",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">message</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Message of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close sidebar function.</span>\n}",
+                    "description": "container slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom container slot."
+        }
+    ],
+    "emits": [
+        {
+            "name": "close",
+            "parameters": [
+                {
+                    "name": "message",
+                    "optional": false,
+                    "type": "ToastMessageOptions",
+                    "description": "Toast message."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the toast is closed."
+        },
+        {
+            "name": "life-end",
+            "parameters": [
+                {
+                    "name": "message",
+                    "optional": false,
+                    "type": "ToastMessageOptions",
+                    "description": "Toast message."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the toast's timeout is over."
+        }
+    ],
     "template": "\n<Toast />\n<Button label=\"Show\" @click=\"show()\" />\n"
 }

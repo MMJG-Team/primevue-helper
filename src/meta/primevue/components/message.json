@@ -1,3 +1,162 @@
 {
+    "props": [
+        {
+            "name": "severity",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"error\" | \"secondary\" | \"info\" | \"success\" | \"warn\" | \"contrast\">",
+            "default": "info",
+            "description": "Severity level of the message."
+        },
+        {
+            "name": "closable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the message can be closed manually using the close icon."
+        },
+        {
+            "name": "sticky",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "",
+            "deprecated": "since 4.0.\nWhen enabled, message is not removed automatically."
+        },
+        {
+            "name": "life",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "null",
+            "description": "Delay in milliseconds to close the message automatically."
+        },
+        {
+            "name": "icon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Display a custom icon for the message."
+        },
+        {
+            "name": "closeIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the message close button."
+        },
+        {
+            "name": "closeButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "ButtonHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLButtonElement to the close button."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<MessagePassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Default custom slot."
+        },
+        {
+            "name": "icon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the item icon element.</span>\n }",
+                    "description": "icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom message icon template."
+        },
+        {
+            "name": "closeicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the item icon element.</span>\n }",
+                    "description": "closeicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom close icon template."
+        },
+        {
+            "name": "container",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close message function.</span>\n}",
+                    "description": "container slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom container slot."
+        }
+    ],
+    "emits": [
+        {
+            "name": "close",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a message is closed."
+        },
+        {
+            "name": "life-end",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the message's timeout is over."
+        }
+    ],
     "template": "\n<Message>Message Content</Message>\n"
 }

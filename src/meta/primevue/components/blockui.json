@@ -1,3 +1,91 @@
 {
+    "props": [
+        {
+            "name": "blocked",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Controls the blocked state."
+        },
+        {
+            "name": "fullScreen",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, the whole document gets blocked."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<BlockUIPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content's slot."
+        }
+    ],
+    "emits": [
+        {
+            "name": "block",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Fired when the element gets blocked."
+        },
+        {
+            "name": "unblock",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Fired when the element gets unblocked."
+        }
+    ],
     "template": "\n<div class=\"mb-4\">\n    <Button label=\"Block\" @click=\"blocked = true\" class=\"mr-2\"></Button>\n    <Button label=\"Unblock\" @click=\"blocked = false\"></Button>\n</div>\n<BlockUI :blocked=\"blocked\">\n    <Panel header=\"Basic\">\n        <p class=\"m-0\">\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        </p>\n    </Panel>\n</BlockUI>\n"
 }

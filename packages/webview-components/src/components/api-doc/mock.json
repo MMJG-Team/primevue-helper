@@ -1,0 +1,1273 @@
+{
+    "node": {
+        "label": "DataTable",
+        "description": "数据表"
+    },
+    "props": [
+        {
+            "name": "value",
+            "optional": true,
+            "readonly": false,
+            "type": "null | any[]",
+            "default": "",
+            "description": "An array of objects to display."
+        },
+        {
+            "name": "dataKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Name of the field that uniquely identifies the a record in the data."
+        },
+        {
+            "name": "rows",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Number of rows to display per page."
+        },
+        {
+            "name": "first",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Index of the first row to be displayed."
+        },
+        {
+            "name": "totalRecords",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Number of total records, defaults to length of value when not defined."
+        },
+        {
+            "name": "paginator",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified as true, enables the pagination."
+        },
+        {
+            "name": "paginatorPosition",
+            "optional": true,
+            "readonly": false,
+            "type": "\"top\" | \"bottom\" | \"both\"",
+            "default": "bottom",
+            "description": "Position of the paginator, options are 'top','bottom' or 'both'."
+        },
+        {
+            "name": "alwaysShowPaginator",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show it even there is only one page."
+        },
+        {
+            "name": "paginatorTemplate",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+            "description": "Template of the paginator. It can be customized using the template property using the predefined keys.\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
+        },
+        {
+            "name": "pageLinkSize",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "5",
+            "description": "Number of page links to display."
+        },
+        {
+            "name": "rowsPerPageOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "number[]",
+            "default": "",
+            "description": "Array of integer values to display inside rows per page dropdown."
+        },
+        {
+            "name": "currentPageReportTemplate",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'({currentPage} of {totalPages})'",
+            "description": "Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;\n\n- {currentPage}\n- {totalPages}\n- {rows}\n- {first}\n- {last}\n- {totalRecords}"
+        },
+        {
+            "name": "lazy",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if data is loaded and interacted with in lazy manner."
+        },
+        {
+            "name": "loading",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Displays a loader to indicate data load is in progress."
+        },
+        {
+            "name": "loadingIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "The icon to show while indicating data load is in progress."
+        },
+        {
+            "name": "sortField",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name or a getter function of a row data used for sorting by default"
+        },
+        {
+            "name": "sortOrder",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Order to sort the data by default."
+        },
+        {
+            "name": "nullSortOrder",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Determines how null values are sorted."
+        },
+        {
+            "name": "defaultSortOrder",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Default sort order of an unsorted column."
+        },
+        {
+            "name": "multiSortMeta",
+            "optional": true,
+            "readonly": false,
+            "type": "DataTableSortMeta[]",
+            "default": "",
+            "description": "An array of SortMeta objects to sort the data."
+        },
+        {
+            "name": "sortMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"single\" | \"multiple\"",
+            "default": "single",
+            "description": "Defines whether sorting works on single column or on multiple columns."
+        },
+        {
+            "name": "removableSort",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, columns can have an un-sorted state."
+        },
+        {
+            "name": "filters",
+            "optional": true,
+            "readonly": false,
+            "type": "DataTableFilterMeta",
+            "default": "",
+            "description": "Filters object with key-value pairs to define the filters."
+        },
+        {
+            "name": "filterDisplay",
+            "optional": true,
+            "readonly": false,
+            "type": "\"menu\" | \"row\"",
+            "default": "",
+            "description": "Layout of the filter elements."
+        },
+        {
+            "name": "globalFilterFields",
+            "optional": true,
+            "readonly": false,
+            "type": "(string | Function)[]",
+            "default": "",
+            "description": "An array of fields as string or function to use in global filtering."
+        },
+        {
+            "name": "filterLocale",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+        },
+        {
+            "name": "selection",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Selected row in single mode or an array of values in multiple mode."
+        },
+        {
+            "name": "selectionMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"single\" | \"multiple\"",
+            "default": "",
+            "description": "Specifies the selection mode."
+        },
+        {
+            "name": "compareSelectionBy",
+            "optional": true,
+            "readonly": false,
+            "type": "\"equals\" | \"deepEquals\"",
+            "default": "deepEquals",
+            "description": "Algorithm to define if a row is selected."
+        },
+        {
+            "name": "metaKeySelection",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
+        },
+        {
+            "name": "contextMenu",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Enables context menu integration."
+        },
+        {
+            "name": "contextMenuSelection",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Selected row instance with the ContextMenu."
+        },
+        {
+            "name": "selectAll",
+            "optional": true,
+            "readonly": false,
+            "type": "Nullable<boolean>",
+            "default": "",
+            "description": "Whether all data is selected."
+        },
+        {
+            "name": "rowHover",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, background of the rows change on hover."
+        },
+        {
+            "name": "csvSeparator",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": ",",
+            "description": "Character to use as the csv separator."
+        },
+        {
+            "name": "exportFilename",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "download",
+            "description": "Name of the exported file."
+        },
+        {
+            "name": "exportFunction",
+            "optional": true,
+            "readonly": false,
+            "type": "Function",
+            "default": ""
+        },
+        {
+            "name": "resizableColumns",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, columns can be resized using drag and drop."
+        },
+        {
+            "name": "columnResizeMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"fit\" | \"expand\"",
+            "default": "fit",
+            "description": "Defines whether the overall table width."
+        },
+        {
+            "name": "reorderableColumns",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, columns can be reordered using drag and drop."
+        },
+        {
+            "name": "expandedRows",
+            "optional": true,
+            "readonly": false,
+            "type": "null | any[] | DataTableExpandedRows",
+            "default": "",
+            "description": "A collection of row data display as expanded."
+        },
+        {
+            "name": "expandedRowIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon of the row toggler to display the row as expanded."
+        },
+        {
+            "name": "collapsedRowIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon of the row toggler to display the row as collapsed."
+        },
+        {
+            "name": "rowGroupMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"subheader\" | \"rowspan\"",
+            "default": "",
+            "description": "Defines the row group mode."
+        },
+        {
+            "name": "groupRowsBy",
+            "optional": true,
+            "readonly": false,
+            "type": "string | string[] | Function",
+            "default": "",
+            "description": "One or more field names to use in row grouping."
+        },
+        {
+            "name": "expandableRowGroups",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the row groups can be expandable."
+        },
+        {
+            "name": "expandedRowGroups",
+            "optional": true,
+            "readonly": false,
+            "type": "any[] | DataTableExpandedRows",
+            "default": "",
+            "description": "An array of group field values whose groups would be rendered as expanded."
+        },
+        {
+            "name": "stateStorage",
+            "optional": true,
+            "readonly": false,
+            "type": "\"session\" | \"local\"",
+            "default": "session",
+            "description": "Defines where a stateful table keeps its state."
+        },
+        {
+            "name": "stateKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Unique identifier of a stateful table to use in state storage."
+        },
+        {
+            "name": "editMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"row\" | \"cell\"",
+            "default": "",
+            "description": "Defines the incell editing mode."
+        },
+        {
+            "name": "editingRows",
+            "optional": true,
+            "readonly": false,
+            "type": "any[] | DataTableEditingRows",
+            "default": "",
+            "description": "A collection of rows to represent the current editing data in row edit mode."
+        },
+        {
+            "name": "rowClass",
+            "optional": true,
+            "readonly": false,
+            "type": "Function",
+            "default": ""
+        },
+        {
+            "name": "rowStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "Function",
+            "default": ""
+        },
+        {
+            "name": "scrollable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified, enables horizontal and/or vertical scrolling."
+        },
+        {
+            "name": "scrollHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"flex\">",
+            "default": "",
+            "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
+        },
+        {
+            "name": "virtualScrollerOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.\nNote: Currently only vertical orientation mode is supported."
+        },
+        {
+            "name": "frozenValue",
+            "optional": true,
+            "readonly": false,
+            "type": "null | any[]",
+            "default": "",
+            "description": "Items of the frozen part in scrollable DataTable."
+        },
+        {
+            "name": "breakpoint",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "960px",
+            "description": "The breakpoint to define the maximum width boundary when using stack responsive layout."
+        },
+        {
+            "name": "showGridlines",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to show grid lines between cells."
+        },
+        {
+            "name": "stripedRows",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to displays rows with alternating colors."
+        },
+        {
+            "name": "highlightOnSelect",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Highlights automatically the first item."
+        },
+        {
+            "name": "size",
+            "optional": true,
+            "readonly": false,
+            "type": "\"large\" | \"small\"",
+            "default": "",
+            "description": "Defines the size of the table."
+        },
+        {
+            "name": "tableStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Inline style of the table element."
+        },
+        {
+            "name": "tableClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the table element."
+        },
+        {
+            "name": "tableProps",
+            "optional": true,
+            "readonly": false,
+            "type": "TableHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the TableHTMLAttributes to table element inside the component."
+        },
+        {
+            "name": "filterInputProps",
+            "optional": true,
+            "readonly": false,
+            "type": "InputHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component."
+        },
+        {
+            "name": "filterButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "DataTableFilterButtonPropsOptions",
+            "default": "",
+            "description": "Used to pass all filter button property object"
+        },
+        {
+            "name": "editButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "DataTableEditButtonPropsOptions",
+            "default": "",
+            "description": "Used to pass all edit button property object"
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<DataTablePassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "footer",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        },
+        {
+            "name": "paginatorstart",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginator start template."
+        },
+        {
+            "name": "paginatorend",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginator end template."
+        },
+        {
+            "name": "empty",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom empty template."
+        },
+        {
+            "name": "groupheader",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">data</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Row data</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Row index</span>\n }",
+                    "description": "group header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom group header template."
+        },
+        {
+            "name": "groupfooter",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">data</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Row data</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Row index</span>\n }",
+                    "description": "group footer slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom group footer template."
+        },
+        {
+            "name": "loading",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loading template."
+        },
+        {
+            "name": "expansion",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">data</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Row data</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Row index</span>\n }",
+                    "description": "expansion slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom expansion template."
+        },
+        {
+            "name": "loadingicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loading icon template."
+        },
+        {
+            "name": "reorderindicatorupicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row reorder indicator up icon template.",
+            "deprecated": "since v4.0. Use 'rowreorderindicatorupicon' slot."
+        },
+        {
+            "name": "rowreorderindicatorupicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row reorder indicator up icon template."
+        },
+        {
+            "name": "reorderindicatordownicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom reorder indicator down icon template.",
+            "deprecated": "since v4.0. Use 'rowreorderindicatordownicon' slot."
+        },
+        {
+            "name": "rowreorderindicatordownicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom reorder indicator down icon template."
+        },
+        {
+            "name": "rowgrouptogglericon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">expanded</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current rowgroup's expanded state.</span>\n }",
+                    "description": "rowgroup toggler icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom rowgroup toggler icon template."
+        },
+        {
+            "name": "paginatorfirstpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the paginator first page link icon.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginator first page link icon template."
+        },
+        {
+            "name": "paginatorprevpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the paginator prev page link icon.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginator previous page link icon template."
+        },
+        {
+            "name": "paginatornextpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the paginator next page link icon.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginator next page link icon template."
+        },
+        {
+            "name": "paginatorlastpagelinkicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the paginator last page link icon.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginator last page link icon template."
+        },
+        {
+            "name": "paginatorrowsperpagedropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the paginator rows per page dropdown icon.</span>\n }",
+                    "description": "paginatorrowsperpagedropdownicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginatorrowsperpagedropdownicon template."
+        },
+        {
+            "name": "paginatorjumptopagedropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the paginator jump to page dropdown icon.</span>\n }",
+                    "description": "paginatorjumptopagedropdownicon's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom paginatorjumptopagedropdownicon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:first",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the first changes."
+        },
+        {
+            "name": "update:rows",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the rows changes."
+        },
+        {
+            "name": "update:sortField",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "string",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the sortField changes."
+        },
+        {
+            "name": "update:sortOrder",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "undefined | number",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the sortOrder changes."
+        },
+        {
+            "name": "update:multiSortMeta",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "undefined | null | DataTableSortMeta[]",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the multiSortMeta changes."
+        },
+        {
+            "name": "update:selection",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the selection changes."
+        },
+        {
+            "name": "update:contextMenuSelection",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the contextMenuSelection changes."
+        },
+        {
+            "name": "update:expandedRows",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any[] | DataTableExpandedRows",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the expandedRows changes."
+        },
+        {
+            "name": "update:expandedRowGroups",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any[] | DataTableExpandedRows",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the expandedRowGroups changes."
+        },
+        {
+            "name": "update:filters",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "DataTableFilterMeta",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the filters changes."
+        },
+        {
+            "name": "update:editingRows",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any[] | DataTableEditingRows",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the editingRows changes."
+        },
+        {
+            "name": "page",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTablePageEvent",
+                    "description": "Custom page event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation."
+        },
+        {
+            "name": "sort",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableSortEvent",
+                    "description": "Custom sort event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation."
+        },
+        {
+            "name": "filter",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableFilterEvent",
+                    "description": "Custom filter event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Event to emit after filtering, not triggered in lazy mode."
+        },
+        {
+            "name": "value-change",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any[]",
+                    "description": "Value displayed by the table."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value."
+        },
+        {
+            "name": "row-click",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowClickEvent",
+                    "description": "Custom row click event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is clicked."
+        },
+        {
+            "name": "row-dblclick",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowDoubleClickEvent",
+                    "description": "Custom row double click event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is double clicked."
+        },
+        {
+            "name": "row-contextmenu",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowContextMenuEvent",
+                    "description": "Custom row context menu event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is selected with a ContextMenu."
+        },
+        {
+            "name": "row-select",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowSelectEvent",
+                    "description": "Custom row select event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is selected."
+        },
+        {
+            "name": "row-select-all",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowSelectAllEvent",
+                    "description": "Custom row select all event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Fired when header checkbox is checked."
+        },
+        {
+            "name": "row-unselect-all",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowUnselectAllEvent",
+                    "description": "Custom row unselect all event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Fired when header checkbox is unchecked."
+        },
+        {
+            "name": "row-unselect",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowUnselectEvent",
+                    "description": "Custom row unselect event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is unselected."
+        },
+        {
+            "name": "select-all-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableSelectAllChangeEvent",
+                    "description": "Custom select all change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when all data is selected."
+        },
+        {
+            "name": "column-resize-end",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableColumnResizeEndEvent"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a column is resized."
+        },
+        {
+            "name": "column-reorder",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableColumnReorderEvent",
+                    "description": "Custom column reorder event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a column is reordered."
+        },
+        {
+            "name": "row-reorder",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowReorderEvent",
+                    "description": "Custom row reorder event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is reordered."
+        },
+        {
+            "name": "row-expand",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowExpandEvent",
+                    "description": "Custom row expand event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is expanded."
+        },
+        {
+            "name": "row-collapse",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowCollapseEvent",
+                    "description": "Custom row collapse event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row is collapsed."
+        },
+        {
+            "name": "rowgroup-expand",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowExpandEvent",
+                    "description": "Custom row expand event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row group is expanded."
+        },
+        {
+            "name": "rowgroup-collapse",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowCollapseEvent",
+                    "description": "Custom row collapse event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a row group is collapsed."
+        },
+        {
+            "name": "cell-edit-init",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableCellEditInitEvent",
+                    "description": "Custom cell edit init."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when cell edit is initiated."
+        },
+        {
+            "name": "cell-edit-complete",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableCellEditCompleteEvent",
+                    "description": "Custom cell edit complete event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when cell edit is completed."
+        },
+        {
+            "name": "cell-edit-cancel",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableCellEditCancelEvent",
+                    "description": "Custom cell edit cancel event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when cell edit is cancelled with escape key."
+        },
+        {
+            "name": "row-edit-init",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowEditInitEvent",
+                    "description": "Custom row edit init event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when row edit is initiated."
+        },
+        {
+            "name": "row-edit-save",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowEditSaveEvent",
+                    "description": "Custom row edit save event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when row edit is saved."
+        },
+        {
+            "name": "row-edit-cancel",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableRowEditCancelEvent",
+                    "description": "Custom row edit cancel event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when row edit is cancelled."
+        },
+        {
+            "name": "state-restore",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableStateEvent",
+                    "description": "Custom state event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Invoked when a stateful table saves the state."
+        },
+        {
+            "name": "state-save",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DataTableStateEvent",
+                    "description": "Custom state event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Invoked when a stateful table restores the state."
+        }
+    ],
+    "template": "\n<DataTable :value=\"products\" tableStyle=\"min-width: 50rem\">\n    <Column field=\"code\" header=\"Code\"></Column>\n    <Column field=\"name\" header=\"Name\"></Column>\n    <Column field=\"category\" header=\"Category\"></Column>\n    <Column field=\"quantity\" header=\"Quantity\"></Column>\n</DataTable>\n"
+}

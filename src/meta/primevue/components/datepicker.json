@@ -1,3 +1,799 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "null | Date | Date[] | (null | Date)[]",
+            "default": "null",
+            "description": "Value of the component."
+        },
+        {
+            "name": "selectionMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"single\" | \"multiple\" | \"range\"",
+            "default": "single",
+            "description": "Defines the quantity of the selection."
+        },
+        {
+            "name": "dateFormat",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Format of the date. Defaults to PrimeVue Locale configuration."
+        },
+        {
+            "name": "inline",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, displays the datepicker as inline instead of an overlay."
+        },
+        {
+            "name": "showOtherMonths",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option."
+        },
+        {
+            "name": "selectOtherMonths",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true."
+        },
+        {
+            "name": "showIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, displays a button with icon next to input."
+        },
+        {
+            "name": "iconDisplay",
+            "optional": true,
+            "readonly": false,
+            "type": "\"button\" | \"input\"",
+            "default": "'button'",
+            "description": "Icon position of the component. This only applies if the showIcon option is set to true."
+        },
+        {
+            "name": "icon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon of the datepicker button."
+        },
+        {
+            "name": "prevIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to show in the previous button."
+        },
+        {
+            "name": "nextIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to show in the next button."
+        },
+        {
+            "name": "incrementIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to show in each of the increment buttons."
+        },
+        {
+            "name": "decrementIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to show in each of the decrement buttons."
+        },
+        {
+            "name": "numberOfMonths",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Number of months to display."
+        },
+        {
+            "name": "responsiveOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "DatePickerResponsiveOptions[]",
+            "default": "",
+            "description": "An array of options for responsive design."
+        },
+        {
+            "name": "breakpoint",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "769px",
+            "description": "The breakpoint to define the maximum width boundary for datepicker panel."
+        },
+        {
+            "name": "view",
+            "optional": true,
+            "readonly": false,
+            "type": "\"date\" | \"month\" | \"year\"",
+            "default": "date",
+            "description": "Type of view to display."
+        },
+        {
+            "name": "minDate",
+            "optional": true,
+            "readonly": false,
+            "type": "Date",
+            "default": "",
+            "description": "The minimum selectable date."
+        },
+        {
+            "name": "maxDate",
+            "optional": true,
+            "readonly": false,
+            "type": "Date",
+            "default": "",
+            "description": "The maximum selectable date."
+        },
+        {
+            "name": "disabledDates",
+            "optional": true,
+            "readonly": false,
+            "type": "Date[]",
+            "default": "",
+            "description": "Array with dates to disable."
+        },
+        {
+            "name": "disabledDays",
+            "optional": true,
+            "readonly": false,
+            "type": "number[]",
+            "default": "",
+            "description": "Array with disabled weekday numbers."
+        },
+        {
+            "name": "maxDateCount",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Maximum number of selectable dates in multiple mode."
+        },
+        {
+            "name": "showOnFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "When disabled, datepicker will not be visible with input focus."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "showButtonBar",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display today and clear buttons at the footer."
+        },
+        {
+            "name": "shortYearCutoff",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "+10",
+            "description": "The cutoff year for determining the century for a date."
+        },
+        {
+            "name": "showTime",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display timepicker."
+        },
+        {
+            "name": "timeOnly",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display timepicker only."
+        },
+        {
+            "name": "hourFormat",
+            "optional": true,
+            "readonly": false,
+            "type": "\"12\" | \"24\"",
+            "default": "24",
+            "description": "Specifies hour format."
+        },
+        {
+            "name": "stepHour",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Hours to change per step."
+        },
+        {
+            "name": "stepMinute",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Minutes to change per step."
+        },
+        {
+            "name": "stepSecond",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Seconds to change per step."
+        },
+        {
+            "name": "showSeconds",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to show the seconds in time picker."
+        },
+        {
+            "name": "hideOnDateTimeSelect",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to hide the overlay on date selection when showTime is enabled."
+        },
+        {
+            "name": "hideOnRangeSelection",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to hide the overlay on date selection is completed when selectionMode is range."
+        },
+        {
+            "name": "timeSeparator",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": ":",
+            "description": "Separator of time selector."
+        },
+        {
+            "name": "showWeek",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, datepicker will show week numbers."
+        },
+        {
+            "name": "manualInput",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to allow entering the date manually via typing."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "variant",
+            "optional": true,
+            "readonly": false,
+            "type": "\"outlined\" | \"filled\"",
+            "default": "outlined",
+            "description": "Specifies the input variant of the component."
+        },
+        {
+            "name": "readonly",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that an input field is read-only."
+        },
+        {
+            "name": "placeholder",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Placeholder text for the input."
+        },
+        {
+            "name": "name",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Name of the element."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+        },
+        {
+            "name": "id",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the element."
+        },
+        {
+            "name": "inputId",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying input element."
+        },
+        {
+            "name": "inputStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the input field."
+        },
+        {
+            "name": "inputClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the input field."
+        },
+        {
+            "name": "panelStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the overlay panel."
+        },
+        {
+            "name": "panelClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the overlay panel."
+        },
+        {
+            "name": "todayButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the today button component."
+        },
+        {
+            "name": "clearButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the clear button component."
+        },
+        {
+            "name": "navigatorButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the navigator button component."
+        },
+        {
+            "name": "timepickerButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the timepicker button component."
+        },
+        {
+            "name": "fluid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes a string value that labels the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<DatePickerPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template of panel."
+        },
+        {
+            "name": "footer",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template of panel."
+        },
+        {
+            "name": "date",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">date</span>: <span class=\"doc-option-parameter-type\">DatePickerDateSlotOptions</span>, <span class=\"doc-option-parameter-type\">// Value of the component.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom date template."
+        },
+        {
+            "name": "decade",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">years</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// An array containing the start and and year of a decade to display at header of the year picker.</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom decade template."
+        },
+        {
+            "name": "weekheaderlabel",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom week header label template."
+        },
+        {
+            "name": "weeklabel",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">weekNumber</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Number of the week</span>\n }",
+                    "description": "weeklabel slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom week label template."
+        },
+        {
+            "name": "dropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the dropdown icon</span>\n }",
+                    "description": "dropdown icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom dropdown icon template."
+        },
+        {
+            "name": "inputicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the input icon</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">clickCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Click callback</span>\n}",
+                    "description": "input icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom input icon template."
+        },
+        {
+            "name": "previcon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the previous icon</span>\n }",
+                    "description": "previous icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom previous icon template."
+        },
+        {
+            "name": "nexticon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the next icon</span>\n }",
+                    "description": "next icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom next icon template."
+        },
+        {
+            "name": "incrementicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the increment icon</span>\n }",
+                    "description": "increment icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom increment icon template."
+        },
+        {
+            "name": "decrementicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the decrement icon</span>\n }",
+                    "description": "decrement icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom decrement icon template."
+        },
+        {
+            "name": "dropdownbutton",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n}"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom dropdown button template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "undefined | null | Date | Date[] | (null | Date)[]",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "input",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when input field is being typed."
+        },
+        {
+            "name": "date-select",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "Date",
+                    "description": "Selected value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a date is selected."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when datepicker panel is shown."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when datepicker panel is hidden."
+        },
+        {
+            "name": "today-click",
+            "parameters": [
+                {
+                    "name": "date",
+                    "optional": false,
+                    "type": "Date",
+                    "description": "Today as a date instance."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when today button is clicked."
+        },
+        {
+            "name": "clear-click",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when clear button is clicked."
+        },
+        {
+            "name": "month-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DatePickerMonthChangeEvent",
+                    "description": "Custom month change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a month is changed using the navigators."
+        },
+        {
+            "name": "year-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DatePickerYearChangeEvent",
+                    "description": "Custom year change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a year is changed using the navigators."
+        },
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Focus event"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on focus of input field."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "DatePickerBlurEvent",
+                    "description": "Blur event"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on blur of input field."
+        },
+        {
+            "name": "keydown",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a key is pressed."
+        }
+    ],
     "template": "\n<DatePicker v-model=\"date\" />\n"
 }

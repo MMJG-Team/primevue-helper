@@ -1,3 +1,120 @@
 {
+    "props": [
+        {
+            "name": "dismissable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Enables to hide the overlay when outside is clicked."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "breakpoints",
+            "optional": true,
+            "readonly": false,
+            "type": "PopoverBreakpoints",
+            "default": "",
+            "description": "Object literal to define widths per screen size."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<PopoverPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        },
+        {
+            "name": "closeOnEscape",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Specifies if pressing escape key should hide the dialog."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        },
+        {
+            "name": "container",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close overlay panel function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close button keydown function.</span>\n}",
+                    "description": "container slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom container slot."
+        }
+    ],
+    "emits": [
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is shown."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is hidden."
+        }
+    ],
     "template": "\n<Button type=\"button\" icon=\"pi pi-image\" label=\"Image\" @click=\"toggle\" />\n\n<Popover ref=\"op\">\n    <div class=\"flex flex-col gap-4 w-[25rem]\">\n        <div>\n            <span class=\"font-medium block mb-2\">Share this document</span>\n            <InputGroup>\n                <InputText value=\"https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3\" readonly class=\"w-[25rem]\"></InputText>\n                <InputGroupAddon>\n                    <i class=\"pi pi-copy\"></i>\n                </InputGroupAddon>\n            </InputGroup>\n        </div>\n        <div>\n            <span class=\"font-medium block mb-2\">Invite Member</span>\n            <InputGroup>\n                <InputText disabled />\n                <Button label=\"Invite\" icon=\"pi pi-users\"></Button>\n            </InputGroup>\n        </div>\n        <div>\n            <span class=\"font-medium block mb-2\">Team Members</span>\n            <ul class=\"list-none p-0 m-0 flex flex-col gap-4\">\n                <li v-for=\"member in members\" :key=\"member.name\" class=\"flex items-center gap-2\">\n                    <img :src=\"`https://primefaces.org/cdn/primevue/images/avatar/${member.image}`\" style=\"width: 32px\" />\n                    <div>\n                        <span class=\"font-medium\">{{ member.name }}</span>\n                        <div class=\"text-sm text-surface-500 dark:text-surface-400\">{{ member.email }}</div>\n                    </div>\n                    <div class=\"flex items-center gap-2 text-surface-500 dark:text-surface-400 ml-auto text-sm\">\n                        <span>{{ member.role }}</span>\n                        <i class=\"pi pi-angle-down\"></i>\n                    </div>\n                </li>\n            </ul>\n        </div>\n    </div>\n</Popover>\n"
 }

@@ -1,3 +1,464 @@
 {
+    "props": [
+        {
+            "name": "name",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Name of the request parameter to identify the files at backend."
+        },
+        {
+            "name": "url",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Remote url to upload the files."
+        },
+        {
+            "name": "mode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"advanced\" | \"basic\"",
+            "default": "advanced",
+            "description": "Defines the UI of the component, possible values are 'advanced' and 'basic'."
+        },
+        {
+            "name": "multiple",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Used to select multiple files at once from file dialog."
+        },
+        {
+            "name": "accept",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Pattern to restrict the allowed file types such as 'image/*'."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Disables the upload functionality."
+        },
+        {
+            "name": "auto",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, upload begins automatically after selection is completed."
+        },
+        {
+            "name": "maxFileSize",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Maximum file size allowed in bytes."
+        },
+        {
+            "name": "invalidFileSizeMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": ": Invalid file size, file size should be smaller than {1.}",
+            "description": "Message of the invalid fize size."
+        },
+        {
+            "name": "invalidFileLimitMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "Maximum number of files to be uploaded is {0.}",
+            "description": "Message to display when number of files to be uploaded exceeeds the limit."
+        },
+        {
+            "name": "invalidFileTypeMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "'{0}: Invalid file type.'",
+            "description": "Message of the invalid fize type."
+        },
+        {
+            "name": "fileLimit",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Maximum number of files that can be uploaded."
+        },
+        {
+            "name": "withCredentials",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Cross-site Access-Control requests should be made using credentials such as cookies, authorization headers or TLS client certificates."
+        },
+        {
+            "name": "previewWidth",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "50",
+            "description": "Width of the image thumbnail in pixels."
+        },
+        {
+            "name": "chooseLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Label of the choose button. Defaults to PrimeVue Locale configuration."
+        },
+        {
+            "name": "uploadLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Label of the upload button. Defaults to PrimeVue Locale configuration."
+        },
+        {
+            "name": "cancelLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "Cancel",
+            "description": "Label of the cancel button. Defaults to PrimeVue Locale configuration."
+        },
+        {
+            "name": "customUpload",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "",
+            "description": "Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue Locale configuration."
+        },
+        {
+            "name": "showUploadButton",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show the upload button."
+        },
+        {
+            "name": "showCancelButton",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show the cancel button."
+        },
+        {
+            "name": "chooseIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon of the choose button."
+        },
+        {
+            "name": "uploadIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon of the upload button."
+        },
+        {
+            "name": "cancelIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon of the cancel button."
+        },
+        {
+            "name": "style",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the component."
+        },
+        {
+            "name": "class",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the component."
+        },
+        {
+            "name": "chooseButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "null",
+            "description": "Used to pass all properties of the ButtonProps to the choose button inside the component."
+        },
+        {
+            "name": "uploadButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the upload button inside the component."
+        },
+        {
+            "name": "cancelButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the cancel button inside the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<FileUploadPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "header",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">files</span>: <span class=\"doc-option-parameter-type\">File</span>, <span class=\"doc-option-parameter-type\">// Files to upload.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">uploadedFiles</span>: <span class=\"doc-option-parameter-type\">File</span>, <span class=\"doc-option-parameter-type\">// Uploaded files.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">chooseCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Choose function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">uploadCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Upload function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">clearCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Clear function</span>\n}",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header content template."
+        },
+        {
+            "name": "content",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">files</span>: <span class=\"doc-option-parameter-type\">File</span>, <span class=\"doc-option-parameter-type\">// Files to upload.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">uploadedFiles</span>: <span class=\"doc-option-parameter-type\">File</span>, <span class=\"doc-option-parameter-type\">// Uploaded files.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">removeUploadedFileCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Function to remove an uploaded file.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeFileCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Function to remove a file.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">progress</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Uploaded progress as number.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">messages</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// Status messages about upload process.</span>\n }",
+                    "description": "content slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom uploaded content template."
+        },
+        {
+            "name": "empty",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content when there is no selected file."
+        },
+        {
+            "name": "chooseicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom choose icon template."
+        },
+        {
+            "name": "uploadicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom upload icon template."
+        },
+        {
+            "name": "cancelicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom cancel icon template."
+        },
+        {
+            "name": "fileremoveicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">file</span>: <span class=\"doc-option-parameter-type\">File</span>, <span class=\"doc-option-parameter-type\">// File to upload.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// The index of file</span>\n }",
+                    "description": "fileremoveicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom remove icon template for each file."
+        },
+        {
+            "name": "filelabel",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">files</span>: <span class=\"doc-option-parameter-type\">File</span>, <span class=\"doc-option-parameter-type\">// File to upload.</span>\n }",
+                    "description": "filelabel slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom file label template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "select",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadSelectEvent",
+                    "description": "Custom select event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when files are selected."
+        },
+        {
+            "name": "before-upload",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadBeforeUploadEvent",
+                    "description": "Custom before upload event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke before file upload begins to customize the request such as post parameters before the files."
+        },
+        {
+            "name": "progress",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadProgressEvent",
+                    "description": "Custom progress event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when files are being uploaded."
+        },
+        {
+            "name": "upload",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadUploadEvent",
+                    "description": "Custom upload event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when file upload is complete."
+        },
+        {
+            "name": "uploader",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadUploaderEvent",
+                    "description": "Custom uploader event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke to implement a custom upload."
+        },
+        {
+            "name": "error",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadErrorEvent",
+                    "description": "Custom error event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke if file upload fails."
+        },
+        {
+            "name": "before-send",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadBeforeSendEvent",
+                    "description": "Custom before send event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke before file send begins to customize the request such as adding headers."
+        },
+        {
+            "name": "clear",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when files in queue are removed without uploading."
+        },
+        {
+            "name": "remove",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadRemoveEvent",
+                    "description": "Custom remove event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a singe file is removed from the list."
+        },
+        {
+            "name": "removeUploadedFile",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "FileUploadRemoveUploadedFile",
+                    "description": "Custom uploaded file remove event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a single uploaded file is removed from the uploaded file list."
+        }
+    ],
     "template": "\n<FileUpload ref=\"fileupload\" mode=\"basic\" name=\"demo[]\" url=\"/api/upload\" accept=\"image/*\" :maxFileSize=\"1000000\" @upload=\"onUpload\" />\n<Button label=\"Upload\" @click=\"upload\" severity=\"secondary\" />\n"
 }

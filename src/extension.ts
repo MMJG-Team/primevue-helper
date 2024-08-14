@@ -3,6 +3,7 @@
 import * as vscode from 'vscode';
 import { ComponentTreeView } from './provider';
 import Core from './core';
+import { createApiDoc } from './webview/api-doc';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed

@@ -1,3 +1,140 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Value of the content."
+        },
+        {
+            "name": "placeholder",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Placeholder text to show when editor is empty."
+        },
+        {
+            "name": "readonly",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to instantiate the editor to readonly mode."
+        },
+        {
+            "name": "formats",
+            "optional": true,
+            "readonly": false,
+            "type": "any[]",
+            "default": "",
+            "description": "Whitelist of formats to display, see  <a target=\"_blank\" href=\"https://quilljs.com/docs/formats/\">here</a>  for available options."
+        },
+        {
+            "name": "editorStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the container."
+        },
+        {
+            "name": "modules",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Modules configuration, see  <a target=\"_blank\" href=\"https://quilljs.com/docs/modules/\">here</a>  for available options."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<EditorPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "string",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "text-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "EditorTextChangeEvent",
+                    "description": "Custom text change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when text of editor changes."
+        },
+        {
+            "name": "selection-change",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "EditorSelectionChangeEvent",
+                    "description": "Custom selection change event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when selection of the text changes."
+        },
+        {
+            "name": "load",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "EditorLoadEvent",
+                    "description": "Custom load event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the quill modules are loaded."
+        }
+    ],
     "template": "\n<Editor v-model=\"value\" editorStyle=\"height: 320px\" />\n"
 }

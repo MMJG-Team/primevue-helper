@@ -1,3 +1,66 @@
 {
+    "props": [
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines a string value that labels an interactive element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ToolbarPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "start",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom start template."
+        },
+        {
+            "name": "center",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom center template."
+        },
+        {
+            "name": "end",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom end template."
+        }
+    ],
+    "emits": [],
     "template": "\n<Toolbar>\n    <template #start>\n        <Button icon=\"pi pi-plus\" class=\"mr-2\" severity=\"secondary\" text />\n        <Button icon=\"pi pi-print\" class=\"mr-2\" severity=\"secondary\" text />\n        <Button icon=\"pi pi-upload\" severity=\"secondary\" text />\n    </template>\n\n    <template #center>\n        <IconField>\n            <InputIcon>\n                <i class=\"pi pi-search\" />\n            </InputIcon>\n            <InputText placeholder=\"Search\" />\n        </IconField>\n    </template>\n\n    <template #end> <SplitButton label=\"Save\" :model=\"items\"></SplitButton></template>\n</Toolbar>\n"
 }

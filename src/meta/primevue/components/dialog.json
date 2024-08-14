@@ -1,3 +1,392 @@
 {
+    "props": [
+        {
+            "name": "header",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Title content of the dialog."
+        },
+        {
+            "name": "footer",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Footer content of the dialog."
+        },
+        {
+            "name": "visible",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies the visibility of the dialog."
+        },
+        {
+            "name": "modal",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if background should be blocked when dialog is displayed."
+        },
+        {
+            "name": "contentStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style of the content section."
+        },
+        {
+            "name": "contentClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the content section."
+        },
+        {
+            "name": "contentProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component."
+        },
+        {
+            "name": "closable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Adds a close icon to the header to hide the dialog."
+        },
+        {
+            "name": "dismissableMask",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies if clicking the modal background should hide the dialog."
+        },
+        {
+            "name": "closeOnEscape",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Specifies if pressing escape key should hide the dialog."
+        },
+        {
+            "name": "showHeader",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show the header or not."
+        },
+        {
+            "name": "blockScroll",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether background scroll should be blocked when dialog is visible."
+        },
+        {
+            "name": "baseZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+        },
+        {
+            "name": "autoZIndex",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+        },
+        {
+            "name": "position",
+            "optional": true,
+            "readonly": false,
+            "type": "\"left\" | \"right\" | \"top\" | \"bottom\" | \"center\" | \"topleft\" | \"topright\" | \"bottomleft\" | \"bottomright\"",
+            "default": "center",
+            "description": "Position of the dialog."
+        },
+        {
+            "name": "maximizable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the dialog can be displayed full screen."
+        },
+        {
+            "name": "breakpoints",
+            "optional": true,
+            "readonly": false,
+            "type": "DialogBreakpoints",
+            "default": "",
+            "description": "Object literal to define widths per screen size."
+        },
+        {
+            "name": "draggable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Enables dragging to change the position using header."
+        },
+        {
+            "name": "keepInViewPort",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Keeps dialog in the viewport when dragging."
+        },
+        {
+            "name": "minX",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0.",
+            "description": "Minimum value for the left coordinate of dialog in dragging."
+        },
+        {
+            "name": "minY",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Minimum value for the top coordinate of dialog in dragging."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the dialog gets attached."
+        },
+        {
+            "name": "style",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style of the dynamic dialog."
+        },
+        {
+            "name": "closeIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the dialog close button."
+        },
+        {
+            "name": "maximizeIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the dialog maximize button when dialog is not maximized."
+        },
+        {
+            "name": "minimizeIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon to display in the dialog maximize button when dialog is minimized."
+        },
+        {
+            "name": "closeButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the Button component."
+        },
+        {
+            "name": "maximizeButtonProps",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Used to pass all properties of the ButtonProps to the Button component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<DialogPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Default content slot."
+        },
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "footer",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        },
+        {
+            "name": "closeicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the close icon</span>\n }",
+                    "description": "close icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom close icon template."
+        },
+        {
+            "name": "maximizeicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">maximized</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Maximized state as a boolean</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the maximize icon</span>\n }",
+                    "description": "maximize icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom maximize icon template of dialog."
+        },
+        {
+            "name": "container",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close dialog function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">maximizeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Maximize/minimize dialog function.</span>\n}",
+                    "description": "container slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom container slot."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:visible",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "boolean",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the visible changes."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when dialog is hidden."
+        },
+        {
+            "name": "after-hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke after dialog is hidden."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when dialog is shown."
+        },
+        {
+            "name": "maximize",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Fired when a dialog gets maximized."
+        },
+        {
+            "name": "unmaximize",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Fired when a dialog gets unmaximized."
+        },
+        {
+            "name": "dragend",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Browser event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Fired when a dialog drag completes."
+        }
+    ],
     "template": "\n<Button label=\"Show\" @click=\"visible = true\" />\n\n<Dialog v-model:visible=\"visible\" modal header=\"Edit Profile\" :style=\"{ width: '25rem' }\">\n    <span class=\"text-surface-500 dark:text-surface-400 block mb-8\">Update your information.</span>\n    <div class=\"flex items-center gap-4 mb-4\">\n        <label for=\"username\" class=\"font-semibold w-24\">Username</label>\n        <InputText id=\"username\" class=\"flex-auto\" autocomplete=\"off\" />\n    </div>\n    <div class=\"flex items-center gap-4 mb-8\">\n        <label for=\"email\" class=\"font-semibold w-24\">Email</label>\n        <InputText id=\"email\" class=\"flex-auto\" autocomplete=\"off\" />\n    </div>\n    <div class=\"flex justify-end gap-2\">\n        <Button type=\"button\" label=\"Cancel\" severity=\"secondary\" @click=\"visible = false\"></Button>\n        <Button type=\"button\" label=\"Save\" @click=\"visible = false\"></Button>\n    </div>\n</Dialog>\n"
 }

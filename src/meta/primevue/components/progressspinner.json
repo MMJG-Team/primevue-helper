@@ -1,3 +1,63 @@
 {
+    "props": [
+        {
+            "name": "strokeWidth",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "2",
+            "description": "Width of the circle stroke."
+        },
+        {
+            "name": "fill",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Color for the background of the circle."
+        },
+        {
+            "name": "animationDuration",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "2s",
+            "description": "Duration of the rotate animation."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ProgressSpinnerPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [],
     "template": "\n<ProgressSpinner />\n"
 }

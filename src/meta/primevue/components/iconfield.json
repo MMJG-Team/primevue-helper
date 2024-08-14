@@ -1,3 +1,46 @@
 {
+    "props": [
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<IconFieldPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Default slot for content."
+        }
+    ],
+    "emits": [],
     "template": "\n<IconField>\n    <InputIcon class=\"pi pi-search\" />\n    <InputText v-model=\"value1\" placeholder=\"Search\" />\n</IconField>\n\n<IconField>\n    <InputText v-model=\"value2\" />\n    <InputIcon class=\"pi pi-spin pi-spinner\" />\n</IconField>\n"
 }

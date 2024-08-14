@@ -1,3 +1,122 @@
 {
+    "props": [
+        {
+            "name": "type",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Type of the chart."
+        },
+        {
+            "name": "data",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Data to display."
+        },
+        {
+            "name": "options",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Options to customize the chart."
+        },
+        {
+            "name": "plugins",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to custom plugins of the chart."
+        },
+        {
+            "name": "width",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "300",
+            "description": "Width of the chart in non-responsive mode."
+        },
+        {
+            "name": "height",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "150",
+            "description": "Height of the chart in non-responsive mode."
+        },
+        {
+            "name": "canvasProps",
+            "optional": true,
+            "readonly": false,
+            "type": "CanvasHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ChartPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [
+        {
+            "name": "select",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "ChartSelectEvent",
+                    "description": "Custom select event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a tab gets expanded."
+        },
+        {
+            "name": "loaded",
+            "parameters": [
+                {
+                    "name": "chart",
+                    "optional": false,
+                    "type": "any",
+                    "description": "Chart instance."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when chart is loaded."
+        }
+    ],
     "template": "\n<Chart type=\"bar\" :data=\"chartData\" :options=\"chartOptions\" />\n"
 }

@@ -1,3 +1,148 @@
 {
+    "props": [
+        {
+            "name": "value",
+            "optional": true,
+            "readonly": false,
+            "type": "MeterItem[]",
+            "default": "",
+            "description": "Current value of the metergroup."
+        },
+        {
+            "name": "min",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "0",
+            "description": "Mininum boundary value."
+        },
+        {
+            "name": "max",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "100",
+            "description": "Maximum boundary value."
+        },
+        {
+            "name": "orientation",
+            "optional": true,
+            "readonly": false,
+            "type": "\"horizontal\" | \"vertical\"",
+            "default": "horizontal",
+            "description": "Specifies the layout of the component, valid values are 'horizontal' and 'vertical'."
+        },
+        {
+            "name": "labelPosition",
+            "optional": true,
+            "readonly": false,
+            "type": "\"start\" | \"end\"",
+            "default": "end",
+            "description": "Specifies the label position of the component, valid values are 'start' and 'end'."
+        },
+        {
+            "name": "labelOrientation",
+            "optional": true,
+            "readonly": false,
+            "type": "\"horizontal\" | \"vertical\"",
+            "default": "horizontal",
+            "description": "Specifies the label orientation of the component, valid values are 'horizontal' and 'vertical'."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<MeterGroupPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "label",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom label template."
+        },
+        {
+            "name": "meter",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Current index of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">orientation</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Current orientation of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">size</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Current width of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom meter template."
+        },
+        {
+            "name": "icon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom icon template."
+        },
+        {
+            "name": "start",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom start template."
+        },
+        {
+            "name": "end",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom end template."
+        }
+    ],
+    "emits": [],
     "template": "\n<MeterGroup :value=\"value\" />\n"
 }

@@ -1,3 +1,423 @@
 {
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "options",
+            "optional": true,
+            "readonly": false,
+            "type": "TreeNode[]",
+            "default": "",
+            "description": "An array of treenodes."
+        },
+        {
+            "name": "scrollHeight",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "20rem",
+            "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
+        },
+        {
+            "name": "placeholder",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Label to display when there are no selections."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "variant",
+            "optional": true,
+            "readonly": false,
+            "type": "\"outlined\" | \"filled\"",
+            "default": "outlined",
+            "description": "Specifies the input variant of the component."
+        },
+        {
+            "name": "tabindex",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Index of the element in tabbing order."
+        },
+        {
+            "name": "selectionMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"single\" | \"multiple\" | \"checkbox\"",
+            "default": "",
+            "description": "Defines the selection mode."
+        },
+        {
+            "name": "fluid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+        },
+        {
+            "name": "panelClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the overlay panel."
+        },
+        {
+            "name": "appendTo",
+            "optional": true,
+            "readonly": false,
+            "type": "HintedString<\"body\" | \"self\"> | HTMLElement",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+        },
+        {
+            "name": "emptyMessage",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "No available options",
+            "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
+        },
+        {
+            "name": "display",
+            "optional": true,
+            "readonly": false,
+            "type": "\"comma\" | \"chip\"",
+            "default": "comma",
+            "description": "Defines how the selected items are displayed."
+        },
+        {
+            "name": "metaKeySelection",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.\nOn touch enabled devices, metaKeySelection is turned off automatically."
+        },
+        {
+            "name": "inputId",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the underlying input element."
+        },
+        {
+            "name": "inputClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the input field."
+        },
+        {
+            "name": "inputStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the input field."
+        },
+        {
+            "name": "inputProps",
+            "optional": true,
+            "readonly": false,
+            "type": "InputHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes a string value that labels the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<TreeSelectPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "value",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Selected value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">placeholder</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Placeholder</span>\n }",
+                    "description": "value slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom value template."
+        },
+        {
+            "name": "header",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Selected value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// An array of treenodes.</span>\n }",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "footer",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Selected value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">options</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// An array of treenodes.</span>\n }",
+                    "description": "footer slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        },
+        {
+            "name": "empty",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom empty template."
+        },
+        {
+            "name": "triggericon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                    "description": "dropdownicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. use 'dropdownicon' slot instead.\nCustom indicator template."
+        },
+        {
+            "name": "dropdownicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                    "description": "dropdownicon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom indicator template."
+        },
+        {
+            "name": "itemtogglericon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Node instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">expanded</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// Expanded state of the node</span>\n }",
+                    "description": "item toggler icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'itemtoggleicon' slot instead.\nCustom item toggler icon template."
+        },
+        {
+            "name": "itemtoggleicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Node instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">expanded</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// Expanded state of the node</span>\n }",
+                    "description": "item toggle icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom item toggle icon template."
+        },
+        {
+            "name": "itemcheckboxicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">checked</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Check state of the node</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">partialChecked</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Partial check state of the node</span>\n }",
+                    "description": "item checkbox icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom item checkbox icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "change",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "string[]",
+                    "description": "Selected node keys"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on value change."
+        },
+        {
+            "name": "before-show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the overlay is shown."
+        },
+        {
+            "name": "before-hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke before the overlay is hidden."
+        },
+        {
+            "name": "show",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is shown."
+        },
+        {
+            "name": "hide",
+            "parameters": [],
+            "returnType": "void",
+            "description": "Callback to invoke when the overlay is hidden."
+        },
+        {
+            "name": "node-select",
+            "parameters": [
+                {
+                    "name": "node",
+                    "optional": false,
+                    "type": "TreeNode",
+                    "description": "Node instance."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a node is selected."
+        },
+        {
+            "name": "node-unselect",
+            "parameters": [
+                {
+                    "name": "node",
+                    "optional": false,
+                    "type": "TreeNode",
+                    "description": "Node instance."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a node is unselected."
+        },
+        {
+            "name": "node-expand",
+            "parameters": [
+                {
+                    "name": "node",
+                    "optional": false,
+                    "type": "TreeNode",
+                    "description": "Node instance."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a node is expanded."
+        },
+        {
+            "name": "node-collapse",
+            "parameters": [
+                {
+                    "name": "node",
+                    "optional": false,
+                    "type": "TreeNode",
+                    "description": "Node instance."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when a node is collapsed."
+        }
+    ],
     "template": "\n<TreeSelect v-model=\"selectedValue\" :options=\"nodes\" placeholder=\"Select Item\" class=\"md:w-80 w-full\" />\n"
 }

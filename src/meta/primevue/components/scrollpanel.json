@@ -1,3 +1,47 @@
 {
+    "props": [
+        {
+            "name": "step",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "5",
+            "description": "Step factor to scroll the content while pressing the arrow keys."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ScrollPanelPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [],
     "template": "\n<ScrollPanel style=\"width: 100%; height: 200px\">\n    <p>\n        Lorem ipsum dolor ...\n    </p>\n</ScrollPanel>\n                \n"
 }
