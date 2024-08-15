@@ -1,1 +1,1 @@
-export { ComponentTreeView } from './component-tree'
+export * from './component-tree'

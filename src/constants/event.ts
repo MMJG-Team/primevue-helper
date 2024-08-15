@@ -3,3 +3,9 @@ export const EVENTS = {
     COMPONENT_TREE_CLICK: 'componentTree.click',
     COMPONENT_TREE_INSERT_CODE: 'componentTree.insertCode'
 }
+
+export enum TYPES_FOR_UI {
+    PRIMEVUE = 'primevue',
+    ANT_DESIGN = 'antd',
+    VANT = 'vant'
+}

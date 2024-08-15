@@ -4,13 +4,19 @@ import { EVENTS } from '../constants/event';
 import { API_DOC_RECEIVE_MESSAGE, getApiDocPanel } from '../webview/api-doc';
 import { readComponentMetaJson } from './utils';
 
-namespace ApiDocCore {
-    export const registerCommand = (context: vscode.ExtensionContext) => {
+class ApiDocCore {
+    public context: vscode.ExtensionContext;
+
+    constructor(context: vscode.ExtensionContext) {
+        this.context = context;
+    }
+
+    public registerCommand() {
         const clickCommand = vscode.commands.registerCommand(EVENTS.API_DOC_SHOW, (node: Node) => {
-			openDocumentView(context, node)
+			this.openDocumentView(node)
 		});
 
-		context.subscriptions.push(clickCommand);
+		this.context.subscriptions.push(clickCommand);
     }
 
     /**
@@ -18,8 +24,8 @@ namespace ApiDocCore {
      * @param context 
      * @param node 
      */
-    const openDocumentView = (context: vscode.ExtensionContext, node: Node) => {
-        const panel = getApiDocPanel(context)
+    public openDocumentView(node: Node) {
+        const panel = getApiDocPanel(this.context)
 
         if (panel) {
             const json = readComponentMetaJson(node)

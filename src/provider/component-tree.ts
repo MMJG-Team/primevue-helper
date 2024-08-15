@@ -1,13 +1,21 @@
 import * as vscode from 'vscode';
-import { ComponentMeta, Meta } from '../meta';
-import { EVENTS } from '../constants/event';
-
-const COMPONENT_TREE_DATA = Meta.get('primevue')!
+import { ComponentMeta, Meta } from 'src/meta';
+import { EVENTS, TYPES_FOR_UI } from 'src/constants/event';
 
 export class ComponentTreeProvider implements vscode.TreeDataProvider<Node> {
 
 	private _onDidChangeTreeData: vscode.EventEmitter<Node | undefined | void> = new vscode.EventEmitter<Node | undefined | void>();
+	
 	readonly onDidChangeTreeData: vscode.Event<Node | undefined | void> = this._onDidChangeTreeData.event;
+
+	public context: vscode.ExtensionContext;
+	
+	public treeData: ComponentMeta[];
+	
+	constructor(context: vscode.ExtensionContext, treeData: ComponentMeta[]) {
+	    this.context = context;
+		this.treeData = treeData;
+	}
 
 	refresh(): void {
 		this._onDidChangeTreeData.fire();
@@ -33,7 +41,7 @@ export class ComponentTreeProvider implements vscode.TreeDataProvider<Node> {
 			return Promise.resolve([])
 		}
 
-		return Promise.resolve(COMPONENT_TREE_DATA.map(c  => new Node(
+		return Promise.resolve(this.treeData.map(c  => new Node(
 			c.label,
 			vscode.TreeItemCollapsibleState.Collapsed,
 			c.description,
@@ -74,13 +82,27 @@ export class Node extends vscode.TreeItem {
 }
 
 export class ComponentTreeView {
-	constructor(context: vscode.ExtensionContext) {
-		const componentTreeProvider = new ComponentTreeProvider();
+	public componentTreeView: vscode.TreeView<Node>;
+	public componentTreeProvider: ComponentTreeProvider;
 
-		const componentTreeView = vscode.window.createTreeView('component-tree', {
-			treeDataProvider: componentTreeProvider
+	constructor(context: vscode.ExtensionContext, type = TYPES_FOR_UI.PRIMEVUE ) {
+		const treeData = Meta.get(type);
+
+		this.componentTreeProvider = new ComponentTreeProvider(context, treeData);
+
+		this.componentTreeView = vscode.window.createTreeView('component-tree', {
+			treeDataProvider: this.componentTreeProvider
 		})
 
-		context.subscriptions.push(componentTreeView);
+		context.subscriptions.push(this.componentTreeView);
+	}
+
+	public toggle(type: TYPES_FOR_UI) {
+		this.componentTreeProvider.treeData = Meta.get(type);
+		this.componentTreeProvider.refresh();
+	}
+
+	public dispose() {
+		this.componentTreeView.dispose();
 	}
 }

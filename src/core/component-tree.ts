@@ -1,16 +1,32 @@
 import * as vscode from 'vscode';
-import { Node } from '../provider/component-tree';
-import { EVENTS } from '../constants/event';
+import type { Node } from 'src/provider';
+import { ComponentTreeView } from 'src/provider';
+import { EVENTS } from 'src/constants/event';
 import { readComponentMetaJson } from './utils';
 
-namespace ComponentTreeCore {
-    export const registerCommand = (context: vscode.ExtensionContext) => {
+class ComponentTreeCore {
+    public view: ComponentTreeView
+
+    public context: vscode.ExtensionContext
+
+    constructor(context: vscode.ExtensionContext) {
+        this.context = context;
+
+        this.view = new ComponentTreeView(context);
+    }
+
+    public registerCommand() {
+        const { context } = this
+
+        // register tree node click event
         const clickCommand = vscode.commands.registerCommand(EVENTS.COMPONENT_TREE_CLICK, (node: Node) => {
+            // open api document
             vscode.commands.executeCommand(EVENTS.API_DOC_SHOW, node);
 		});
 
+        // register insert code event
         const insertCodeCommand = vscode.commands.registerCommand(EVENTS.COMPONENT_TREE_INSERT_CODE, (node: Node) => {
-			insertCodeToActiveEditor(node)
+			this.insertCodeToActiveEditor(node)
 		});
 
 		context.subscriptions.push(
@@ -24,7 +40,7 @@ namespace ComponentTreeCore {
      * @param node 
      * @returns 
      */
-    const getCodeSnippet = (node: Node) => {
+    public getCodeSnippet(node: Node) {
         const json = readComponentMetaJson(node)
         return json?.template
     }
@@ -34,7 +50,7 @@ namespace ComponentTreeCore {
      * @param node 
      * @returns 
      */
-    const insertCodeToActiveEditor = async (node: Node) => {
+    public async insertCodeToActiveEditor(node: Node) {
         if (node.children?.length) {
             return
         }
@@ -42,7 +58,7 @@ namespace ComponentTreeCore {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const position = editor.selection.start;
-            const template = getCodeSnippet(node)
+            const template = this.getCodeSnippet(node)
 
             if (template) {
                 await editor.insertSnippet(new vscode.SnippetString(template), position)
