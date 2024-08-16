@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export type slotsOrEmitsType = {
+export type SlotsOrEmitsType = {
     name: string,
     parameters: {
         name: string,
@@ -12,17 +12,19 @@ export type slotsOrEmitsType = {
     description?: string
 }
 
+export type PropsType = {
+    name: string,
+    optional: boolean,
+    readonly: boolean,
+    type: null | string | string[],
+    default: string,
+    description?: string
+}
+
 export type ComponentDocMeta = {
-    props: {
-        name: string,
-        optional: boolean,
-        readonly: boolean,
-        type: null | string | string[],
-        default: string,
-        description?: string
-    }[],
-    slots: slotsOrEmitsType[],
-    emits: slotsOrEmitsType[]
+    props: PropsType[],
+    slots: SlotsOrEmitsType[],
+    emits: SlotsOrEmitsType[]
 
     node?: {
         label: string,

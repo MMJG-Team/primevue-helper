@@ -1,16 +1,25 @@
 import * as vscode from 'vscode';
 import { isEmpty, debounce } from 'radash'
 import { Node } from 'src/provider/component-tree';
-import { EVENTS, TYPES_FOR_UI } from 'src/constants/event';
+import { EMITTER_EVENTS, EVENTS, TYPES_FOR_UI, WEBVIEW_ACTIONS } from 'src/constants/event';
 import { API_DOC_RECEIVE_MESSAGE, getApiDocPanel } from 'src/webview/api-doc';
 import { readComponentMetaJson } from './utils';
 import Common from './common';
+import Emitter from 'src/emitter';
 
 class ApiDocCore extends Common {
 
     public registerCommand() {
         super.registerCommand()
 
+        this.registerVsCodeCommand()
+        this.registerWebviewMessage()
+    }
+
+    /**
+     * register command for receive message from vscode
+     */
+    public registerVsCodeCommand () {
         const clickCommand = vscode.commands.registerCommand(EVENTS.API_DOC_SHOW, (node: Node) => {
 			this.openDocumentView(node)
 		});
@@ -32,6 +41,32 @@ class ApiDocCore extends Common {
         );
     }
 
+    /**
+     * register listener for receive message from webview
+     */
+    public registerWebviewMessage() {
+        Emitter.on(EMITTER_EVENTS.WEBVIEW_RECEIVE_MESSAGE, (message) => {
+            console.log('api doc message', message)
+            const { action, data } = message
+            if (action === WEBVIEW_ACTIONS.INSERT_PROPS) {
+                const editor = vscode.window.activeTextEditor;
+                if (editor) {
+                    const position = editor.selection.start;
+                    const template = `${data.name}="${data.default}"`
+
+                    if (template) {
+                        editor.insertSnippet(new vscode.SnippetString(template), position)
+                        // vscode.window.showInformationMessage(`Code snippet inserted: ${node.label}`);
+                    }
+                }
+            }
+        })
+    }
+
+    /**
+     * called when ui type change
+     * @param type 
+     */
     public receiveUITypeChange(type: TYPES_FOR_UI) {
         const panel = getApiDocPanel(this.context, false)!
         if (panel) {
@@ -45,7 +80,7 @@ class ApiDocCore extends Common {
      * @param node 
      */
     public openDocumentView(node: Node) {
-        const json = readComponentMetaJson(node)
+        const json = readComponentMetaJson(this.type, node)
         if (isEmpty(json)) {
             console.log(node.label, 'api doc not found')
             return;
@@ -63,6 +98,7 @@ class ApiDocCore extends Common {
 
         panel.webview.postMessage({
             type: API_DOC_RECEIVE_MESSAGE,
+            action: 'update.api.doc',
             data
         })
     }

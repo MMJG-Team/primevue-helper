@@ -95,7 +95,7 @@ export class ComponentTreeView {
 		this.componentTreeProvider = new ComponentTreeProvider(context, treeData);
 
 		this.componentTreeView = vscode.window.createTreeView('component-tree', {
-			treeDataProvider: this.componentTreeProvider
+			treeDataProvider: this.componentTreeProvider,
 		})
 
 		context.subscriptions.push(this.componentTreeView);

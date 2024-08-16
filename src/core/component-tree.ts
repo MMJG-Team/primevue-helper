@@ -21,7 +21,6 @@ class ComponentTreeCore extends Common {
 
         // register tree node click event
         const clickCommand = vscode.commands.registerCommand(EVENTS.COMPONENT_TREE_CLICK, (node: Node) => {
-            console.log(node)
             // open api document
             vscode.commands.executeCommand(EVENTS.API_DOC_SHOW, node);
 		});
@@ -30,8 +29,6 @@ class ComponentTreeCore extends Common {
         const insertCodeCommand = vscode.commands.registerCommand(EVENTS.COMPONENT_TREE_INSERT_CODE, (node: Node) => {
 			this.insertCodeToActiveEditor(node)
 		});
-
-        console.log('component tree command registered')
 
 		context.subscriptions.push(
             clickCommand,
@@ -53,7 +50,7 @@ class ComponentTreeCore extends Common {
      * @returns 
      */
     public getCodeSnippet(node: Node) {
-        const json = readComponentMetaJson(node)
+        const json = readComponentMetaJson(this.type, node)
         return json?.template
     }
 
@@ -74,7 +71,7 @@ class ComponentTreeCore extends Common {
 
             if (template) {
                 await editor.insertSnippet(new vscode.SnippetString(template), position)
-                vscode.window.showInformationMessage(`Code snippet inserted: ${node.label}`);
+                // vscode.window.showInformationMessage(`Code snippet inserted: ${node.label}`);
             }
         }
     }

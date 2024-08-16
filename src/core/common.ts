@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { EVENT_MAP_TO_UI, DEFAULT_UI_TYPE, TYPES_FOR_UI, EMITTER_EVENTS } from 'src/constants/event';
+import { DEFAULT_UI_TYPE, TYPES_FOR_UI, EMITTER_EVENTS } from 'src/constants/event';
 import Emitter from 'src/emitter';
 
 export default class Common {

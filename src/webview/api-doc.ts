@@ -1,3 +1,5 @@
+import { EMITTER_EVENTS } from 'src/constants/event';
+import Emitter from 'src/emitter';
 import * as vscode from 'vscode';
 
 const WEBVIEW_COMPONENTS_PATH = 'packages/webview-components/dist';
@@ -8,6 +10,12 @@ let apiDocPanel: vscode.WebviewPanel | undefined;
 
 export const API_DOC_RECEIVE_MESSAGE = 'api-doc-receive-message';
 
+/**
+ * get instance of webview
+ * @param context 
+ * @param autoCreate 
+ * @returns 
+ */
 export function getApiDocPanel(context: vscode.ExtensionContext, autoCreate = true) {
     if (!apiDocPanel && autoCreate) {
         createApiDoc(context)
@@ -16,6 +24,10 @@ export function getApiDocPanel(context: vscode.ExtensionContext, autoCreate = tr
     return apiDocPanel;
 }
 
+/**
+ * display api document in webview
+ * @param context 
+ */
 export function createApiDoc(context: vscode.ExtensionContext) {
     apiDocPanel = vscode.window.createWebviewPanel(
         'api doc',
@@ -30,20 +42,39 @@ export function createApiDoc(context: vscode.ExtensionContext) {
 
     apiDocPanel.webview.html = getWebviewContent(context, apiDocPanel);
 
+    /**
+     * on visible of webview has changed
+     */
     apiDocPanel.onDidChangeViewState((e) => {
         console.log('webview state changed', e.webviewPanel.active)
     })
 
+    /**
+     * on receive message from webview
+     */
     apiDocPanel.webview.onDidReceiveMessage(message => {
-        console.log('webview receive message', message)
+        if (message.type !== API_DOC_RECEIVE_MESSAGE) {
+            return;
+        }
+
+        Emitter.emit(EMITTER_EVENTS.WEBVIEW_RECEIVE_MESSAGE, message)
     })
 
+    /**
+     * on webview dispose
+     */
     apiDocPanel.onDidDispose(() => {
         console.log('webview dispose')
         apiDocPanel = undefined;
     })
 }
 
+/**
+ * return webview content
+ * @param context 
+ * @param panel 
+ * @returns 
+ */
 function getWebviewContent(context: vscode.ExtensionContext, panel: vscode.WebviewPanel) {
     const webviewComponentJs = panel.webview.asWebviewUri(
         vscode.Uri.joinPath(context.extensionUri, WEBVIEW_COMPONENTS_JS_PATH)
@@ -83,25 +114,10 @@ function getWebviewContent(context: vscode.ExtensionContext, panel: vscode.Webvi
             <script>
                 if (window.WebviewComponents) {
                     const vscode = acquireVsCodeApi();
-                    const doc = new WebviewComponents.ApiDoc('#app')
+                    const doc = new WebviewComponents.ApiDoc('#app', { vscode })
 
                     doc.init()
                     doc.render()
-
-                    window.addEventListener('message', event => {
-                        const message = event.data; // The JSON data our extension sent
-                        
-                        if (message.type !== '${API_DOC_RECEIVE_MESSAGE}') {
-                            return;
-                        }
-
-                        vscode.postMessage({
-                            type: '${API_DOC_RECEIVE_MESSAGE}',
-                            data: message
-                        })
-
-                        doc.setData(message.data)
-                    });
                 }    
             </script>
         </body>

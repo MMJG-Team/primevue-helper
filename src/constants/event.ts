@@ -10,6 +10,14 @@ export const EVENTS = {
 
 export enum EMITTER_EVENTS {
     COMPONENT_TREE_UI_CHANGE = 'componentTree.ui.change',
+
+    WEBVIEW_RECEIVE_MESSAGE = 'webview.receive.message',
+}
+
+export enum WEBVIEW_ACTIONS {
+    INSERT_PROPS = 'webview.insert.props',
+    INSERT_SLOTS = 'webview.insert.slots',
+    INSERT_EMITS = 'webview.insert.emits',
 }
 
 export enum TYPES_FOR_UI {

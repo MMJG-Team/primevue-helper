@@ -1,4 +1,5 @@
 import { App, Plugin } from "vue";
+import { setVsCode } from "../vscode-extension-api";
 
 export class Component {
     __app__: App | null = null
@@ -10,6 +11,10 @@ export class Component {
     constructor(root: string | HTMLElement, options: Record<string, any> = {}) {
         this.root = typeof root === 'string' ? document.querySelector(root)! : root;
         this.options = options;
+
+        if (options.vscode) {
+            setVsCode(options.vscode);
+        }
     }
 
     use<Options extends any[]>(plugin: Plugin<Options>, ...options: Options) {

@@ -3,10 +3,12 @@ import { createPinia } from "pinia";
 import PrimeVue from 'primevue/config';
 import { definePreset } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
+import ToastService from 'primevue/toastservice';
 
 import { ComponentDocMeta, useStore } from './store'
 import { Component } from "../base";
 import { View } from "./view.vine";
+import { API_DOC_RECEIVE_MESSAGE } from "../../constants";
 
 export { default as ApiDocMockData } from './mock.json'
 
@@ -39,6 +41,8 @@ export default class ApiDoc extends Component {
     static __VIEW__ = View
 
     init() {
+        this.registerEvent()
+
         this.__app__ = createApp(View)
 
         this.__app__
@@ -46,6 +50,7 @@ export default class ApiDoc extends Component {
                 theme: THEME
             })
             .use(createPinia())
+            .use(ToastService)
 
         return this;
     }
@@ -59,5 +64,19 @@ export default class ApiDoc extends Component {
 
     setData(data: ComponentDocMeta) {
         data && useStore().setData(data)
+    }
+
+    registerEvent() {
+        window.addEventListener('message', event => {
+            const message = event.data; // The JSON data our extension sent
+            
+            if (message.type !== API_DOC_RECEIVE_MESSAGE) {
+                return;
+            }
+
+            if (message.action === 'update.api.doc') {
+                this.setData(message.data)
+            }
+        });
     }
 }

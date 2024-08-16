@@ -7,12 +7,19 @@ import AccordionPanel from "primevue/accordionpanel";
 import AccordionHeader from "primevue/accordionheader";
 import AccordionContent from "primevue/accordioncontent";
 import Tag from 'primevue/tag';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 import ProgressBar from 'primevue/progressbar';
+import type { PropsType } from './store';
 import { useStore } from './store';
+import { postMessageForVsCode } from '../../vscode-extension-api';
+import { API_DOC_RECEIVE_MESSAGE, WEBVIEW_ACTIONS } from '../../constants';
+
 
 export function View() {
     const el = ref<HTMLElement>()
 
+    const toast = useToast();
     const store = useStore()
     const { y } = useScroll(el)
 
@@ -41,6 +48,14 @@ export function View() {
         return Number(((y.value + window.innerHeight) / el.value?.scrollHeight! * 100).toFixed(2))
     })
 
+    const onPropNameClick = (row: PropsType) => {
+        postMessageForVsCode({
+            type: API_DOC_RECEIVE_MESSAGE,
+            action: WEBVIEW_ACTIONS.INSERT_PROPS,
+            data: { ...row }
+        })
+    }
+
     vineStyle(css`
         .api-doc {
             --p-progressbar-height: 2px;
@@ -67,6 +82,7 @@ export function View() {
 
     return vine`
         <div class="api-doc api-doc-dark" ref="el">
+            <Toast />
             <div class="api-doc-header">
                 <Tag v-if="title" class="!text-lg">{{title}}</Tag>
                 <ProgressBar :value="yPercent" :showValue="false"></ProgressBar>
@@ -82,7 +98,13 @@ export function View() {
                                 header="name"
                             >
                                 <template #body="slotProps">
-                                    <Tag severity="primary">{{ slotProps.data.name }}</Tag>
+                                    <Tag
+                                        class="!cursor-pointer"
+                                        severity="primary"
+                                        @click="onPropNameClick(slotProps.data)"
+                                    >
+                                        {{ slotProps.data.name }}
+                                    </Tag>
                                 </template>
                             </Column>
                             <Column
