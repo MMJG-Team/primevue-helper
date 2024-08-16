@@ -8,8 +8,8 @@ let apiDocPanel: vscode.WebviewPanel | undefined;
 
 export const API_DOC_RECEIVE_MESSAGE = 'api-doc-receive-message';
 
-export function getApiDocPanel(context: vscode.ExtensionContext) {
-    if (!apiDocPanel) {
+export function getApiDocPanel(context: vscode.ExtensionContext, autoCreate = true) {
+    if (!apiDocPanel && autoCreate) {
         createApiDoc(context)
     }
 

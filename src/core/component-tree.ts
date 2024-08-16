@@ -1,25 +1,27 @@
 import * as vscode from 'vscode';
 import type { Node } from 'src/provider';
 import { ComponentTreeView } from 'src/provider';
-import { EVENTS } from 'src/constants/event';
+import { EVENTS, TYPES_FOR_UI } from 'src/constants/event';
 import { readComponentMetaJson } from './utils';
+import Common from './common';
 
-class ComponentTreeCore {
+class ComponentTreeCore extends Common {
     public view: ComponentTreeView
 
-    public context: vscode.ExtensionContext
-
     constructor(context: vscode.ExtensionContext) {
-        this.context = context;
+        super(context)
 
-        this.view = new ComponentTreeView(context);
+        this.view = new ComponentTreeView(context, this.type);
     }
 
     public registerCommand() {
+        super.registerCommand()
+
         const { context } = this
 
         // register tree node click event
         const clickCommand = vscode.commands.registerCommand(EVENTS.COMPONENT_TREE_CLICK, (node: Node) => {
+            console.log(node)
             // open api document
             vscode.commands.executeCommand(EVENTS.API_DOC_SHOW, node);
 		});
@@ -29,10 +31,20 @@ class ComponentTreeCore {
 			this.insertCodeToActiveEditor(node)
 		});
 
+        console.log('component tree command registered')
+
 		context.subscriptions.push(
             clickCommand,
             insertCodeCommand
         );
+    }
+
+    /**
+     * called when ui type changed
+     * @param type 
+     */
+    public receiveUITypeChange(type: TYPES_FOR_UI) {
+        this.view.toggle(type)
     }
 
     /**

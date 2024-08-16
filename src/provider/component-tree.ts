@@ -56,9 +56,9 @@ export class ComponentTreeProvider implements vscode.TreeDataProvider<Node> {
 export class Node extends vscode.TreeItem {
 	constructor(
 		public readonly label: string,
-		public readonly collapsibleState: vscode.TreeItemCollapsibleState,
-		public readonly description: string,
-		public readonly children: ComponentMeta[],
+		public readonly collapsibleState = vscode.TreeItemCollapsibleState.Expanded,
+		public readonly description: string = label,
+		public readonly children: ComponentMeta[] = [],
 	) {
 		super(label, collapsibleState);
 
@@ -82,11 +82,15 @@ export class Node extends vscode.TreeItem {
 }
 
 export class ComponentTreeView {
+	public type = TYPES_FOR_UI.PRIMEVUE;
+
 	public componentTreeView: vscode.TreeView<Node>;
 	public componentTreeProvider: ComponentTreeProvider;
 
 	constructor(context: vscode.ExtensionContext, type = TYPES_FOR_UI.PRIMEVUE ) {
 		const treeData = Meta.get(type);
+
+		this.type = type;
 
 		this.componentTreeProvider = new ComponentTreeProvider(context, treeData);
 

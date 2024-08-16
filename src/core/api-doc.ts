@@ -1,22 +1,42 @@
 import * as vscode from 'vscode';
-import { Node } from '../provider/component-tree';
-import { EVENTS } from '../constants/event';
-import { API_DOC_RECEIVE_MESSAGE, getApiDocPanel } from '../webview/api-doc';
+import { isEmpty, debounce } from 'radash'
+import { Node } from 'src/provider/component-tree';
+import { EVENTS, TYPES_FOR_UI } from 'src/constants/event';
+import { API_DOC_RECEIVE_MESSAGE, getApiDocPanel } from 'src/webview/api-doc';
 import { readComponentMetaJson } from './utils';
+import Common from './common';
 
-class ApiDocCore {
-    public context: vscode.ExtensionContext;
-
-    constructor(context: vscode.ExtensionContext) {
-        this.context = context;
-    }
+class ApiDocCore extends Common {
 
     public registerCommand() {
+        super.registerCommand()
+
         const clickCommand = vscode.commands.registerCommand(EVENTS.API_DOC_SHOW, (node: Node) => {
 			this.openDocumentView(node)
 		});
 
-		this.context.subscriptions.push(clickCommand);
+        const selectionChange = vscode.window.onDidChangeTextEditorSelection(
+            debounce({ delay: 300 }, (e) => {
+                const { textEditor, selections } = e
+                
+                const code = textEditor.document.getText(selections[0])
+
+                const node = new Node(code)
+                this.openDocumentView(node)
+            })
+        )
+
+		this.context.subscriptions.push(
+            clickCommand,
+            selectionChange
+        );
+    }
+
+    public receiveUITypeChange(type: TYPES_FOR_UI) {
+        const panel = getApiDocPanel(this.context, false)!
+        if (panel) {
+            panel.dispose()
+        }
     }
 
     /**
@@ -25,22 +45,26 @@ class ApiDocCore {
      * @param node 
      */
     public openDocumentView(node: Node) {
-        const panel = getApiDocPanel(this.context)
-
-        if (panel) {
-            const json = readComponentMetaJson(node)
-
-            panel.webview.postMessage({
-                type: API_DOC_RECEIVE_MESSAGE,
-                data: {
-                    node: {
-                        label: node.label,
-                        description: node.description,
-                    },
-                    ...json
-                }
-            })
+        const json = readComponentMetaJson(node)
+        if (isEmpty(json)) {
+            console.log(node.label, 'api doc not found')
+            return;
         }
+
+        const panel = getApiDocPanel(this.context)!
+
+        const data = {
+            node: {
+                label: node.label,
+                description: node.description,
+            },
+            ...json
+        }
+
+        panel.webview.postMessage({
+            type: API_DOC_RECEIVE_MESSAGE,
+            data
+        })
     }
 }
 

@@ -24,9 +24,35 @@
       {
         "command": "componentTree.openDoc",
         "title": "Open Document"
+      },
+      {
+        "command": "componentTree.ui.primevue",
+        "title": "Primevue"
+      },
+      {
+        "command": "componentTree.ui.antd",
+        "title": "Ant Design"
+      },
+      {
+        "command": "componentTree.ui.vant",
+        "title": "Vant"
       }
     ],
     "menus": {
+      "view/title": [
+        {
+          "command": "componentTree.ui.primevue",
+          "when": "view == component-tree"
+        },
+        {
+          "command": "componentTree.ui.antd",
+          "when": "view == component-tree"
+        },
+        {
+          "command": "componentTree.ui.vant",
+          "when": "view == component-tree"
+        }
+      ],
       "view/item/context": [
         {
           "command": "componentTree.insertCode",
@@ -81,5 +107,8 @@
     "typescript": "^5.4.5",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "mitt": "^3.0.1"
   }
 }

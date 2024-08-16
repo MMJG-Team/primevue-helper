@@ -16,6 +16,19 @@ export function View() {
     const store = useStore()
     const { y } = useScroll(el)
 
+    const title = computed(() => {
+        if (!store.node) {
+            return ''
+        }
+
+        const { label, description } = store.node
+        if (label !== description) {
+            return `${label} - ${description}`
+        }
+
+        return label
+    })
+
     const yPercent = computed(() => {
         if (!el.value) {
             return 100
@@ -55,7 +68,7 @@ export function View() {
     return vine`
         <div class="api-doc api-doc-dark" ref="el">
             <div class="api-doc-header">
-                <Tag v-if="store.node" class="!text-lg">{{store.node.label}} - {{store.node.description}}</Tag>
+                <Tag v-if="title" class="!text-lg">{{title}}</Tag>
                 <ProgressBar :value="yPercent" :showValue="false"></ProgressBar>
             </div>    
 

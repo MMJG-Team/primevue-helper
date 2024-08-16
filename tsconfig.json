@@ -16,5 +16,11 @@
 		"paths": {
 			"src/*": ["src/*"]
 		}
-	}
+	},
+	"exclude": [
+		"**/node_modules",
+		"**/dist",
+		"**/ui-repos",
+		"**/packages"
+	]
 }

@@ -9,11 +9,15 @@ specifiers:
   '@vscode/test-cli': ^0.0.9
   '@vscode/test-electron': ^2.4.0
   eslint: ^8.57.0
+  mitt: ^3.0.1
   radash: ^12.1.0
   ts-loader: ^9.5.1
   typescript: ^5.4.5
   webpack: ^5.92.1
   webpack-cli: ^5.1.4
+
+dependencies:
+  mitt: 3.0.1
 
 devDependencies:
   '@types/mocha': 10.0.7
@@ -1622,6 +1626,10 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
     dev: true
+
+  /mitt/3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
+    dev: false
 
   /mocha/10.7.0:
     resolution: {integrity: sha512-v8/rBWr2VO5YkspYINnvu81inSz2y3ODJrhO175/Exzor1RcEZZkizgE2A+w/CAXXoESS8Kys5E62dOHGHzULA==}
