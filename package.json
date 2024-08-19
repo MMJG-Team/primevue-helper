@@ -1,8 +1,9 @@
 {
-  "name": "quick-view-config",
-  "displayName": "quick-view-config",
+  "name": "quick-view",
+  "version": "1.0.1",
+  "displayName": "Quick View",
   "description": "build component view quickly!",
-  "version": "0.0.1",
+  "publisher": "QuickView",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -10,6 +11,7 @@
     "Other"
   ],
   "activationEvents": [],
+  "icon": "./docs_assets/icon.png",
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -101,6 +103,7 @@
     "@typescript-eslint/parser": "^7.11.0",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0",
+    "@vscode/vsce": "^3.0.0",
     "eslint": "^8.57.0",
     "radash": "^12.1.0",
     "ts-loader": "^9.5.1",
@@ -110,5 +113,13 @@
   },
   "dependencies": {
     "mitt": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MMJG-Team/quick-view"
+  },
+  "vsce": {
+    "dependencies": false,
+    "pnpm": true
   }
 }
