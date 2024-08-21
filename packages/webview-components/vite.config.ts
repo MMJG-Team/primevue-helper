@@ -20,6 +20,11 @@ export default defineConfig({
             "NODE_ENV": JSON.stringify(process.env.NODE_ENV)
         }
     },
+    resolve: {
+        alias: {
+            '@': '/src'
+        }
+    },
     build: {
         lib: {
             entry: 'src/components/index.ts',

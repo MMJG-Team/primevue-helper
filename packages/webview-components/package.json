@@ -12,6 +12,7 @@
     "@primevue/themes": "^4.0.4",
     "@vueuse/core": "^10.11.1",
     "pinia": "^2.2.1",
+    "primeicons": "^7.0.0",
     "primevue": "^4.0.4",
     "vue": "^3.4.35"
   },

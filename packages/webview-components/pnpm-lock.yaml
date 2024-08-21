@@ -9,6 +9,7 @@ specifiers:
   less: ^4.2.0
   pinia: ^2.2.1
   postcss: ^8.4.41
+  primeicons: ^7.0.0
   primevue: ^4.0.4
   tailwindcss: ^3.4.9
   typescript: ^5.5.3
@@ -22,6 +23,7 @@ dependencies:
   '@primevue/themes': 4.0.4
   '@vueuse/core': 10.11.1_vue@3.4.37
   pinia: 2.2.1_yiuxxv4riwyeh7vhfya34j65ae
+  primeicons: 7.0.0
   primevue: 4.0.4_vue@3.4.37
   vue: 3.4.37_typescript@5.5.4
 
@@ -1485,6 +1487,10 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
+
+  /primeicons/7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
+    dev: false
 
   /primevue/4.0.4_vue@3.4.37:
     resolution: {integrity: sha512-1moEddbczJ1+yEyfeYQk3xOQB64iCjjM//f+HSXs6YrKVVC0QjPFx9XPNXrr2JjHlp+6D7EpPZtsmcrfA9jWkA==}

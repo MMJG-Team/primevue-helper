@@ -10,31 +10,42 @@ import Tag from 'primevue/tag';
 import Toast from 'primevue/toast';
 import { useToast } from 'primevue/usetoast';
 import ProgressBar from 'primevue/progressbar';
-import type { PropsType } from './store';
-import { useStore } from './store';
-import { postMessageForVsCode } from '../../vscode-extension-api';
-import { API_DOC_RECEIVE_MESSAGE, WEBVIEW_ACTIONS } from '../../constants';
+import './style.less'
 
+export type SlotsOrEmitsType = {
+    name: string,
+    parameters: {
+        name: string,
+        optional: boolean,
+        type: string,
+        description?: string
+    }[],
+    returnType: string,
+    description?: string
+}
 
-export function View() {
+export type PropsType = {
+    name: string,
+    optional: boolean,
+    readonly: boolean,
+    type: null | string | string[],
+    default: string,
+    description?: string
+}
+
+export function ApiDocView(props: {
+    title: string,
+    propColumns: PropsType[],
+    slotColumns: SlotsOrEmitsType[],
+    emitColumns: SlotsOrEmitsType[],
+    onPropNameClick?: (prop: PropsType) => void,
+    onSlotNameClick?: (prop: SlotsOrEmitsType) => void,
+    onEmitNameClick?: (prop: SlotsOrEmitsType) => void,
+}) {
     const el = ref<HTMLElement>()
 
     const toast = useToast();
-    const store = useStore()
     const { y } = useScroll(el)
-
-    const title = computed(() => {
-        if (!store.node) {
-            return ''
-        }
-
-        const { label, description } = store.node
-        if (label !== description) {
-            return `${label} - ${description}`
-        }
-
-        return label
-    })
 
     const yPercent = computed(() => {
         if (!el.value) {
@@ -48,57 +59,26 @@ export function View() {
         return Number(((y.value + window.innerHeight) / el.value?.scrollHeight! * 100).toFixed(2))
     })
 
-    const onPropNameClick = (row: PropsType) => {
-        postMessageForVsCode({
-            type: API_DOC_RECEIVE_MESSAGE,
-            action: WEBVIEW_ACTIONS.INSERT_PROPS,
-            data: { ...row }
-        })
-    }
-
-    vineStyle(css`
-        .api-doc {
-            --p-progressbar-height: 2px;
-
-            width: 100%;
-            height: 100%;
-            padding: 0 24px 24px 24px;
-            background-color: var(--p-surface-50);
-            overflow: auto;
-        }
-
-        .api-doc-header {
-            position: sticky;
-            top: 0;
-            padding: 16px 8px;
-            z-index: 1000;
-            background-color: var(--p-highlight-background);
-        }
-
-        .api-doc-description {
-            white-space: pre-wrap;
-        }
-    `)
-
     return vine`
-        <div class="api-doc api-doc-dark" ref="el">
+        <div class="api-doc" ref="el">
             <Toast />
             <div class="api-doc-header">
                 <Tag v-if="title" class="!text-lg">{{title}}</Tag>
                 <ProgressBar :value="yPercent" :showValue="false"></ProgressBar>
-            </div>    
+            </div> 
 
             <Accordion value="0">
                 <AccordionPanel value="0">
                     <AccordionHeader>Props</AccordionHeader>
                     <AccordionContent>
-                        <DataTable :value="store.propColumns">
+                        <DataTable :value="propColumns">
                             <Column
                                 field="name"
                                 header="name"
                             >
                                 <template #body="slotProps">
                                     <Tag
+                                        v-tooltip="slotProps.data.description"
                                         class="!cursor-pointer"
                                         severity="primary"
                                         @click="onPropNameClick(slotProps.data)"
@@ -123,24 +103,23 @@ export function View() {
                                     <Tag severity="info">{{ slotProps.data.default }}</Tag>
                                 </template>
                             </Column>
-                            <Column
-                                class="api-doc-description"
-                                field="description"
-                                header="description"
-                            />
                         </DataTable>
                     </AccordionContent>
                 </AccordionPanel>
                 <AccordionPanel value="1">
                     <AccordionHeader>Slots</AccordionHeader>
                     <AccordionContent>
-                        <DataTable :value="store.slotColumns">
+                        <DataTable :value="slotColumns">
                             <Column
                                 field="name"
                                 header="name"
                             >
                                 <template #body="slotProps">
-                                    <Tag severity="primary">{{ slotProps.data.name }}</Tag>
+                                    <Tag
+                                        v-tooltip="slotProps.data.description"
+                                        severity="primary"
+                                        @click="onSlotNameClick(slotProps.data)"
+                                    >{{ slotProps.data.name }}</Tag>
                                 </template>
                             </Column>
                             <Column
@@ -167,24 +146,23 @@ export function View() {
                                     <Tag severity="info">{{ slotProps.data.returnType }}</Tag>
                                 </template>
                             </Column>
-                            <Column
-                                class="api-doc-description"
-                                field="description"
-                                header="description"
-                            />
                         </DataTable>
                     </AccordionContent>
                 </AccordionPanel>
                 <AccordionPanel value="2">
                     <AccordionHeader>Emits</AccordionHeader>
                     <AccordionContent>
-                        <DataTable :value="store.emitColumns">
+                        <DataTable :value="emitColumns">
                             <Column
                                 field="name"
                                 header="name"
                             >
                                 <template #body="slotProps">
-                                    <Tag severity="primary">{{ slotProps.data.name }}</Tag>
+                                    <Tag
+                                        v-tooltip="slotProps.data.description"
+                                        severity="primary"
+                                        @click="onEmitNameClick(slotProps.data)"
+                                    >{{ slotProps.data.name }}</Tag>
                                 </template>
                             </Column>
                             <Column
@@ -209,11 +187,6 @@ export function View() {
                                     <Tag severity="info">{{ slotProps.data.returnType }}</Tag>
                                 </template>
                             </Column>
-                            <Column
-                                class="api-doc-description"
-                                field="description"
-                                header="description"
-                            />
                         </DataTable>
                     </AccordionContent>
                 </AccordionPanel>

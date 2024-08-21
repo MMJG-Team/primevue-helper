@@ -21,7 +21,11 @@
     "noFallthroughCasesInSwitch": true,
     "types": [
       "vue-vine/macros"
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
