@@ -12,14 +12,14 @@ Quick View is a simple, lightweight, and easy-to-use `extension for Visual Studi
 ## Features
 
 ### Component Tree
-Click on the `Components` icon in the Activity Bar on the side of the window
+Click on the `Quick View` icon in the Activity Bar on the side of the window
 
 you can see a tree of components.
 
 ![alt text](./docs_assets/image-2.png)
 
 ### API Docs
-Select the component you want to view. The API docs will be displayed in a new panel
+Select the component you want to view. The API docs will be displayed in the panel
 
 ![alt text](./docs_assets/image-4.png)
 
