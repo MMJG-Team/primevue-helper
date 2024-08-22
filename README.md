@@ -1,5 +1,5 @@
-# Quick View
-Quick View is a simple, lightweight, and easy-to-use `extension for Visual Studio Code` that improving your development efficiency.
+# Primevue Helper
+Primevue Helper is a simple, lightweight, and easy-to-use `extension for Visual Studio Code` that improving your development efficiency.
 
 ![alt text](./docs_assets/image.png)
 
@@ -7,12 +7,12 @@ Quick View is a simple, lightweight, and easy-to-use `extension for Visual Studi
 
 1. Open Visual Studio Code
 2. Click on the Extensions icon in the Activity Bar on the side of the window
-3. Search for "Quick View" and click Install
+3. Search for "Primevue Helper" and click Install
 
 ## Features
 
 ### Component Tree
-Click on the `Quick View` icon in the Activity Bar on the side of the window
+Click on the `Primevue Helper` icon in the Activity Bar on the side of the window
 
 you can see a tree of components.
 
@@ -24,14 +24,19 @@ Select the component you want to view. The API docs will be displayed in the pan
 ![alt text](./docs_assets/image-4.png)
 
 ### Insert Code Snippet
-Click on the `Insert Code Snippet` icon you can insert the code snippet to your current file.
+Click on the `Insert Code Snippet` icon in contextmenu you can insert the code snippet to your current file.
 
 ![alt text](./docs_assets/image-5.png)
 
+### Insert Props & Slots & Emits Snippet
+Click on props name will insert the prop snippet to focus position in current file.
+
+![alt text](./docs_assets/image-3.png)
+
 ### support
-- [x] primevue
-- [ ] ant design
-- [ ] vant
+- [x] display all components
+- [x] support api document
+- [x] support insert code snippet
 
 ## Contributing
 
