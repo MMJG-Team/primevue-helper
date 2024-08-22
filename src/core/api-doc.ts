@@ -1,13 +1,19 @@
 import * as vscode from 'vscode';
 import { isEmpty, debounce } from 'radash'
 import { Node } from 'src/provider/component-tree';
-import { EMITTER_EVENTS, EVENTS, TYPES_FOR_UI, WEBVIEW_ACTIONS } from 'src/constants/event';
-import { API_DOC_RECEIVE_MESSAGE, getApiDocPanel } from 'src/webview/api-doc';
+import { EMITTER_EVENTS, EVENTS, TYPES_FOR_UI, WEBVIEW_ACTIONS, WEBVIEW_MESSAGE_FLAG } from 'src/constants/event';
+import { getApiDocPanel } from 'src/webview/api-doc';
 import { readComponentMetaJson } from './utils';
 import Common from './common';
 import Emitter from 'src/emitter';
 
 class ApiDocCore extends Common {
+
+    constructor(context: vscode.ExtensionContext) {
+        super(context)
+
+        this.registerCommand()
+    }
 
     public registerCommand() {
         super.registerCommand()
@@ -46,7 +52,6 @@ class ApiDocCore extends Common {
      */
     public registerWebviewMessage() {
         Emitter.on(EMITTER_EVENTS.WEBVIEW_RECEIVE_MESSAGE, (message) => {
-            console.log('api doc message', message)
             const { action, data } = message
             if (action === WEBVIEW_ACTIONS.INSERT_PROPS) {
                 const editor = vscode.window.activeTextEditor;
@@ -97,7 +102,7 @@ class ApiDocCore extends Common {
         }
 
         panel.webview.postMessage({
-            type: API_DOC_RECEIVE_MESSAGE,
+            type: WEBVIEW_MESSAGE_FLAG,
             action: 'update.api.doc',
             data
         })

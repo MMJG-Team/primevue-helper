@@ -2,8 +2,8 @@ import { WEBVIEW_ACTIONS, WEBVIEW_RECEIVE_MESSAGE } from '@/constants';
 import { postMessageForVsCode } from '@/vscode-extension-api';
 import { ComponentDocMeta, PropsType, SlotsOrEmitsType } from '@/types/api-doc';
 import { defineStore } from 'pinia';
-import { ApiDocMockData } from '@/modules/api-doc';
 import { ComponentTreeMeta } from '@/types/component-tree';
+import { toRaw } from 'vue';
 
 
 export const useStore = defineStore('store', {
@@ -53,12 +53,10 @@ export const useStore = defineStore('store', {
         },
 
         openDocument(component: ComponentTreeMeta) {
-            console.log('openDocument', component)
-
             postMessageForVsCode({
                 type: WEBVIEW_RECEIVE_MESSAGE,
                 action: WEBVIEW_ACTIONS.FETCH_COMPONENT_API_DOC,
-                data: component
+                data: toRaw(component)
             })
 
             // for test
@@ -73,7 +71,7 @@ export const useStore = defineStore('store', {
             postMessageForVsCode({
                 type: WEBVIEW_RECEIVE_MESSAGE,
                 action: WEBVIEW_ACTIONS.INSERT_PROPS,
-                data: prop
+                data: toRaw(prop)
             })
         },
 
@@ -81,7 +79,7 @@ export const useStore = defineStore('store', {
             postMessageForVsCode({
                 type: WEBVIEW_RECEIVE_MESSAGE,
                 action: WEBVIEW_ACTIONS.INSERT_SLOTS,
-                data: slot
+                data: toRaw(slot)
             })
         },
 
@@ -89,16 +87,17 @@ export const useStore = defineStore('store', {
             postMessageForVsCode({
                 type: WEBVIEW_RECEIVE_MESSAGE,
                 action: WEBVIEW_ACTIONS.INSERT_EMITS,
-                data: emit
+                data: toRaw(emit)
             })
         },
 
         insertCodeSnippet(component: ComponentTreeMeta) {
-            console.log('insertCodeSnippet', component)
+            if (!component) return;
+
             postMessageForVsCode({
                 type: WEBVIEW_RECEIVE_MESSAGE,
                 action: WEBVIEW_ACTIONS.INSERT_CODE_SNIPPET,
-                data: component
+                data: toRaw(component)
             })
         },
     },

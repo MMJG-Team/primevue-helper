@@ -16,6 +16,7 @@ export function ComponentTree(props: {
     searchValue: string,
     treeData: ComponentTreeMeta[],
     onNodeClick: (node: ComponentTreeMeta) => void
+    onNodeContextmenu: (e: Event, ode: ComponentTreeMeta) => void
 }) {
     const emit = vineEmits<{
         'update:searchValue': [value: string]
@@ -45,6 +46,7 @@ export function ComponentTree(props: {
                     v-for="component in children"
                     :value="formattedLabel(component)"
                     @click="onNodeClick(component)"
+                    @contextmenu="(e: Event) => onNodeContextmenu(e, component)"
                     class="component-tree-item"
                 ></Tag>
             </Fieldset>

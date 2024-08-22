@@ -1,4 +1,4 @@
-import { EMITTER_EVENTS } from 'src/constants/event';
+import { EMITTER_EVENTS, WEBVIEW_MESSAGE_FLAG } from 'src/constants/event';
 import Emitter from 'src/emitter';
 import * as vscode from 'vscode';
 
@@ -7,8 +7,6 @@ const WEBVIEW_COMPONENTS_JS_PATH = `${WEBVIEW_COMPONENTS_PATH}/webview-component
 const WEBVIEW_COMPONENTS_CSS_PATH = `${WEBVIEW_COMPONENTS_PATH}/style.css`;
 
 let apiDocPanel: vscode.WebviewPanel | undefined;
-
-export const API_DOC_RECEIVE_MESSAGE = 'api-doc-receive-message';
 
 /**
  * get instance of webview
@@ -53,7 +51,7 @@ export function createApiDoc(context: vscode.ExtensionContext) {
      * on receive message from webview
      */
     apiDocPanel.webview.onDidReceiveMessage(message => {
-        if (message.type !== API_DOC_RECEIVE_MESSAGE) {
+        if (message.type !== WEBVIEW_MESSAGE_FLAG) {
             return;
         }
 

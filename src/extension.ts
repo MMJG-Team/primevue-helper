@@ -7,13 +7,11 @@ import eventMapping from './eventMapping'
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Congratulations, your extension "QVC" is now active!');
+	console.log('Congratulations, your extension "Quick View" is now active!');
 
 	eventMapping(context)
 
 	const core = new Core(context)
-
-	core.registerCommand()
 }
 
 // This method is called when your extension is deactivated

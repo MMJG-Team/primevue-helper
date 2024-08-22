@@ -1,6 +1,5 @@
 import * as path from 'node:path';
 import * as fs from 'node:fs';
-import { Node } from '../provider/component-tree';
 import { TYPES_FOR_UI } from 'src/constants/event';
 
 // esm __dirname
@@ -9,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-export const readComponentMetaJson = (type: TYPES_FOR_UI, node: Node) => {
+export const readComponentMetaJson = (type: TYPES_FOR_UI, node: { label: string }) => {
     const jsonPath = path.join(__dirname, `../meta/${type}/components/${node.label.toLocaleLowerCase()}.json`)
     if (fs.existsSync(jsonPath)) {
         try {

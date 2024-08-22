@@ -68,7 +68,7 @@ export function ApiDocView(props: {
             </div> 
 
             <Accordion value="0">
-                <AccordionPanel value="0">
+                <AccordionPanel value="0" v-show="propColumns.length">
                     <AccordionHeader>Props</AccordionHeader>
                     <AccordionContent>
                         <DataTable :value="propColumns">
@@ -79,7 +79,7 @@ export function ApiDocView(props: {
                                 <template #body="slotProps">
                                     <Tag
                                         v-tooltip="slotProps.data.description"
-                                        class="!cursor-pointer"
+                                        class="cursor-pointer"
                                         severity="primary"
                                         @click="onPropNameClick(slotProps.data)"
                                     >
@@ -106,10 +106,10 @@ export function ApiDocView(props: {
                         </DataTable>
                     </AccordionContent>
                 </AccordionPanel>
-                <AccordionPanel value="1">
+                <AccordionPanel value="1" v-show="slotColumns.length">
                     <AccordionHeader>Slots</AccordionHeader>
                     <AccordionContent>
-                        <DataTable :value="slotColumns">
+                        <DataTable :value="slotColumns" class="api-doc-slots">
                             <Column
                                 field="name"
                                 header="name"
@@ -118,6 +118,7 @@ export function ApiDocView(props: {
                                     <Tag
                                         v-tooltip="slotProps.data.description"
                                         severity="primary"
+                                        class="cursor-pointer"
                                         @click="onSlotNameClick(slotProps.data)"
                                     >{{ slotProps.data.name }}</Tag>
                                 </template>
@@ -130,7 +131,7 @@ export function ApiDocView(props: {
                                     <Tag
                                         v-for="{ name, type } in slotProps.data.parameters"
                                         severity="secondary"
-                                        class="overflow-auto !justify-start"
+                                        class="api-doc-slot-parameters"
                                         style="max-width: 256px;"
                                     >
                                         <!-- <span>{{ name }}:</span> -->
@@ -149,7 +150,7 @@ export function ApiDocView(props: {
                         </DataTable>
                     </AccordionContent>
                 </AccordionPanel>
-                <AccordionPanel value="2">
+                <AccordionPanel value="2" v-show="emitColumns.length">
                     <AccordionHeader>Emits</AccordionHeader>
                     <AccordionContent>
                         <DataTable :value="emitColumns">
@@ -161,6 +162,7 @@ export function ApiDocView(props: {
                                     <Tag
                                         v-tooltip="slotProps.data.description"
                                         severity="primary"
+                                        class="cursor-pointer"
                                         @click="onEmitNameClick(slotProps.data)"
                                     >{{ slotProps.data.name }}</Tag>
                                 </template>

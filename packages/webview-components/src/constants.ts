@@ -1,4 +1,4 @@
-export const WEBVIEW_RECEIVE_MESSAGE = 'api-doc-receive-message';
+export const WEBVIEW_RECEIVE_MESSAGE = 'webview.message.flag';
 
 export enum WEBVIEW_ACTIONS {
     INSERT_PROPS = 'webview.insert.props',

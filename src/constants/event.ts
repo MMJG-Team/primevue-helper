@@ -14,10 +14,17 @@ export enum EMITTER_EVENTS {
     WEBVIEW_RECEIVE_MESSAGE = 'webview.receive.message',
 }
 
+export const WEBVIEW_MESSAGE_FLAG = 'webview.message.flag';
+
 export enum WEBVIEW_ACTIONS {
     INSERT_PROPS = 'webview.insert.props',
     INSERT_SLOTS = 'webview.insert.slots',
     INSERT_EMITS = 'webview.insert.emits',
+
+    INSERT_CODE_SNIPPET = 'webview.insert.code.snippet',
+
+    FETCH_COMPONENT_API_DOC = 'webview.fetch.component.api.doc',
+    RECEIVE_COMPONENT_API_DOC = 'webview.receive.component.api.doc',
 }
 
 export enum TYPES_FOR_UI {

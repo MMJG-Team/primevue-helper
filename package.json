@@ -1,6 +1,6 @@
 {
   "name": "quick-view",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Quick View",
   "description": "build component view quickly!",
   "publisher": "QuickView",
@@ -66,20 +66,20 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "components",
-          "title": "Components",
+          "id": "quick-view",
+          "title": "Quick View",
           "icon": "image/icon.svg"
         }
       ]
     },
     "views": {
-      "components": [
+      "quick-view": [
         {
-          "id": "component-tree",
-          "name": "Component Tree",
+					"type": "webview",
+					"id": "component-tree-webview",
           "icon": "image/icon.svg",
-          "contextualTitle": "Component Tree"
-        }
+					"name": "Component Tree"
+				}
       ]
     }
   },
