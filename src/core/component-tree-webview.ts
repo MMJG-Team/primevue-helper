@@ -89,10 +89,10 @@ class ComponentTreeWebviewCore extends Common {
      * @param context 
      * @param node 
      */
-    public openDocumentView(node: { label: string, description: string }) {
+    public async openDocumentView(node: { label: string, description: string }) {
         const { componentTreeWebviewProvider } = this.view
         
-        const json = readComponentMetaJson(this.type, node)
+        const json = await readComponentMetaJson(this.type, node)
         if (isEmpty(json)) {
             console.log(node.label, 'api doc not found')
             return;
@@ -125,8 +125,8 @@ class ComponentTreeWebviewCore extends Common {
      * @param node 
      * @returns 
      */
-    public getCodeSnippet(node: { label: string, description: string }) {
-        const json = readComponentMetaJson(this.type, node)
+    public async getCodeSnippet(node: { label: string, description: string }) {
+        const json = await readComponentMetaJson(this.type, node)
         return json?.template
     }
 
@@ -151,7 +151,7 @@ class ComponentTreeWebviewCore extends Common {
      * @returns 
      */
     public async insertTemplate(node: { label: string, description: string }) {
-        const template = this.getCodeSnippet(node)
+        const template = await this.getCodeSnippet(node)
         return this.insertCodeToActiveEditor(template)
     }
 

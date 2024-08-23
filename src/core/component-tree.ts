@@ -49,8 +49,8 @@ class ComponentTreeCore extends Common {
      * @param node 
      * @returns 
      */
-    public getCodeSnippet(node: Node) {
-        const json = readComponentMetaJson(this.type, node)
+    public async getCodeSnippet(node: Node) {
+        const json = await readComponentMetaJson(this.type, node)
         return json?.template
     }
 
@@ -67,7 +67,7 @@ class ComponentTreeCore extends Common {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const position = editor.selection.start;
-            const template = this.getCodeSnippet(node)
+            const template = await this.getCodeSnippet(node)
 
             if (template) {
                 await editor.insertSnippet(new vscode.SnippetString(template), position)

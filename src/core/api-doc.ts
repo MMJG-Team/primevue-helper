@@ -84,8 +84,8 @@ class ApiDocCore extends Common {
      * @param context 
      * @param node 
      */
-    public openDocumentView(node: Node) {
-        const json = readComponentMetaJson(this.type, node)
+    public async openDocumentView(node: Node) {
+        const json = await readComponentMetaJson(this.type, node)
         if (isEmpty(json)) {
             console.log(node.label, 'api doc not found')
             return;

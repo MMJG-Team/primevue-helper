@@ -1,6 +1,6 @@
 {
   "name": "primevue-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Primevue Helper",
   "description": "support open API document and insert code snippet!",
   "publisher": "QuickView",
@@ -18,8 +18,8 @@
     "primevue-doc"
   ],
   "activationEvents": [],
-  "icon": "./docs_assets/icon.png",
-  "main": "./dist/extension.js",
+  "icon": "docs_assets/icon.png",
+  "main": "dist/extension.js",
   "contributes": {
     "commands": [
       {
