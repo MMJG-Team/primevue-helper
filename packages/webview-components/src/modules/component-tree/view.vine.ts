@@ -46,7 +46,7 @@ export function View() {
         }
 
         const { label, description } = store.apiDocDataNode
-        if (label !== description) {
+        if (label !== description && store.showChineseDescription) {
             return `${label} - ${description}`
         }
 
@@ -74,6 +74,7 @@ export function View() {
         <ComponentTree
             v-model:searchValue="store.searchValue"
             :treeData="store.displayData"
+            :showChineseDescription="store.showChineseDescription"
             :onNodeClick="store.openDocument"
             :onNodeContextmenu="onNodeContextmenu"
         ></ComponentTree>

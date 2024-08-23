@@ -15,10 +15,10 @@ export default defineConfig({
                 PrimeVueResolver()
             ]
         }),
-        visualizer({
-            emitFile: true,
-            filename: "stats.html",
-        })
+        // visualizer({
+        //     emitFile: true,
+        //     filename: "stats.html",
+        // })
     ],
     define: {
         "process.env": {

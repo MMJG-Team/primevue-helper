@@ -10,6 +10,8 @@ export const useStore = defineStore('store', {
     state: () => ({
         data: [] as ComponentTreeMeta[],
 
+        showChineseDescription: true,
+
         searchValue: '',
 
         apiDocVisible: false,
@@ -41,6 +43,10 @@ export const useStore = defineStore('store', {
     actions: {
         setData(data: ComponentTreeMeta[]) {
             this.data = data
+        },
+
+        setShowChineseDescription(visible: boolean) {
+            this.showChineseDescription = visible
         },
 
         setApiDocVisible(visible: boolean) {

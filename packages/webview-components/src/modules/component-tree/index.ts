@@ -65,6 +65,7 @@ export default class ComponentTree extends Component {
 
     render() {
         this.setData(this.options.data)
+        this.setShowChineseDescription(this.options.showChineseDescription)
 
         this.__app__ && this.__app__.mount(this.root)
         return this;
@@ -72,6 +73,10 @@ export default class ComponentTree extends Component {
 
     setData(data: ComponentTreeMeta[]) {
         data && useStore().setData(data)
+    }
+
+    setShowChineseDescription(visible: boolean = true) {
+        useStore().setShowChineseDescription(visible)
     }
 
     /**

@@ -15,6 +15,7 @@ import type { ComponentTreeMeta } from '@/types/component-tree';
 export function ComponentTree(props: {
     searchValue: string,
     treeData: ComponentTreeMeta[],
+    showChineseDescription: boolean,
     onNodeClick: (node: ComponentTreeMeta) => void
     onNodeContextmenu: (e: Event, ode: ComponentTreeMeta) => void
 }) {
@@ -24,7 +25,9 @@ export function ComponentTree(props: {
 
     const onSearch = (value: string) => emit('update:searchValue', value)
 
-    const formattedLabel = (item: ComponentTreeMeta) => `${item.label} (${item.description})`
+    const formattedLabel = (item: Partial<ComponentTreeMeta>) => props.showChineseDescription
+        ? `${item.label} (${item.description})`
+        : `${item.label}`
 
     return vine`
         <div class="component-tree">
@@ -40,7 +43,7 @@ export function ComponentTree(props: {
 
             <Fieldset
                 v-for="{ label, description, children } in treeData"
-                :legend="label + ' ' + description"
+                :legend="formattedLabel({ label, description })"
             >
                 <Tag
                     v-for="component in children"

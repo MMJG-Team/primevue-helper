@@ -73,10 +73,26 @@ export class ComponentTreeWebviewProvider implements vscode.WebviewViewProvider 
 		this._view = undefined;
 	}
 
+	private _isShowChineseDescription() {
+		const { language } = vscode.env
+		const { showChineseDescription } = vscode.workspace.getConfiguration('primevue-helper')
+		
+		if (showChineseDescription) {
+			return true
+		}
+
+		if (language.toLocaleLowerCase().includes('zh')) {
+		    return true
+		}
+		
+		return false
+	}
+
 	private _getHtmlForWebview(webview: vscode.Webview) {
 		const { context } = this
 		// Use a nonce to only allow a specific script to be run.
 		const nonce = getNonce();
+		const showChineseDescription = this._isShowChineseDescription()
 
 		const webviewComponentJs = webview.asWebviewUri(
 			vscode.Uri.joinPath(context.extensionUri, WEBVIEW_COMPONENTS_JS_PATH)
@@ -116,11 +132,13 @@ export class ComponentTreeWebviewProvider implements vscode.WebviewViewProvider 
 				<script>
 					if (window.WebviewComponents) {
 						const vscode = acquireVsCodeApi();
+						const showChineseDescription = ${showChineseDescription};
 
 						const data = ${JSON.stringify(this.treeData)};
 						const componentTree = new WebviewComponents.ComponentTree('#app', {
 							vscode,
 							data,
+							showChineseDescription
 						})
 	
 						componentTree.init()
