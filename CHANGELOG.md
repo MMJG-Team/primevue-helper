@@ -1,9 +1,19 @@
 # Change Log
 
-All notable changes to the "QVC" extension will be documented in this file.
+All notable changes to the "Primevue Helper" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [1.0.2] - 2024-08-23
+
+### Added
+- add `showChineseDescription` option for component tree
+
+## [1.0.1] - 2024-08-023
+
+### Fixed
+- docs resource was not build into `dist`
+
+## [1.0.0] - 2024-08-023
 
 - Initial release
