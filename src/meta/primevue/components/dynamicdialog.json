@@ -1,0 +1,15 @@
+{
+    "props": [
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [],
+    "template": "\n<Button label=\"Select a Product\" icon=\"pi pi-search\" @click=\"showProducts\" />\n\n<DynamicDialog />\n"
+}

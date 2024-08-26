@@ -1,0 +1,88 @@
+{
+    "props": [
+        {
+            "name": "value",
+            "optional": true,
+            "readonly": false,
+            "type": "string | number",
+            "default": "null",
+            "description": "Active value of stepper."
+        },
+        {
+            "name": "linear",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the steps are clickable or not."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<StepperPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom default template."
+        },
+        {
+            "name": "start",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom start template."
+        },
+        {
+            "name": "end",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom end template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:value",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "any",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        }
+    ],
+    "template": "\n<Stepper value=\"1\" class=\"basis-[50rem]\">\n    <StepList>\n        <Step value=\"1\">Design</Step>\n        <Step value=\"2\">Development</Step>\n        <Step value=\"3\">QA</Step>\n    </StepList>\n</Stepper>\n"
+}

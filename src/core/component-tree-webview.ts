@@ -3,7 +3,7 @@ import { ComponentTreeWebview } from 'src/provider';
 import { TYPES_FOR_UI, WEBVIEW_ACTIONS } from 'src/constants/event';
 import { readComponentMetaJson } from './utils';
 import Common from './common';
-import { isEmpty } from 'radash';
+import { debounce, isEmpty } from 'radash';
 
 export type SlotsOrEmitsType = {
     name: string,
@@ -49,7 +49,6 @@ class ComponentTreeWebviewCore extends Common {
         const { componentTreeWebviewProvider } = this.view
 
         componentTreeWebviewProvider.registerMessage((message) => {
-            console.log(message)
             const { action, data } = message
 
             if (action === WEBVIEW_ACTIONS.FETCH_COMPONENT_API_DOC) {
@@ -82,6 +81,23 @@ class ComponentTreeWebviewCore extends Common {
                 return
             }
         })
+
+        const offSelectionChange = vscode.window.onDidChangeTextEditorSelection(
+            debounce({ delay: 300 }, (e) => {
+                const { textEditor, selections } = e
+                
+                const code = textEditor.document.getText(selections[0])
+
+                this.openDocumentView({
+                    label: code,
+                    description: code
+                })
+            })
+        )
+
+		this.context.subscriptions.push(
+            offSelectionChange
+        );
     }
 
     /**

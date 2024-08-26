@@ -1,0 +1,129 @@
+{
+    "props": [
+        {
+            "name": "header",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Orientation of tab headers."
+        },
+        {
+            "name": "headerStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the tab header."
+        },
+        {
+            "name": "headerClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the tab header."
+        },
+        {
+            "name": "headerProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLDivElement to the tab header."
+        },
+        {
+            "name": "headerActionProps",
+            "optional": true,
+            "readonly": false,
+            "type": "AnchorHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header."
+        },
+        {
+            "name": "contentStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the tab content."
+        },
+        {
+            "name": "contentClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the tab content."
+        },
+        {
+            "name": "contentProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLDivElement to the tab content."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the tab is disabled."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<AccordionTabPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Default slot for content."
+        },
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content for the title section of a AccordionTab is defined using the header template."
+        },
+        {
+            "name": "headericon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the tab</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Whether the tab is active</span>\n}",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom icon for the header section of a AccordionTab is defined using the headericon template."
+        }
+    ],
+    "emits": [],
+    "template": "<div>not found template</div>"
+}

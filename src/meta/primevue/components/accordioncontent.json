@@ -1,0 +1,54 @@
+{
+    "props": [
+        {
+            "name": "as",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "DIV",
+            "description": "Use to change the HTML tag of root element."
+        },
+        {
+            "name": "asChild",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it changes the default rendered element for the one passed as a child element."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<AccordionContentPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        }
+    ],
+    "emits": [],
+    "template": "<div>not found template</div>"
+}

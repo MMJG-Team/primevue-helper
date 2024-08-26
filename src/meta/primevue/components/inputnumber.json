@@ -1,0 +1,441 @@
+{
+    "props": [
+        {
+            "name": "modelValue",
+            "optional": true,
+            "readonly": false,
+            "type": "Nullable<number>",
+            "default": "",
+            "description": "Value of the component."
+        },
+        {
+            "name": "format",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to format the value."
+        },
+        {
+            "name": "showButtons",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Displays spinner buttons."
+        },
+        {
+            "name": "buttonLayout",
+            "optional": true,
+            "readonly": false,
+            "type": "\"horizontal\" | \"vertical\" | \"stacked\"",
+            "default": "stacked",
+            "description": "Layout of the buttons."
+        },
+        {
+            "name": "incrementButtonClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the increment button."
+        },
+        {
+            "name": "decrementButtonClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the decrement button."
+        },
+        {
+            "name": "incrementButtonIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the increment icon.",
+            "deprecated": "since v4.0. Use 'incrementIcon'."
+        },
+        {
+            "name": "incrementIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the increment icon."
+        },
+        {
+            "name": "decrementButtonIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the decrement icon.",
+            "deprecated": "since v4.0. Use 'decrementIcon'."
+        },
+        {
+            "name": "decrementIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Style class of the decrement icon."
+        },
+        {
+            "name": "locale",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Locale to be used in formatting."
+        },
+        {
+            "name": "localeMatcher",
+            "optional": true,
+            "readonly": false,
+            "type": "\"lookup\" | \"best fit\"",
+            "default": "best fit",
+            "description": "The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'.\nSee [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details."
+        },
+        {
+            "name": "mode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"decimal\" | \"currency\"",
+            "default": "decimal",
+            "description": "Defines the behavior of the component."
+        },
+        {
+            "name": "prefix",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Text to display before the value."
+        },
+        {
+            "name": "suffix",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Text to display after the value."
+        },
+        {
+            "name": "currency",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "The currency to use in currency formatting. Possible values are the [ISO 4217 currency codes](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency), such as 'USD' for the US dollar, 'EUR' for the euro, or 'CNY' for the Chinese RMB.\nThere is no default value; if the style is 'currency', the currency property must be provided."
+        },
+        {
+            "name": "currencyDisplay",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "symbol",
+            "description": "How to display the currency in currency formatting. Possible values are 'symbol' to use a localized currency symbol such as €, 'code' to use the ISO currency code, 'name' to use a localized currency name such as 'dollar'."
+        },
+        {
+            "name": "useGrouping",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators."
+        },
+        {
+            "name": "minFractionDigits",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "The minimum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number and percent formatting is 0;\nthe default for currency formatting is the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information)."
+        },
+        {
+            "name": "maxFractionDigits",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "The maximum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number formatting is the larger of minimumFractionDigits and 3;\nthe default for currency formatting is the larger of minimumFractionDigits and the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information)."
+        },
+        {
+            "name": "roundingMode",
+            "optional": true,
+            "readonly": false,
+            "type": "RoundingMode",
+            "default": "",
+            "description": "How decimals should be rounded.\nThe default value is  `\"halfExpand\"` , [further information](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode)."
+        },
+        {
+            "name": "min",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Minimum boundary value."
+        },
+        {
+            "name": "max",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Maximum boundary value."
+        },
+        {
+            "name": "step",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "1",
+            "description": "Step factor to increment/decrement the value."
+        },
+        {
+            "name": "allowEmpty",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Determines whether the input field is empty."
+        },
+        {
+            "name": "highlightOnFocus",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Highlights automatically the input value."
+        },
+        {
+            "name": "invalid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+        },
+        {
+            "name": "variant",
+            "optional": true,
+            "readonly": false,
+            "type": "\"outlined\" | \"filled\"",
+            "default": "outlined",
+            "description": "Specifies the input variant of the component."
+        },
+        {
+            "name": "readonly",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that an input field is read-only."
+        },
+        {
+            "name": "placeholder",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Placeholder text for the input."
+        },
+        {
+            "name": "fluid",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+        },
+        {
+            "name": "inputId",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of the focus input to match a label defined for the chips."
+        },
+        {
+            "name": "inputClass",
+            "optional": true,
+            "readonly": false,
+            "type": "string | object",
+            "default": "",
+            "description": "Style class of the input field."
+        },
+        {
+            "name": "inputStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "object",
+            "default": "",
+            "description": "Inline style of the input field."
+        },
+        {
+            "name": "ariaLabelledby",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+        },
+        {
+            "name": "ariaLabel",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Establishes a string value that labels the component."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<InputNumberPassThroughOptions<any>>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "incrementbutton",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">listeners</span>: <span class=\"doc-option-parameter-type\">InputNumberButtonListeners</span>, <span class=\"doc-option-parameter-type\">// InputNumber listeners</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom increment button template."
+        },
+        {
+            "name": "decrementbutton",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">listeners</span>: <span class=\"doc-option-parameter-type\">InputNumberButtonListeners</span>, <span class=\"doc-option-parameter-type\">// InputNumber listeners</span>\n }"
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom decrement button template."
+        },
+        {
+            "name": "incrementbuttonicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'incrementicon' slot.\nCustom increment icon template."
+        },
+        {
+            "name": "incrementicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom increment icon template."
+        },
+        {
+            "name": "decrementbuttonicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'decrementicon' slot.\nCustom decrement icon template."
+        },
+        {
+            "name": "decrementicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom decrement icon template."
+        }
+    ],
+    "emits": [
+        {
+            "name": "update:modelValue",
+            "parameters": [
+                {
+                    "name": "value",
+                    "optional": false,
+                    "type": "number",
+                    "description": "New value."
+                }
+            ],
+            "returnType": "void",
+            "description": "Emitted when the value changes."
+        },
+        {
+            "name": "input",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "InputNumberInputEvent",
+                    "description": "Custom input event."
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke when the value is entered."
+        },
+        {
+            "name": "focus",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "Event",
+                    "description": "Focus event"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on focus of input field."
+        },
+        {
+            "name": "blur",
+            "parameters": [
+                {
+                    "name": "event",
+                    "optional": false,
+                    "type": "InputNumberBlurEvent",
+                    "description": "Blur event"
+                }
+            ],
+            "returnType": "void",
+            "description": "Callback to invoke on blur of input field."
+        }
+    ],
+    "template": "\n<FloatLabel>\n    <InputNumber id=\"number-input\" v-model=\"value\" />\n    <label for=\"number-input\">Number</label>\n</FloatLabel>\n"
+}

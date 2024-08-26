@@ -1,0 +1,649 @@
+{
+    "props": [
+        {
+            "name": "columnKey",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Identifier of a column if field property is not defined."
+        },
+        {
+            "name": "field",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property represented by the column."
+        },
+        {
+            "name": "sortField",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name to use in sorting, defaults to field."
+        },
+        {
+            "name": "filterField",
+            "optional": true,
+            "readonly": false,
+            "type": "string | Function",
+            "default": "",
+            "description": "Property name to use in filtering, defaults to field."
+        },
+        {
+            "name": "dataType",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Type of data. It's value is related to PrimeVue.filterMatchModeOptions config."
+        },
+        {
+            "name": "sortable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if a column is sortable."
+        },
+        {
+            "name": "header",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Header content of the column."
+        },
+        {
+            "name": "footer",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Footer content of the column."
+        },
+        {
+            "name": "style",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of header, body and footer cells."
+        },
+        {
+            "name": "class",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of header, body and footer cells."
+        },
+        {
+            "name": "headerStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the column header."
+        },
+        {
+            "name": "headerClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the column header."
+        },
+        {
+            "name": "bodyStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the column body."
+        },
+        {
+            "name": "bodyClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the column body."
+        },
+        {
+            "name": "footerStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the column footer."
+        },
+        {
+            "name": "footerClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the column footer."
+        },
+        {
+            "name": "showFilterMenu",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display the filter overlay."
+        },
+        {
+            "name": "showFilterOperator",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "When enabled, match all and match any operator selector is displayed."
+        },
+        {
+            "name": "showClearButton",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Displays a button to clear the column filtering."
+        },
+        {
+            "name": "showApplyButton",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Displays a button to apply the column filtering."
+        },
+        {
+            "name": "showFilterMatchModes",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show the match modes selector."
+        },
+        {
+            "name": "showAddButton",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "true",
+            "description": "When enabled, a button is displayed to add more rules."
+        },
+        {
+            "name": "filterMatchModeOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "ColumnFilterMatchModeOptions[]",
+            "default": "",
+            "description": "An array of label-value pairs to override the global match mode options."
+        },
+        {
+            "name": "maxConstraints",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "2",
+            "description": "Maximum number of constraints for a column filter."
+        },
+        {
+            "name": "excludeGlobalFilter",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to exclude from global filtering or not."
+        },
+        {
+            "name": "filterHeaderStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the column filter header in row filter display."
+        },
+        {
+            "name": "filterHeaderClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the column filter header in row filter display."
+        },
+        {
+            "name": "filterMenuStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the column filter overlay."
+        },
+        {
+            "name": "filterMenuClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the column filter overlay."
+        },
+        {
+            "name": "selectionMode",
+            "optional": true,
+            "readonly": false,
+            "type": "\"single\" | \"multiple\"",
+            "default": "",
+            "description": "Defines column based selection mode."
+        },
+        {
+            "name": "expander",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Displays an icon to toggle row expansion."
+        },
+        {
+            "name": "colspan",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Number of columns to span for grouping."
+        },
+        {
+            "name": "rowspan",
+            "optional": true,
+            "readonly": false,
+            "type": "number",
+            "default": "",
+            "description": "Number of rows to span for grouping."
+        },
+        {
+            "name": "rowReorder",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether this column displays an icon to reorder the rows."
+        },
+        {
+            "name": "rowReorderIcon",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Icon of the drag handle to reorder rows."
+        },
+        {
+            "name": "reorderableColumn",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if the column itself can be reordered with dragging."
+        },
+        {
+            "name": "rowEditor",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, column displays row editor controls."
+        },
+        {
+            "name": "frozen",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the column is fixed in horizontal scrolling."
+        },
+        {
+            "name": "alignFrozen",
+            "optional": true,
+            "readonly": false,
+            "type": "\"left\" | \"right\"",
+            "default": "left",
+            "description": "Position of a frozen column, valid values are left and right."
+        },
+        {
+            "name": "exportable",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the column is included in data export."
+        },
+        {
+            "name": "exportHeader",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Custom export header of the column to be exported as CSV."
+        },
+        {
+            "name": "exportFooter",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Custom export footer of the column to be exported as CSV."
+        },
+        {
+            "name": "filterMatchMode",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Defines the filtering algorithm to use when searching the options."
+        },
+        {
+            "name": "hidden",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the column is rendered."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<ColumnPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [
+        {
+            "name": "body",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">data</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Row data.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Row node data.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">column</span>: <span class=\"doc-option-parameter-type\">ColumnNode</span>, <span class=\"doc-option-parameter-type\">// Column node.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Row index.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">frozenRow</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the row is frozen.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">editorInitCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Editor init callback function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">rowTogglerCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Row toggler callback unction</span>\n}",
+                    "description": "body slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom body template."
+        },
+        {
+            "name": "header",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">column</span>: <span class=\"doc-option-parameter-type\">ColumnNode</span>, <span class=\"doc-option-parameter-type\">// Column node.</span>\n }",
+                    "description": "header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template."
+        },
+        {
+            "name": "footer",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">column</span>: <span class=\"doc-option-parameter-type\">ColumnNode</span>, <span class=\"doc-option-parameter-type\">// Column node.</span>\n }",
+                    "description": "footer slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom footer template."
+        },
+        {
+            "name": "editor",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">data</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Row data.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">column</span>: <span class=\"doc-option-parameter-type\">ColumnNode</span>, <span class=\"doc-option-parameter-type\">// Column node.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Row index.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">frozenRow</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the row is frozen.</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">editorSaveCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">editorCancelCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function</span>\n}",
+                    "description": "editor slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom editor template."
+        },
+        {
+            "name": "filter",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">filterModel</span>: <span class=\"doc-option-parameter-type\">ColumnFilterModelType</span>, <span class=\"doc-option-parameter-type\">// Filter metadata</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">filterCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">applyFilter</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function (closes the overlay)</span>\n}",
+                    "description": "filter slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter template."
+        },
+        {
+            "name": "filterheader",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">filterModel</span>: <span class=\"doc-option-parameter-type\">ColumnFilterModelType</span>, <span class=\"doc-option-parameter-type\">// Filter metadata</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">filterCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function</span>\n}",
+                    "description": "filter header slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter header template."
+        },
+        {
+            "name": "filterfooter",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">filterModel</span>: <span class=\"doc-option-parameter-type\">ColumnFilterModelType</span>, <span class=\"doc-option-parameter-type\">// Filter metadata</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">filterCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function</span>\n}",
+                    "description": "filter footer slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter footer template."
+        },
+        {
+            "name": "filterclear",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">filterModel</span>: <span class=\"doc-option-parameter-type\">ColumnFilterModelType</span>, <span class=\"doc-option-parameter-type\">// Filter metadata</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">filterCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function</span>\n}",
+                    "description": "filter clear slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter clear template."
+        },
+        {
+            "name": "filterapply",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">filterModel</span>: <span class=\"doc-option-parameter-type\">ColumnFilterModelType</span>, <span class=\"doc-option-parameter-type\">// Filter metadata</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">filterCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Callback function</span>\n}",
+                    "description": "filter apply slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter apply template."
+        },
+        {
+            "name": "loading",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">data</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Row data.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">column</span>: <span class=\"doc-option-parameter-type\">ColumnNode</span>, <span class=\"doc-option-parameter-type\">// Column node.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">field</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Column field.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Row index.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">frozenRow</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the row is frozen.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">loadingOptions</span>: <span class=\"doc-option-parameter-type\">ColumnLoadingOptions</span>, <span class=\"doc-option-parameter-type\">// Loading options.</span>\n }",
+                    "description": "loading slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom loading template."
+        },
+        {
+            "name": "rowtogglericon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the row toggler icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">rowExpanded</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current row expanded state.</span>\n }",
+                    "description": "row toggler icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'rowtoggleicon' slot instead.\nCustom row toggler icon template."
+        },
+        {
+            "name": "rowtoggleicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the row toggler icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">rowExpanded</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current row expanded state.</span>\n }",
+                    "description": "row toggler icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row toggler icon template."
+        },
+        {
+            "name": "rowcheckboxicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">checked</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current check state.</span>\n }",
+                    "description": "header row icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row checkbox icon template."
+        },
+        {
+            "name": "roweditoriniticon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row editor init icon template."
+        },
+        {
+            "name": "roweditorsaveicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row editor save icon template."
+        },
+        {
+            "name": "roweditorcancelicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row editor cancel icon template."
+        },
+        {
+            "name": "filtericon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter icon template."
+        },
+        {
+            "name": "filterclearicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter clear icon template."
+        },
+        {
+            "name": "filterremoveicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter remove icon template."
+        },
+        {
+            "name": "filteraddicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom filter add icon template."
+        },
+        {
+            "name": "sorticon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the sort icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">sorted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current sort state.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">sortOrder</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Current sort order state.</span>\n }",
+                    "description": "sort icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom sort icon template."
+        },
+        {
+            "name": "headercheckboxicon",
+            "parameters": [
+                {
+                    "name": "scope",
+                    "optional": false,
+                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">checked</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current check state.</span>\n }",
+                    "description": "header checkbox icon slot's params."
+                }
+            ],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header checkbox icon template."
+        },
+        {
+            "name": "rowreordericon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom row reorder icon template."
+        },
+        {
+            "name": "nodetogglericon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "",
+            "deprecated": "since v4.0. Use 'nodetoggleicon' slot instead.\nCustom node toggler icon template."
+        },
+        {
+            "name": "nodetoggleicon",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom node toggler icon template."
+        }
+    ],
+    "emits": [],
+    "template": "<div>not found template</div>"
+}

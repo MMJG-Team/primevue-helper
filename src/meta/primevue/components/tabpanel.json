@@ -1,0 +1,150 @@
+{
+    "props": [
+        {
+            "name": "value",
+            "optional": false,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Value of tabpanel."
+        },
+        {
+            "name": "as",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "DIV",
+            "description": "Use to change the HTML tag of root element."
+        },
+        {
+            "name": "asChild",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it changes the default rendered element for the one passed as a child element."
+        },
+        {
+            "name": "header",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Orientation of tab headers.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "headerStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the tab header.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "headerClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the tab header.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "headerProps",
+            "optional": true,
+            "readonly": false,
+            "type": "LiHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLLiElement to the tab header.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "headerActionProps",
+            "optional": true,
+            "readonly": false,
+            "type": "AnchorHTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "contentStyle",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Inline style of the tab content.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "contentClass",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Style class of the tab content.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "contentProps",
+            "optional": true,
+            "readonly": false,
+            "type": "HTMLAttributes",
+            "default": "",
+            "description": "Used to pass all properties of the HTMLDivElement to the tab content.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "disabled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the tab is disabled.",
+            "deprecated": "since v4. Only supported by TabView."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<TabPanelPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom content template."
+        },
+        {
+            "name": "header",
+            "parameters": [],
+            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+            "description": "Custom header template.",
+            "deprecated": "since v4. Only supported by TabView."
+        }
+    ],
+    "emits": [],
+    "template": "<div>not found template</div>"
+}

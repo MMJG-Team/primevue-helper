@@ -1,0 +1,87 @@
+{
+    "props": [
+        {
+            "name": "shape",
+            "optional": true,
+            "readonly": false,
+            "type": "\"circle\" | \"rectangle\"",
+            "default": "rectangle",
+            "description": "Shape of the element."
+        },
+        {
+            "name": "size",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Size of the Circle or Square."
+        },
+        {
+            "name": "width",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "100%",
+            "description": "Width of the element."
+        },
+        {
+            "name": "height",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "1rem",
+            "description": "Height of the element."
+        },
+        {
+            "name": "borderRadius",
+            "optional": true,
+            "readonly": false,
+            "type": "string",
+            "default": "",
+            "description": "Border radius of the element, defaults to value from theme."
+        },
+        {
+            "name": "animation",
+            "optional": true,
+            "readonly": false,
+            "type": "\"wave\" | \"none\"",
+            "default": "wave",
+            "description": "Type of the animation."
+        },
+        {
+            "name": "dt",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+        },
+        {
+            "name": "pt",
+            "optional": true,
+            "readonly": false,
+            "type": "PassThrough<SkeletonPassThroughOptions>",
+            "default": "",
+            "description": "Used to pass attributes to DOM elements inside the component."
+        },
+        {
+            "name": "ptOptions",
+            "optional": true,
+            "readonly": false,
+            "type": "any",
+            "default": "",
+            "description": "Used to configure passthrough(pt) options of the component."
+        },
+        {
+            "name": "unstyled",
+            "optional": true,
+            "readonly": false,
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+        }
+    ],
+    "slots": [],
+    "emits": [],
+    "template": "\n<h5>Rectangle</h5>\n<Skeleton class=\"mb-2\"></Skeleton>\n<Skeleton width=\"10rem\" class=\"mb-2\"></Skeleton>\n<Skeleton width=\"5rem\" class=\"mb-2\"></Skeleton>\n<Skeleton height=\"2rem\" class=\"mb-2\"></Skeleton>\n<Skeleton width=\"10rem\" height=\"4rem\"></Skeleton>\n\n<h5>Rounded</h5>\n<Skeleton class=\"mb-2\" borderRadius=\"16px\"></Skeleton>\n<Skeleton width=\"10rem\" class=\"mb-2\" borderRadius=\"16px\"></Skeleton>\n<Skeleton width=\"5rem\" borderRadius=\"16px\" class=\"mb-2\"></Skeleton>\n<Skeleton height=\"2rem\" class=\"mb-2\" borderRadius=\"16px\"></Skeleton>\n<Skeleton width=\"10rem\" height=\"4rem\" borderRadius=\"16px\"></Skeleton>\n\n<h5 class=\"mt-4\">Square</h5>\n<Skeleton size=\"2rem\" class=\"mr-2\"></Skeleton>\n<Skeleton size=\"3rem\" class=\"mr-2\"></Skeleton>\n<Skeleton size=\"4rem\" class=\"mr-2\"></Skeleton>\n<Skeleton size=\"5rem\"></Skeleton>\n\n<h5 class=\"mt-4\">Circle</h5>\n<Skeleton shape=\"circle\" size=\"2rem\" class=\"mr-2\"></Skeleton>\n<Skeleton shape=\"circle\" size=\"3rem\" class=\"mr-2\"></Skeleton>\n<Skeleton shape=\"circle\" size=\"4rem\" class=\"mr-2\"></Skeleton>\n<Skeleton shape=\"circle\" size=\"5rem\"></Skeleton>\n"
+}

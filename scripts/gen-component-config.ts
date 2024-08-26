@@ -13,10 +13,12 @@ function main_primevue() {
     const ROOT_PATH = path.resolve(__dirname, '../ui-repos/primevue')
     const OUTPUT_PATH = path.resolve(__dirname, '../src/meta/primevue/components')
 
-    generate({
+    const counter = generate({
         ROOT_PATH,
         OUTPUT_PATH
     })
+
+    console.log(`generate ${counter} components`)
 }
 
 main_primevue()

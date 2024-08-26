@@ -7,7 +7,10 @@ type GenerateParams = {
     OUTPUT_PATH: string
 }
 
+const TEMPLATE_FILE_NAME = 'BasicDoc.vue'
+
 export default function generate(params: GenerateParams) {
+    let counter = 0
     const { ROOT_PATH, OUTPUT_PATH } = params
 
     const DOC_ROOT_PATH = path.resolve(ROOT_PATH, 'apps/showcase/doc')
@@ -19,26 +22,65 @@ export default function generate(params: GenerateParams) {
 
     const componentMeta = generateComponentMeta(COMPONENT_META_PATH)
 
-    // extract template from doc file
-    const docs = fs.readdirSync(DOC_ROOT_PATH)
-    docs.forEach(doc => {
-        const docPath = path.resolve(DOC_ROOT_PATH, doc, 'BasicDoc.vue')
+    const allComponentTypes = [...new Set([
+        // from component dir
+        ...fs.readdirSync(DOC_ROOT_PATH),
+        // from component meta
+        ...Object.keys(componentMeta)
+    ])].filter(type => !type.includes('/'))
 
-        if (fs.existsSync(docPath)) {
-            // doc code
-            const code = fs.readFileSync(docPath).toString()
-            // output path of meta data 
-            const metaJsonPath = path.resolve(OUTPUT_PATH, `${doc}.json`)
+    allComponentTypes.forEach(type => {
+        const docRootPath = path.resolve(DOC_ROOT_PATH, type) 
 
-            // meta data for describe the component
-            const metaJson = {
-                ...componentMeta[doc],
-                template: extractCodeTemplate(code),
-            }
+        // doc code
+        const code = getTemplateCode(docRootPath)
+        const meta = componentMeta[type]
 
-            fs.writeFileSync(metaJsonPath, JSON.stringify(metaJson, null, 4))
+        if (!meta) {
+            return;
         }
+        
+        // meta data for describe the component
+        const metaJson = {
+            ...meta,
+            // extract template from doc file
+            template: extractCodeTemplate(code) || '<div>not found template</div>',
+        }
+
+        counter++;
+
+        // output path of meta data 
+        const metaJsonPath = path.resolve(OUTPUT_PATH, `${type}.json`)
+        console.log(metaJsonPath)
+        fs.writeFileSync(metaJsonPath, JSON.stringify(metaJson, null, 4))
     })
+
+    return counter
+}
+
+/**
+ * get template code 
+ * @param docRootPath 
+ * @returns 
+ */
+function getTemplateCode(docRootPath: string) {
+    if (!fs.existsSync(docRootPath)) {
+        return ''
+    }
+
+    // get all vue files in root directory of doc
+    const files = fs.readdirSync(docRootPath).filter(file => file.endsWith('.vue'))
+
+    if (!files.length) {
+        return ''
+    }
+
+    const docName = files.includes(TEMPLATE_FILE_NAME) ? TEMPLATE_FILE_NAME : files[0]
+    const docPath = path.resolve(docRootPath, docName)
+
+    const code = fs.readFileSync(docPath).toString()
+
+    return code
 }
 
 /**
@@ -98,10 +140,12 @@ function generateComponentMeta(path: string): Partial<{
         const slots = get(values, `${usefulMap.slots}.methods`, [])
         const emits = get(values, `${usefulMap.emits}.methods`, [])
 
-        meta[key] = {
-            props,
-            slots,
-            emits
+        if (props.length || slots.length || emits.length) {
+            meta[key] = {
+                props,
+                slots,
+                emits
+            }
         }
 
         return meta
