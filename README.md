@@ -23,6 +23,14 @@ Select the component you want to view. The API docs will be displayed in the pan
 
 ![alt text](./docs_assets/image-4.png)
 
+if you already using some components, you can double click on the `component tag` in the editor to open the API docs. that's very useful when you want to view some components not displayed in the tree. like `column` etc.
+
+![alt text](./docs_assets/image-6.png)
+
+and you can click on the `open official website` option in contextmenu to open the official website of primevue.
+
+![alt text](./docs_assets/image-7.png)
+
 ### Insert Code Snippet
 Click on the `Insert Code Snippet` icon in contextmenu you can insert the code snippet to your current file.
 
@@ -36,7 +44,9 @@ Click on props name will insert the prop snippet to focus position in current fi
 ### support
 - [x] display all components
 - [x] support api document
-- [x] support insert code snippet
+- [x] support insert template snippet
+- [x] support insert props & slots & emits snippet
+- [x] support open official website
 
 ## Contributing
 
