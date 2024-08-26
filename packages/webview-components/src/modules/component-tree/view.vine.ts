@@ -25,18 +25,22 @@ import type { MenuItem } from 'primevue/menuitem';
 export function View() {
     const store = useStore();
 
-    let currentNode: ComponentTreeMeta
     const menu = ref<ContextMenuMethods | null>(null)
     const contextMenuOptions = ref<MenuItem[]>([
         {
             label: 'Insert Code Snippet',
             icon: 'pi pi-code',
-            command: () => store.insertCodeSnippet(currentNode)
+            command: () => store.insertCodeSnippet()
         },
         {
             label: 'Open API Doc',
             icon: 'pi pi-map',
-            command: () => store.openDocument(currentNode)
+            command: () => store.openDocument()
+        },
+        {
+            label: 'Open Official Site',
+            icon: 'pi pi-prime',
+            command: () => store.openOfficialSite()
         }
     ])
 
@@ -67,7 +71,8 @@ export function View() {
 
     const onNodeContextmenu = (e: Event, node: ComponentTreeMeta) => {
         menu.value && menu.value.show(e)
-        currentNode = node
+
+        store.setWorkingNode(node)
     }
 
     return vine`
@@ -95,6 +100,15 @@ export function View() {
                 :onSlotNameClick="onSlotNameClick"
                 :onEmitNameClick="onEmitNameClick"
             ></ApiDocView>
+        </Drawer>
+
+        <Drawer
+            v-model:visible="store.officialSiteVisible"
+            header="Primevue"
+            position="full"
+
+        >
+            <iframe :src="store.officialSiteUrl" width="100%" height="100%" frameborder="0"></iframe>
         </Drawer>
     `
 }

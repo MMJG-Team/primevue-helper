@@ -14,8 +14,12 @@ export const useStore = defineStore('store', {
 
         searchValue: '',
 
+        workingNode: null as (ComponentTreeMeta | null),
+
         apiDocVisible: false,
-        apiDocData: {} as ComponentDocMeta
+        apiDocData: {} as ComponentDocMeta,
+
+        officialSiteVisible: false,
     }),
     getters: {
         displayData(): ComponentTreeMeta[] {
@@ -39,10 +43,23 @@ export const useStore = defineStore('store', {
         apiDocDataPropColumns: (state) => state.apiDocData?.props ?? [],
         apiDocDataSlotColumns: (state) => state.apiDocData?.slots ?? [],
         apiDocDataEmitColumns: (state) => state.apiDocData?.emits ?? [],
+
+        officialSiteUrl: (state) => {
+            const baseUrl = 'https://primevue.org/'
+            
+            const { label } = state.workingNode ?? {}
+            const type = label ? label.toLocaleLowerCase() : ''
+
+            return `${baseUrl}${type}`
+        },
     },
     actions: {
         setData(data: ComponentTreeMeta[]) {
             this.data = data
+        },
+
+        setWorkingNode(node: ComponentTreeMeta) {
+            this.workingNode = node
         },
 
         setShowChineseDescription(visible: boolean) {
@@ -58,11 +75,13 @@ export const useStore = defineStore('store', {
             this.setApiDocVisible(true)
         },
 
-        openDocument(component: ComponentTreeMeta) {
+        openDocument() {
+            if (!this.workingNode) return;
+
             postMessageForVsCode({
                 type: WEBVIEW_RECEIVE_MESSAGE,
                 action: WEBVIEW_ACTIONS.FETCH_COMPONENT_API_DOC,
-                data: toRaw(component)
+                data: toRaw(this.workingNode)
             })
 
             // for test
@@ -71,6 +90,12 @@ export const useStore = defineStore('store', {
             //     action: WEBVIEW_ACTIONS.RECEIVE_COMPONENT_API_DOC,
             //     data: ApiDocMockData
             // })
+        },
+
+        openOfficialSite() {
+            if (!this.workingNode) return;
+
+            this.officialSiteVisible = true
         },
 
         insertProp(prop: PropsType) {
@@ -97,13 +122,13 @@ export const useStore = defineStore('store', {
             })
         },
 
-        insertCodeSnippet(component: ComponentTreeMeta) {
-            if (!component) return;
+        insertCodeSnippet() {
+            if (!this.workingNode) return;
 
             postMessageForVsCode({
                 type: WEBVIEW_RECEIVE_MESSAGE,
                 action: WEBVIEW_ACTIONS.INSERT_CODE_SNIPPET,
-                data: toRaw(component)
+                data: toRaw(this.workingNode)
             })
         },
     },
