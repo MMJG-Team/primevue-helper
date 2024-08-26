@@ -88,6 +88,10 @@ class ComponentTreeWebviewCore extends Common {
                 
                 const code = textEditor.document.getText(selections[0])
 
+                if (!code) {
+                    return
+                }
+
                 this.openDocumentView({
                     label: code,
                     description: code
