@@ -11,6 +11,11 @@ Primevue Helper is a simple, lightweight, and easy-to-use `extension for Visual 
 
 ## Features
 
+- [x] support view api document
+- [x] support insert template snippet
+- [x] support insert props & slots & emits snippet
+- [x] support open official website
+
 ### Component Tree
 Click on the `Primevue Helper` icon in the Activity Bar on the side of the window
 
@@ -27,7 +32,7 @@ if you already using some components, you can double click on the `component tag
 
 ![alt text](./docs_assets/image-6.png)
 
-and you can click on the `open official website` option in contextmenu to open the official website of primevue.
+if you want to know more information about components, you can also click on the `open official website` option in contextmenu to open the official website of primevue.
 
 ![alt text](./docs_assets/image-7.png)
 
@@ -40,13 +45,6 @@ Click on the `Insert Code Snippet` icon in contextmenu you can insert the code s
 Click on props name will insert the prop snippet to focus position in current file.
 
 ![alt text](./docs_assets/image-3.png)
-
-### support
-- [x] display all components
-- [x] support api document
-- [x] support insert template snippet
-- [x] support insert props & slots & emits snippet
-- [x] support open official website
 
 ## Contributing
 
